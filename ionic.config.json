@@ -1,0 +1,7 @@
+{
+  "name": "project juna",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue"
+}
