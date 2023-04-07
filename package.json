@@ -8,13 +8,16 @@
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
     "test:e2e": "vue-cli-service test:e2e",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "res": "cordova-res android --skip-config --copy"
   },
   "dependencies": {
+    "@capacitor/android": "4.7.3",
     "@capacitor/app": "4.1.1",
     "@capacitor/core": "4.7.3",
     "@capacitor/haptics": "4.1.0",
     "@capacitor/keyboard": "4.1.1",
+    "@capacitor/splash-screen": "^4.2.0",
     "@capacitor/status-bar": "4.1.1",
     "@ionic/vue": "^7.0.0",
     "@ionic/vue-router": "^7.0.0",
