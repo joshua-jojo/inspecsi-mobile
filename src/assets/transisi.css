@@ -1,0 +1,28 @@
+.row-enter-from,.row-leave-to {
+    transform: translateX(1000px);
+    opacity: 0
+}
+
+.row-enter-to,.row-leave-from {
+    transform: translateX(0);
+    opacity: 1
+}
+
+.row-enter-active {
+    animation: slide-in-right .5s cubic-bezier(.25, .46, .45, .94) both
+}
+.row-leave-active {
+    animation: slide-in-right .5s cubic-bezier(.25, .46, .45, .94) both reverse
+}
+
+@keyframes slide-in-right {
+    0% {
+        transform: translateX(1000px);
+        opacity: 0
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1
+    }
+}
