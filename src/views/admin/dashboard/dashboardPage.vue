@@ -119,10 +119,10 @@ function getByDay(date: any) {
         }
     });
     if(isKepalaRuangan){
-        // getAssessment(date.fullDate)
+        getAssessment(date.fullDate)
     }
     else {
-        // getMeAssessment(date.fullDate)
+        getMeAssessment(date.fullDate)
     }
 }
 

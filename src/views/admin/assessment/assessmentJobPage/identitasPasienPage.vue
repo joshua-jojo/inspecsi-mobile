@@ -19,12 +19,23 @@ const cekData = () => {
         nextButton.value = true
     }
 }
+dataPasien.nama = "123"
+dataPasien.no_rm = "123"
+dataPasien.tanggal_lahir = "2023-09-09"
+dataPasien.diagnosa_medis = "123"
+dataPasien.ruang_rawat = "123"
+dataPasien.pendidikan = "123"
+dataPasien.tanggal_masuk = "2023-09-10"
+dataPasien.tanggal_asesmen = "2023-09-11"
+
 dataPasien['assessment_id'] = store.state.assessment.id
 const form = useForm(dataPasien)
 const nextPage = () => {
-    
-    form.post("assessment-data/identitas-pasien",{
-        onSuccess : () => {
+
+    form.post("assessment-data/identitas-pasien", {
+        onSuccess: async (res: any) => {
+            store.state.assessment.pasien_id = await res.pasien_id
+
             router.push({
                 name: 'admin.job.riwayatkesehatan'
             })
@@ -34,14 +45,6 @@ const nextPage = () => {
 watchEffect(() => {
     cekData()
 })
-dataPasien.nama = "123"
-dataPasien.no_rm = "123"
-dataPasien.tanggal_lahir = "2023-09-09"
-dataPasien.diagnosa_medis = "123"
-dataPasien.ruang_rawat = "123"
-dataPasien.pendidikan = "123"
-dataPasien.tanggal_masuk = "2023-09-10"
-dataPasien.tanggal_asesmen = "2023-09-11"
 </script>
 
 <template>
@@ -101,5 +104,6 @@ dataPasien.tanggal_asesmen = "2023-09-11"
         <input type="date" v-model="store.state.assessment.pasien.tanggal_asesmen" class="input input-bordered w-full">
     </div>
 
-    <button :disabled="nextButton" :class="{'btn-disabled loading' : form.processing}" class="btn btn-primary mt-5" @click="nextPage">Next</button>
+    <button :disabled="nextButton" :class="{ 'btn-disabled loading': form.processing }" class="btn btn-primary mt-5"
+        @click="nextPage">Next</button>
 </template>

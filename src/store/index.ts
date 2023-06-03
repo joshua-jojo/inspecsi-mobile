@@ -6,6 +6,7 @@ const store = createStore({
             token: null,
             assessment: {
                 id:null,
+                pasien_id:null,
                 pasien: {
                     nama: null,
                     no_rm: null,
@@ -18,21 +19,21 @@ const store = createStore({
                 },
                 informasi: {
                     riwayat_kesehatan: {
-                        keluhan_utama: null,
-                        riwayat_kesehatan_sekarang: null,
+                        keluhan_utama: "",
+                        riwayat_kesehatan_sekarang: "",
                         riwayat_kesehatan_dulu: {
                             penyakit_genetik: {
                                 status: null,
-                                keterangan: null,
-                                sejak_kapan: null,
+                                keterangan: "",
+                                sejak_kapan: "",
                             },
-                            trauma: null,
-                            operasi: null,
+                            trauma: false,
+                            operasi: false,
                             lainnya: {
                                 status: false,
                                 penyakit: {
-                                    keterangan: null,
-                                    sejak_kapan: null,
+                                    keterangan: "",
+                                    sejak_kapan: "",
                                 }
                             },
                         },
