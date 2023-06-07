@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 
+import useForm from 'form-helper-axios';
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import { useStore } from 'vuex';
@@ -16,9 +17,18 @@ const listPerencanaan = [
 
 store.state.judul_job = "kebutuhan Perencanaan Pemulangan Pasien (P3) / (Discharge Planning)"
 
-function nextPage() {
-    router.push({
-        name: "admin.job.riwayatpenggunaanobat"
+async function nextPage() {
+    const data : any = {
+        opsi : perencanaan_pemulangan_pasien.value
+    }
+    data.identitas_pasien_id = await store.state.assessment.pasien_id
+    const form = useForm(data)
+    form.post('assessment-data/perencanaan-pemulangan-pasien', {
+        onSuccess: () => {
+            router.push({
+                name: "admin.job.riwayatpenggunaanobat"
+            })
+        }
     })
 }
 </script>

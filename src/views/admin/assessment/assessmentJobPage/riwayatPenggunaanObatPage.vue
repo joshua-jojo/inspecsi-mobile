@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import useForm from 'form-helper-axios';
 import { ref, watch } from 'vue';
 import { useRouter } from 'vue-router';
 import { useStore } from 'vuex';
@@ -23,9 +24,19 @@ const populasi = [
 
 store.state.judul_job = "Riwayat Penggunaan Obat";
 
-function nextPage() {
-    router.push({
-        name: "admin.job.hasilpemeriksaanpenunjang"
+async function nextPage() {
+    const data_form: any = {
+        obat: riwayat_penggunaan_obat.value.obat,
+        asesmen_populasi_khusus : riwayat_penggunaan_obat.value.asesmen_populasi_khusus
+    }
+    data_form.identitas_pasien_id = await store.state.assessment.pasien_id
+    const form = useForm(data_form)
+    form.post('assessment-data/riwayat-penggunaan-obat', {
+        onSuccess: () => {
+            router.push({
+                name: "admin.job.hasilpemeriksaanpenunjang"
+            })
+        }
     })
 }
 function resetObat() {
@@ -46,13 +57,18 @@ function hapusDaftarObat(index: number) {
     riwayat_penggunaan_obat.value.obat.splice(index, 1)
 }
 
-watch(() => riwayat_penggunaan_obat.value.asesmen_populasi_khusus.populasi, () => {
-    riwayat_penggunaan_obat.value.asesmen_populasi_khusus.populasi.forEach((element: any) => {
+watch(() => riwayat_penggunaan_obat.value.asesmen_populasi_khusus.populasi, async() => {
+    const populasi = await riwayat_penggunaan_obat.value.asesmen_populasi_khusus.populasi.find((element: any) => {
         if (element == "Lainnya") {
-            return lainnya.value = true;
+            return element;
         }
-        lainnya.value = false;
     });
+    if(populasi){
+        lainnya.value = true;
+    }else {
+        lainnya.value = false;
+    }
+    
 })
 </script>
 

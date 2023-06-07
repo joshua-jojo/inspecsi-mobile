@@ -106,14 +106,52 @@ const routes: Array<RouteRecordRaw> = [
             name: "admin.job.hasilpemeriksaanpenunjang",
             component: () => import("../views/admin/assessment/assessmentJobPage/hasilPemeriksaanPenunjangPage.vue")
           },
+          {
+            path: 'analisis_data',
+            name: "admin.job.analisis_data",
+            component: () => import("../views/admin/assessment/assessmentJobPage/analisis_data_page.vue")
+          },
+          {
+            path: 'masalah_keperawatan',
+            name: "admin.job.masalah_keperawatan",
+            component: () => import("../views/admin/assessment/assessmentJobPage/masalah_keperawatan_page.vue")
+          },
+          {
+            path: 'catatan_perkembangan_pasien',
+            name: "admin.job.catatan_perkembangan_pasien",
+            component: () => import("../views/admin/assessment/assessmentJobPage/catatan_perkembangan_pasien_page.vue")
+          },
+          {
+            path: 'assessment_view_select/:id',
+            name: "admin.job.assessment_view_select",
+            component: () => import("../views/admin/assessment/assessment_view_page.vue"),
+            props:true
+          },
+          {
+            path: 'assessment_view_catatan_pasien/:id',
+            name: "admin.job.assessment_view_catatan_pasien",
+            component: () => import("../views/admin/assessment/assessment_view_catatan_pasien.vue"),
+            props:true
+          },
+          {
+            path: 'assessment_view_data_pasien/:id',
+            name: "admin.job.assessment_view_data_pasien",
+            component: () => import("../views/admin/assessment/assessment_view_data_pasien.vue"),
+            props:true
+          },
         ]
       },
     ]
   },
   {
     path: '/assessment',
-    name: 'assessment',
-    component: () => import('../views/admin/assessment/assessmentPage.vue')
+    children: [
+      {
+        path: '',
+        name: 'assessment',
+        component: () => import('../views/admin/assessment/assessmentPage.vue'),
+      }
+    ]
   },
 
 ]

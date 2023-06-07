@@ -50,7 +50,7 @@
                     </div>
                     <div class="flex items-center gap-2">
                         <IonIcon :icon="calendarOutline"></IonIcon>
-                        {{moment().format('D MMM YYYY')}}
+                        {{moment(item?.waktu_buat).format('D MMM YYYY')}}
                     </div>
                     <div class="flex justify-end items-center flex-row gap-2">
                         <div class=" font-poppins font-semibold capitalize grid place-items-center">{{item?.user?.name}}</div>

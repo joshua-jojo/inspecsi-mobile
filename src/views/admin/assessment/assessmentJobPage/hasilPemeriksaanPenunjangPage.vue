@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import useForm from 'form-helper-axios';
 import { useRouter } from 'vue-router';
 import { useStore } from 'vuex';
 
@@ -8,9 +9,16 @@ const hasil_pemeriksaan_lanjutan = store.state.assessment.informasi.hasil_pemeri
 
 store.state.judul_job = "Hasil Pemeriksaan Penunjang";
 
-function nextPage() {
-    router.push({
-        name: "admin.job.riwayatalergi"
+async function nextPage() {
+    const data = hasil_pemeriksaan_lanjutan
+    data.identitas_pasien_id = await store.state.assessment.pasien_id
+    const form = useForm(data)
+    form.post('assessment-data/hasil-pemeriksaan-penunjang',{
+        onSuccess : () => {
+            router.push({
+                name: "admin.job.analisis_data",
+            })
+        }
     })
 }
 </script>

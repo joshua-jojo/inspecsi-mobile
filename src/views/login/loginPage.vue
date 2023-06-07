@@ -49,7 +49,7 @@ import { useStore } from "vuex"
 
 const store = useStore()
 const formLogin = useForm({
-    email: "ketua1@ketua.com",
+    email: "kepala@kepala.com",
     password: 123123123,
 })
 

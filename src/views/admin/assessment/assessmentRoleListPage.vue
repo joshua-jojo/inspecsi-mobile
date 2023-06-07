@@ -17,32 +17,60 @@ store.state.assessment.id = props.id
 const myId = store.state?.user?.id;
 const kepalaRuangan = store.state.user.role_id == 3
 const dataAssessmentJob = ref([]);
-const getDataAssessmentJob = async() => {
+const getDataAssessmentJob = async () => {
     const data = await axios({
-        url : 'assessmentjob/find',
+        url: 'assessmentjob/find',
         method: "post",
-        data : {assessment_id : props.id}
+        data: { assessment_id: props.id }
     });
     dataAssessmentJob.value = data.data.data.assessment_job;
 };
-const completeTask = (data : any) => {
+const completeTask = (data: any) => {
     const complete = data == 1
     return {
-        "bg-red-100" : !complete,
-        "bg-green-300" : complete,
+        "bg-red-100": !complete,
+        "bg-green-300": complete,
     }
 }
 const goToBack = () => {
-    router.back();
+    router.push({
+        name: 'admin.archive'
+    });
 }
 
-const showData = (data : any) => {
+const showData = (data: any) => {
 
-    if(kepalaRuangan){
+    if (kepalaRuangan) {
         return true
     }
-    else{
+    else {
         return data.user_id == myId
+    }
+}
+const go = async (data: any,data_assessment : any) => {
+    if (kepalaRuangan) {
+        if (data) {
+            router.push({
+                name: 'admin.job.assessment_view_select',
+                params : {
+                    id : data_assessment.identitas_pasien.id
+                }
+            })
+
+        }
+
+    } else {
+        if (!data) {
+            store.state.assessment.id = data_assessment.id
+            router.push({ name: 'admin.job.identitaspasien' })
+        }
+        else {
+            store.state.assessment.pasien_id = await data_assessment.identitas_pasien.id
+            // console.log(data_assessment);
+            router.push({
+                name: 'admin.job.catatan_perkembangan_pasien'
+            })
+        }
     }
 }
 
@@ -65,9 +93,11 @@ getDataAssessmentJob()
             </div>
         </div>
         <div class="grid grid-cols-1 gap-4 mt-10 pb-[2rem]">
-           <transition-group name="row">
+            <transition-group name="row">
                 <template v-for="item in dataAssessmentJob" :key="item.id">
-                    <div @click="router.push({name : 'admin.job.identitaspasien'})" v-if="showData(item)" class="card w-full text-[#537FE7] text-xl drop-shadow-md" :class="completeTask((item as any).complete)">
+                    <div @click="go((item as any).complete,item)" v-if="showData(item)"
+                        class="card w-full text-[#537FE7] text-xl drop-shadow-md"
+                        :class="completeTask((item as any).complete)">
                         <div
                             class="px-6 py-4 flex flex-row capitalize font-poppins-semibold h-[5rem] gap-4 items-center justify-start w-full">
                             <div
@@ -80,7 +110,7 @@ getDataAssessmentJob()
                         </div>
                     </div>
                 </template>
-           </transition-group>
+            </transition-group>
         </div>
     </div>
 </template>

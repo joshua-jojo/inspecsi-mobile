@@ -29,9 +29,8 @@ dataPasien.tanggal_masuk = "2023-09-10"
 dataPasien.tanggal_asesmen = "2023-09-11"
 
 dataPasien['assessment_id'] = store.state.assessment.id
-const form = useForm(dataPasien)
 const nextPage = () => {
-
+    const form = useForm(dataPasien)
     form.post("assessment-data/identitas-pasien", {
         onSuccess: async (res: any) => {
             store.state.assessment.pasien_id = await res.pasien_id
@@ -52,58 +51,58 @@ watchEffect(() => {
         <label class="label">
             Nama Pasien
         </label>
-        <input type="text" v-model="store.state.assessment.pasien.nama" class="input input-bordered w-full">
+        <input type="text" v-model="dataPasien.nama" class="input input-bordered w-full">
     </div>
 
     <div class="form-control">
         <label class="label">
             No. RM
         </label>
-        <input type="text" v-model="store.state.assessment.pasien.no_rm" class="input input-bordered w-full">
+        <input type="text" v-model="dataPasien.no_rm" class="input input-bordered w-full">
     </div>
 
     <div class="form-control">
         <label class="label">
             Tanggal Lahir
         </label>
-        <input type="date" v-model="store.state.assessment.pasien.tanggal_lahir" class="input input-bordered w-full">
+        <input type="date" v-model="dataPasien.tanggal_lahir" class="input input-bordered w-full">
     </div>
 
     <div class="form-control">
         <label class="label">
             Diagnosa Medis
         </label>
-        <input type="text" v-model="store.state.assessment.pasien.diagnosa_medis" class="input input-bordered w-full">
+        <input type="text" v-model="dataPasien.diagnosa_medis" class="input input-bordered w-full">
     </div>
 
     <div class="form-control">
         <label class="label">
             Ruang Rawat
         </label>
-        <input type="text" v-model="store.state.assessment.pasien.ruang_rawat" class="input input-bordered w-full">
+        <input type="text" v-model="dataPasien.ruang_rawat" class="input input-bordered w-full">
     </div>
 
     <div class="form-control">
         <label class="label">
             Pendidikan
         </label>
-        <input type="text" v-model="store.state.assessment.pasien.pendidikan" class="input input-bordered w-full">
+        <input type="text" v-model="dataPasien.pendidikan" class="input input-bordered w-full">
     </div>
 
     <div class="form-control">
         <label class="label">
             Tanggal Masuk
         </label>
-        <input type="date" v-model="store.state.assessment.pasien.tanggal_masuk" class="input input-bordered w-full">
+        <input type="date" v-model="dataPasien.tanggal_masuk" class="input input-bordered w-full">
     </div>
 
     <div class="form-control">
         <label class="label">
             Tanggal asesmen
         </label>
-        <input type="date" v-model="store.state.assessment.pasien.tanggal_asesmen" class="input input-bordered w-full">
+        <input type="date" v-model="dataPasien.tanggal_asesmen" class="input input-bordered w-full">
     </div>
 
-    <button :disabled="nextButton" :class="{ 'btn-disabled loading': form.processing }" class="btn btn-primary mt-5"
+    <button :disabled="nextButton" class="btn btn-primary mt-5"
         @click="nextPage">Next</button>
 </template>

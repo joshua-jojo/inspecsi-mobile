@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import useForm from 'form-helper-axios';
 import { watchEffect } from 'vue';
 import { useRouter } from 'vue-router';
 import { useStore } from 'vuex';
@@ -16,9 +17,59 @@ const reproduksi_dan_seksualitas = store.state.assessment.informasi.status_fisik
 
 store.state.judul_job = "Status Fisik / Kebutuhan Fisiologis"
 
-function nextPage() {
-    router.push({
-        name: 'admin.job.psikososialspiritual'
+// respirasi.batuk.status = true
+// respirasi.batuk.lama_sakit = 2022
+// respirasi.sputum.status = true
+// respirasi.sputum.jenis_sputum = 'kental'
+// respirasi.sesak_nafas.status = true
+// respirasi.sesak_nafas.keterangan = 'kental'
+// respirasi.penggunaan_alat_bantu_nafas = true
+
+// sirkulasi.tekanan_darah = '1'
+// sirkulasi.suhu = '1'
+// sirkulasi.nadi = '1'
+// sirkulasi.pernapasan = '1'
+// sirkulasi.spo2 = '1'
+// sirkulasi.crt = '1'
+// sirkulasi.akral = 'dingin'
+
+// nutrisiCairan.kesulitan_minum = true
+// nutrisiCairan.status_puasa = true
+// nutrisiCairan.turgor_kulit = "menurun"
+// nutrisiCairan.edema.status = true
+// nutrisiCairan.edema.keterangan = true
+// nutrisiCairan.muntah.status = true
+// nutrisiCairan.muntah.keterangan = true
+// nutrisiCairan.kebutuhan_nutrisi = "parenteral"
+// nutrisiCairan.tb =12
+// nutrisiCairan.bb =12
+
+// eliminasi.bab.status = 'konsistensi dan warna'
+// eliminasi.bab.konsistensi = 1232
+// eliminasi.bab.warna = 1232
+// eliminasi.bab.frekuensi_diare = 1232
+// eliminasi.bak.status = 'frekuensi'
+
+// aktifitas_dan_istirahat.pola_tidur =123
+// aktifitas_dan_istirahat.durasi =123
+// aktifitas_dan_istirahat.gangguan_tidur.status =true
+// aktifitas_dan_istirahat.gangguan_tidur.gangguan =true
+
+// neusensori.kesadaran = true
+
+// reproduksi_dan_seksualitas.status = 'ya'
+// reproduksi_dan_seksualitas.gangguan = 'ya'
+
+async function nextPage() {
+    const data = await store.state.assessment.informasi.status_fisik
+    data.identitas_pasien_id = await store.state.assessment.pasien_id
+    const form =  useForm(data)
+    form.post('assessment-data/status-fisik-fisiologis',{
+        onSuccess : () => {
+            router.push({
+                name: 'admin.job.psikososialspiritual'
+            })
+        }   
     })
 }
 
@@ -296,7 +347,6 @@ watchEffect(() => {
     </div>
 
     <div class="form-control mb-8">
-
         <label class="label font-bold capitalize text-lg">4. Eliminasi</label>
         <div class="form-control">
             <label class="label uppercase">BAB</label>

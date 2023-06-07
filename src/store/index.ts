@@ -23,7 +23,7 @@ const store = createStore({
                         riwayat_kesehatan_sekarang: "",
                         riwayat_kesehatan_dulu: {
                             penyakit_genetik: {
-                                status: null,
+                                status: false,
                                 keterangan: "",
                                 sejak_kapan: "",
                             },
@@ -129,7 +129,7 @@ const store = createStore({
                     ekonomi: {
                         status_pekerjaan: null,
                         pembiayaan_kesehatan: null,
-                        penanggung_jawab_pasian: null,
+                        penanggung_jawab_pasien: null,
                     },
                     riwayat_alergi: {
                         status: false,

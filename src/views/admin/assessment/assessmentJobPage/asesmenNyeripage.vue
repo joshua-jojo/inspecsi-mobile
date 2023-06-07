@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import useForm from 'form-helper-axios';
 import { useRouter } from 'vue-router';
 import { useStore } from 'vuex';
 
@@ -8,15 +9,22 @@ const asesmen_nyeri = store.state.assessment.informasi.asesmen_nyeri;
 
 store.state.judul_job = "asesmen nyeri"
 
-function nextPage() {
-    router.push({
-        name: "admin.job.kebutuhanedukasi"
+async function nextPage() {
+    const data = asesmen_nyeri
+    data.identitas_pasien_id = await store.state.assessment.pasien_id
+    const form = useForm(data)
+    form.post('assessment-data/nyeri', {
+        onSuccess: () => {
+            router.push({
+                name: "admin.job.kebutuhanedukasi"
+            })
+        }
     })
 }
 </script>
 
 <template>
-     <div class="form-control capitalize">
+    <div class="form-control capitalize">
         <label class="label">Apakah ada keluhan nyeri</label>
         <label class="label w-max gap-2">
             <input type="radio" class="radio" name="alergi" v-model="asesmen_nyeri.status" :value="true">

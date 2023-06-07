@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import useForm from 'form-helper-axios';
 import { useRouter } from 'vue-router';
 import { useStore } from 'vuex';
 
@@ -8,11 +9,35 @@ const psiko_sosial_spiritual = store.state.assessment.informasi.psiko_sosial_spi
 const sosial = store.state.assessment.informasi.psiko_sosial_spiritual.sosial;
 const spiritual = store.state.assessment.informasi.psiko_sosial_spiritual.spiritual;
 
+// psiko_sosial_spiritual.psikologis.status = 'lain-lain'
+// psiko_sosial_spiritual.psikologis.dilaporkan = 'kecendrungan bunuh diri'
+// psiko_sosial_spiritual.psikologis.sebutkan = 'kecendrungan bunuh diri'
+
+// sosial.status_perkawinan = 1234444
+// sosial.pola_interaksi = 'buruk'
+// sosial.support_system = 'panti sosial / jompo'
+
+// spiritual.agama = 123
+// spiritual.keyakinan_pelayanan_kesehatan = 123
+// spiritual.kebutuhan_kerohanian = 123
+// spiritual.kebutuhan_privasi_khusus = 123
+
 store.state.judul_job = "Psiko Sosial Spiritual"
 
-function nextPage() {
-    router.push({
-        name : "admin.job.ekonomi"
+async function nextPage() {
+    const data = {
+        ...psiko_sosial_spiritual,
+        ...sosial,
+        ...spiritual
+    }
+    data.identitas_pasien_id = await store.state.assessment.pasien_id
+    const form = useForm(data)
+    form.post('assessment-data/psiko-sosial-spiritual',{
+        onSuccess : () => {
+            router.push({
+                name : "admin.job.ekonomi"
+            })
+        }
     })
 }
 </script>
@@ -47,7 +72,7 @@ function nextPage() {
         </label>
         <label class="label capitalize w-max gap-2">
             <input v-model="psiko_sosial_spiritual.psikologis.status" type="radio" class="radio" name="psikologi"
-                value="lain lain">
+                value="lain-lain">
             <span>lain lain</span>
         </label>
 
@@ -55,7 +80,7 @@ function nextPage() {
             <label class="label">Dilaporkan</label>
             <input type="text" class="input input-bordered" v-model="psiko_sosial_spiritual.psikologis.dilaporkan">
         </div>
-        <div class="form-control" v-if="psiko_sosial_spiritual.psikologis.status == 'lain lain'">
+        <div class="form-control" v-if="psiko_sosial_spiritual.psikologis.status == 'lain-lain'">
             <label class="label">Sebutkan</label>
             <input type="text" class="input input-bordered" v-model="psiko_sosial_spiritual.psikologis.sebutkan">
         </div>

@@ -10,23 +10,23 @@ const riwayatKesehatan = store.state.assessment.informasi.riwayat_kesehatan
 store.state.judul_job = "riwayat kesehatan"
 riwayatKesehatan.identitas_pasien_id = store.state.assessment.pasien_id
 
-riwayatKesehatan.keluhan_utama = "123"
-riwayatKesehatan.riwayat_kesehatan_sekarang = "123"
-riwayatKesehatan.riwayat_kesehatan_sekarang = "123"
-riwayatKesehatan.riwayat_kesehatan_dulu.penyakit_genetik.status = true
-riwayatKesehatan.riwayat_kesehatan_dulu.penyakit_genetik.keterangan = 123
-riwayatKesehatan.riwayat_kesehatan_dulu.penyakit_genetik.sejak_kapan = 123
-riwayatKesehatan.riwayat_kesehatan_dulu.trauma = true
-riwayatKesehatan.riwayat_kesehatan_dulu.operasi = true
-riwayatKesehatan.riwayat_kesehatan_dulu.lainnya.status = true
-riwayatKesehatan.riwayat_kesehatan_dulu.lainnya.penyakit.keterangan = 123
-riwayatKesehatan.riwayat_kesehatan_keluarga = 123
-riwayatKesehatan.auto_anamnesa.status = false
-riwayatKesehatan.auto_anamnesa.pemberi_informasi = 123
+// riwayatKesehatan.keluhan_utama = "123"
+// riwayatKesehatan.riwayat_kesehatan_sekarang = "123"
+// riwayatKesehatan.riwayat_kesehatan_sekarang = "123"
+// riwayatKesehatan.riwayat_kesehatan_dulu.penyakit_genetik.status = true
+// riwayatKesehatan.riwayat_kesehatan_dulu.penyakit_genetik.keterangan = 123
+// riwayatKesehatan.riwayat_kesehatan_dulu.penyakit_genetik.sejak_kapan = 123
+// riwayatKesehatan.riwayat_kesehatan_dulu.trauma = true
+// riwayatKesehatan.riwayat_kesehatan_dulu.operasi = true
+// riwayatKesehatan.riwayat_kesehatan_dulu.lainnya.status = true
+// riwayatKesehatan.riwayat_kesehatan_dulu.lainnya.penyakit.keterangan = 123
+// riwayatKesehatan.riwayat_kesehatan_keluarga = 123
+// riwayatKesehatan.auto_anamnesa.status = false
+// riwayatKesehatan.auto_anamnesa.pemberi_informasi = 123
 
-const form = useForm(riwayatKesehatan);
 
 function nextPage() {
+    const form = useForm(riwayatKesehatan);
     form.post('assessment-data/riwayat-kesehatan',{
         onSuccess : () => {
             router.push({
@@ -128,5 +128,5 @@ function nextPage() {
         </div>
     </template>
 
-    <button class="btn btn-primary mt-5" @click="nextPage" :class="{'btn-disabled loading' : form.processing}">Next</button>
+    <button class="btn btn-primary mt-5" @click="nextPage">Next</button>
 </template>
