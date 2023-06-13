@@ -19,14 +19,14 @@ const cekData = () => {
         nextButton.value = true
     }
 }
-dataPasien.nama = "123"
-dataPasien.no_rm = "123"
-dataPasien.tanggal_lahir = "2023-09-09"
-dataPasien.diagnosa_medis = "123"
-dataPasien.ruang_rawat = "123"
-dataPasien.pendidikan = "123"
-dataPasien.tanggal_masuk = "2023-09-10"
-dataPasien.tanggal_asesmen = "2023-09-11"
+// dataPasien.nama = "123"
+// dataPasien.no_rm = "123"
+// dataPasien.tanggal_lahir = "2023-09-09"
+// dataPasien.diagnosa_medis = "123"
+// dataPasien.ruang_rawat = "123"
+// dataPasien.pendidikan = "123"
+// dataPasien.tanggal_masuk = "2023-09-10"
+// dataPasien.tanggal_asesmen = "2023-09-11"
 
 dataPasien['assessment_id'] = store.state.assessment.id
 const nextPage = () => {
