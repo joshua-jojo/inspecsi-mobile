@@ -60,7 +60,8 @@ const go = async (data: any,data_assessment : any) => {
         }
 
     } else {
-        if (!data) {
+        
+        if (data == 0) {
             store.state.assessment.id = data_assessment.id
             router.push({ name: 'admin.job.identitaspasien' })
         }
