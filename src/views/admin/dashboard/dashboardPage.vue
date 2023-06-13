@@ -12,6 +12,9 @@
             <img src="https://picsum.photos/200" class="h-[70%] rounded-full" alt="" srcset="">
         </div>
     </div>
+    <div class="w-full h-[250px] overflow-hidden my-4 flex justify-center items-center card">
+        <video src="../../../assets/opening.mp4" class="w-full" controls></video>
+    </div>
     <div class="grid place-items-center grid-cols-7 drop-shadow-sm mb-4 pb-2 border-b-2">
         <template v-for="(item,index) in rangeSeminggu" :key="index">
             <div @click="getByDay(item)" class="flex font-poppins flex-col justify-center p-4 items-center gap-1 w-full text-[#537FE7]" :class="{'bg-[#537FE7] card text-white' : item.active,'text-red-500' : item.hari == 'Ming','text-[#537FE7]' : item.hari != 'Ming'}">
