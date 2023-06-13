@@ -54,6 +54,7 @@
             </div>
         </div>
         <button :disabled="!data_analisis.length" @click="finish" class="btn btn-primary">Selesai</button>
+        <div class="btn btn-outline btn-primary" @click="router.back()"> back </div>
     </div>
 </template>
 <script lang="ts" setup>

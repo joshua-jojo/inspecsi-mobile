@@ -162,37 +162,37 @@ get_data()
                 <div class="flex gap-2 ml-3">
                     <div class="w-[180px] capitalize">Batuk</div>
                     <div class="">:</div>
-                    <div class="w-max">{{data_pasien?.status_fisik.batuk}}</div>
+                    <div class="w-max">{{data_pasien?.status_fisik?.batuk}}</div>
                 </div>
-                <div class="flex gap-2 ml-3" v-if="data_pasien?.status_fisik.batuk">
+                <div class="flex gap-2 ml-3" v-if="data_pasien?.status_fisik?.batuk">
                     <div class="w-[180px] capitalize">Lama sakit</div>
                     <div class="">:</div>
-                    <div class="w-max">{{data_pasien?.status_fisik.batuk_lama_sakit}}</div>
+                    <div class="w-max">{{data_pasien?.status_fisik?.batuk_lama_sakit}}</div>
                 </div>
                 <div class="flex gap-2 ml-3">
                     <div class="w-[180px] capitalize">sputum</div>
                     <div class="">:</div>
-                    <div class="w-max">{{data_pasien?.status_fisik.sputum > 0 ? 'ya' : 'tidak'}}</div>
+                    <div class="w-max">{{data_pasien?.status_fisik?.sputum > 0 ? 'ya' : 'tidak'}}</div>
                 </div>
-                <div class="flex gap-2 ml-3" v-if="data_pasien?.status_fisik.sputum">
+                <div class="flex gap-2 ml-3" v-if="data_pasien?.status_fisik?.sputum">
                     <div class="w-[180px] capitalize">Jenis sputum</div>
                     <div class="">:</div>
-                    <div class="w-max">{{data_pasien?.status_fisik.sputum_jenis_sputum}}</div>
+                    <div class="w-max">{{data_pasien?.status_fisik?.sputum_jenis_sputum}}</div>
                 </div>
                 <div class="flex gap-2 ml-3">
                     <div class="w-[180px] capitalize">sesak nafas</div>
                     <div class="">:</div>
-                    <div class="w-max">{{data_pasien?.status_fisik.sesak_nafas > 0 ? 'ya' : 'tidak'}}</div>
+                    <div class="w-max">{{data_pasien?.status_fisik?.sesak_nafas > 0 ? 'ya' : 'tidak'}}</div>
                 </div>
-                <div class="flex gap-2 ml-3" v-if="data_pasien?.status_fisik.sesak_nafas">
+                <div class="flex gap-2 ml-3" v-if="data_pasien?.status_fisik?.sesak_nafas">
                     <div class="w-[180px] capitalize">sejak kapan</div>
                     <div class="">:</div>
-                    <div class="w-max">{{data_pasien?.status_fisik.sesak_nafas_keterangan}}</div>
+                    <div class="w-max">{{data_pasien?.status_fisik?.sesak_nafas_keterangan}}</div>
                 </div>
                 <div class="flex gap-2 ml-3">
                     <div class="w-[180px] capitalize">penggunaan alat bantu nafas</div>
                     <div class="">:</div>
-                    <div class="w-max">{{data_pasien?.status_fisik.penggunaan_alat_bantu_nafas > 0 ? 'ya' : 'tidak'}}</div>
+                    <div class="w-max">{{data_pasien?.status_fisik?.penggunaan_alat_bantu_nafas > 0 ? 'ya' : 'tidak'}}</div>
                 </div>
 
                 <!--  -->
@@ -203,37 +203,37 @@ get_data()
                 <div class="flex gap-2 ml-3">
                     <div class="w-[180px] capitalize">tekanan darah</div>
                     <div class="">:</div>
-                    <div class="w-max">{{data_pasien?.status_fisik.tekanan_darah}}</div>
+                    <div class="w-max">{{data_pasien?.status_fisik?.tekanan_darah}}</div>
                 </div>
                 <div class="flex gap-2 ml-3">
                     <div class="w-[180px] capitalize">suhu</div>
                     <div class="">:</div>
-                    <div class="w-max">{{data_pasien?.status_fisik.suhu}}</div>
+                    <div class="w-max">{{data_pasien?.status_fisik?.suhu}}</div>
                 </div>
                 <div class="flex gap-2 ml-3">
                     <div class="w-[180px] capitalize">nadi</div>
                     <div class="">:</div>
-                    <div class="w-max">{{data_pasien?.status_fisik.nadi}}</div>
+                    <div class="w-max">{{data_pasien?.status_fisik?.nadi}}</div>
                 </div>
                 <div class="flex gap-2 ml-3">
                     <div class="w-[180px] capitalize">pernapasan</div>
                     <div class="">:</div>
-                    <div class="w-max">{{data_pasien?.status_fisik.pernapasan}}</div>
+                    <div class="w-max">{{data_pasien?.status_fisik?.pernapasan}}</div>
                 </div>
                 <div class="flex gap-2 ml-3">
                     <div class="w-[180px]">SpO2</div>
                     <div class="">:</div>
-                    <div class="w-max">{{data_pasien?.status_fisik.spo2}}</div>
+                    <div class="w-max">{{data_pasien?.status_fisik?.spo2}}</div>
                 </div>
                 <div class="flex gap-2 ml-3">
                     <div class="w-[180px] capitalize">CRT</div>
                     <div class="">:</div>
-                    <div class="w-max">{{data_pasien?.status_fisik.crt}}</div>
+                    <div class="w-max">{{data_pasien?.status_fisik?.crt}}</div>
                 </div>
                 <div class="flex gap-2 ml-3">
                     <div class="w-[180px] capitalize">Akral</div>
                     <div class="">:</div>
-                    <div class="w-max">{{data_pasien?.status_fisik.akral}}</div>
+                    <div class="w-max">{{data_pasien?.status_fisik?.akral}}</div>
                 </div>
 
                 <!--  -->
@@ -244,61 +244,61 @@ get_data()
                 <div class="flex gap-2 ml-3">
                     <div class="w-[180px] capitalize">kesulitan minum</div>
                     <div class="">:</div>
-                    <div class="w-max">{{data_pasien?.status_fisik.kesulitan_minum == 'false' ? 'tidak' : 'ya'}}</div>
+                    <div class="w-max">{{data_pasien?.status_fisik?.kesulitan_minum == 'false' ? 'tidak' : 'ya'}}</div>
                 </div>
                 <div class="flex gap-2 ml-3">
                     <div class="w-[180px] capitalize">status puasa</div>
                     <div class="">:</div>
-                    <div class="w-max">{{data_pasien?.status_fisik.status_puasa == 'false' ? 'tidak' : 'ya'}}</div>
+                    <div class="w-max">{{data_pasien?.status_fisik?.status_puasa == 'false' ? 'tidak' : 'ya'}}</div>
                 </div>
                 <div class="flex gap-2 ml-3">
                     <div class="w-[180px] capitalize">turgor kulit</div>
                     <div class="">:</div>
-                    <div class="w-max">{{data_pasien?.status_fisik.turgor_kulit}}</div>
+                    <div class="w-max">{{data_pasien?.status_fisik?.turgor_kulit}}</div>
                 </div>
                 <div class="flex gap-2 ml-3">
                     <div class="w-[180px] capitalize">edema</div>
                     <div class="">:</div>
-                    <div class="w-max">{{data_pasien?.status_fisik.edema > 0 ? 'ya' : 'tidak'}}</div>
+                    <div class="w-max">{{data_pasien?.status_fisik?.edema > 0 ? 'ya' : 'tidak'}}</div>
                 </div>
-                <div class="flex gap-2 ml-3" v-if="data_pasien?.status_fisik.edema">
+                <div class="flex gap-2 ml-3" v-if="data_pasien?.status_fisik?.edema">
                     <div class="w-[180px] capitalize">derajat piting edema</div>
                     <div class="">:</div>
-                    <div class="w-max">{{data_pasien?.status_fisik.edema_keterangan}}</div>
+                    <div class="w-max">{{data_pasien?.status_fisik?.edema_keterangan}}</div>
                 </div>
                 <div class="flex gap-2 ml-3">
                     <div class="w-[180px] capitalize">muntah</div>
                     <div class="">:</div>
-                    <div class="w-max">{{data_pasien?.status_fisik.muntah > 0 ? 'ya' : 'tidak'}}</div>
+                    <div class="w-max">{{data_pasien?.status_fisik?.muntah > 0 ? 'ya' : 'tidak'}}</div>
                 </div>
-                <div class="flex gap-2 ml-3" v-if="data_pasien?.status_fisik.muntah">
+                <div class="flex gap-2 ml-3" v-if="data_pasien?.status_fisik?.muntah">
                     <div class="w-[180px] capitalize">frekuensi muntah</div>
                     <div class="">:</div>
-                    <div class="w-max">{{data_pasien?.status_fisik.muntah_keterangan}}</div>
+                    <div class="w-max">{{data_pasien?.status_fisik?.muntah_keterangan}}</div>
                 </div>
                 <div class="flex gap-2 ml-3">
                     <div class="w-[180px] capitalize">kebutuhan nutrisi</div>
                     <div class="">:</div>
-                    <div class="w-max">{{data_pasien?.status_fisik.kebutuhan_nutrisi}}</div>
+                    <div class="w-max">{{data_pasien?.status_fisik?.kebutuhan_nutrisi}}</div>
                 </div>
                 <div class="flex gap-2 ml-3">
                     <div class="w-[180px] uppercase">tb</div>
                     <div class="">:</div>
-                    <div class="w-max">{{data_pasien?.status_fisik.tb}}</div>
+                    <div class="w-max">{{data_pasien?.status_fisik?.tb}}</div>
                 </div>
                 <div class="flex gap-2 ml-3">
                     <div class="w-[180px] uppercase">bb</div>
                     <div class="">:</div>
-                    <div class="w-max">{{data_pasien?.status_fisik.bb}}</div>
+                    <div class="w-max">{{data_pasien?.status_fisik?.bb}}</div>
                 </div>
                 <div class="flex gap-2 ml-3">
                     <div class="w-[180px] uppercase">imt</div>
                     <div class="">:</div>
                     <div class="w-max">
-                        <div class="" v-if="data_pasien?.status_fisik.imt < 18"> underweight</div>
-                        <div class="" v-else-if="data_pasien?.status_fisik.imt >= 18 && data_pasien?.status_fisik.imt <=25"> normal</div>
-                        <div class="" v-else-if="data_pasien?.status_fisik.imt >= 26 && data_pasien?.status_fisik.imt <=27"> overweight</div>
-                        <div class="" v-else-if="data_pasien?.status_fisik.imt > 27 "> obesitas</div>
+                        <div class="" v-if="data_pasien?.status_fisik?.imt < 18"> underweight</div>
+                        <div class="" v-else-if="data_pasien?.status_fisik?.imt >= 18 && data_pasien?.status_fisik?.imt <=25"> normal</div>
+                        <div class="" v-else-if="data_pasien?.status_fisik?.imt >= 26 && data_pasien?.status_fisik?.imt <=27"> overweight</div>
+                        <div class="" v-else-if="data_pasien?.status_fisik?.imt > 27 "> obesitas</div>
                     </div>
                 </div>
 
@@ -310,32 +310,32 @@ get_data()
                 <div class="flex gap-2 ml-3">
                     <div class="w-[180px] uppercase">bab</div>
                     <div class="">:</div>
-                    <div class="w-max">{{data_pasien?.status_fisik.bab_status}}</div>
+                    <div class="w-max">{{data_pasien?.status_fisik?.bab_status}}</div>
                 </div>
-                <div class="flex gap-2 ml-6" v-if="data_pasien?.status_fisik.bab_status == 'konsistensi dan warna'">
+                <div class="flex gap-2 ml-6" v-if="data_pasien?.status_fisik?.bab_status == 'konsistensi dan warna'">
                     <div class="w-[180px] capitalize">konsistensi bab</div>
                     <div class="">:</div>
-                    <div class="w-max">{{data_pasien?.status_fisik.bab_konsistensi}}</div>
+                    <div class="w-max">{{data_pasien?.status_fisik?.bab_konsistensi}}</div>
                 </div>
-                <div class="flex gap-2 ml-6" v-if="data_pasien?.status_fisik.bab_status == 'konsistensi dan warna'">
+                <div class="flex gap-2 ml-6" v-if="data_pasien?.status_fisik?.bab_status == 'konsistensi dan warna'">
                     <div class="w-[180px] capitalize">warna bab</div>
                     <div class="">:</div>
-                    <div class="w-max">{{data_pasien?.status_fisik.bab_warna}}</div>
+                    <div class="w-max">{{data_pasien?.status_fisik?.bab_warna}}</div>
                 </div>
-                <div class="flex gap-2 ml-6" v-if="data_pasien?.status_fisik.bab_status == 'frekuensi'">
+                <div class="flex gap-2 ml-6" v-if="data_pasien?.status_fisik?.bab_status == 'frekuensi'">
                     <div class="w-[180px] capitalize">frekuensi bab</div>
                     <div class="">:</div>
-                    <div class="w-max">{{data_pasien?.status_fisik.bab_frekuensi}}</div>
+                    <div class="w-max">{{data_pasien?.status_fisik?.bab_frekuensi}}</div>
                 </div>
-                <div class="flex gap-2 ml-6" v-if="data_pasien?.status_fisik.bab_status == 'diare'">
+                <div class="flex gap-2 ml-6" v-if="data_pasien?.status_fisik?.bab_status == 'diare'">
                     <div class="w-[180px] capitalize">frekuensi diare</div>
                     <div class="">:</div>
-                    <div class="w-max">{{data_pasien?.status_fisik.bab_frequensi_diare}}</div>
+                    <div class="w-max">{{data_pasien?.status_fisik?.bab_frequensi_diare}}</div>
                 </div>
                 <div class="flex gap-2 ml-3">
                     <div class="w-[180px] uppercase">bak</div>
                     <div class="">:</div>
-                    <div class="w-max">{{data_pasien?.status_fisik.bak_status}}</div>
+                    <div class="w-max">{{data_pasien?.status_fisik?.bak_status}}</div>
                 </div>
 
                 <!--  -->
@@ -346,22 +346,22 @@ get_data()
                 <div class="flex gap-2 ml-3">
                     <div class="w-[180px] capitalize">pola tidur</div>
                     <div class="">:</div>
-                    <div class="w-max">{{data_pasien?.status_fisik.aktifitas_pola_tidur}}</div>
+                    <div class="w-max">{{data_pasien?.status_fisik?.aktifitas_pola_tidur}}</div>
                 </div>
                 <div class="flex gap-2 ml-3">
                     <div class="w-[180px] capitalize">durasi</div>
                     <div class="">:</div>
-                    <div class="w-max">{{data_pasien?.status_fisik.aktifitas_durasi}}</div>
+                    <div class="w-max">{{data_pasien?.status_fisik?.aktifitas_durasi}}</div>
                 </div>
                 <div class="flex gap-2 ml-3">
                     <div class="w-[180px] capitalize">ganguan tidur</div>
                     <div class="">:</div>
-                    <div class="w-max">{{data_pasien?.status_fisik.tidur_status ? 'ya' : 'tidak'}}</div>
+                    <div class="w-max">{{data_pasien?.status_fisik?.tidur_status ? 'ya' : 'tidak'}}</div>
                 </div>
-                <div class="flex gap-2 ml-3" v-if="data_pasien?.status_fisik.tidur_status">
+                <div class="flex gap-2 ml-3" v-if="data_pasien?.status_fisik?.tidur_status">
                     <div class="w-[180px] capitalize">penyebab ganguan tidur</div>
                     <div class="">:</div>
-                    <div class="w-max">{{data_pasien?.status_fisik.tidur_gangguan}}</div>
+                    <div class="w-max">{{data_pasien?.status_fisik?.tidur_gangguan}}</div>
                 </div>
 
                 <!--  -->
@@ -372,7 +372,7 @@ get_data()
                 <div class="flex gap-2 ml-3">
                     <div class="w-[180px] capitalize">kesadaran</div>
                     <div class="">:</div>
-                    <div class="w-max">{{data_pasien?.status_fisik.kesadaran}}</div>
+                    <div class="w-max">{{data_pasien?.status_fisik?.kesadaran}}</div>
                 </div>
 
                 <!--  -->
@@ -380,12 +380,12 @@ get_data()
                 <div class="flex gap-2">
                     <div class="w-[180px] capitalize font-semibold">reproduksi & seksualitas</div>
                     <div class="">:</div>
-                    <div class="w-max">{{data_pasien?.status_fisik.reproduksi_dan_seksualitas}}</div>
+                    <div class="w-max">{{data_pasien?.status_fisik?.reproduksi_dan_seksualitas}}</div>
                 </div>
-                <div class="flex gap-2 ml-3" v-if="data_pasien?.status_fisik.reproduksi_dan_seksualitas == 'ya'">
+                <div class="flex gap-2 ml-3" v-if="data_pasien?.status_fisik?.reproduksi_dan_seksualitas == 'ya'">
                     <div class="w-[180px] capitalize">gangguan</div>
                     <div class="">:</div>
-                    <div class="w-max">{{data_pasien?.status_fisik.reproduksi_dan_seksualitas_gangguan}}</div>
+                    <div class="w-max">{{data_pasien?.status_fisik?.reproduksi_dan_seksualitas_gangguan}}</div>
                 </div>
 
             </div>
@@ -398,17 +398,17 @@ get_data()
                     <div class="flex gap-2">
                         <div class="w-[180px] capitalize font-semibold">Psikologis</div>
                         <div class="">:</div>
-                        <div class="w-max">{{data_pasien?.psiko_sosial_spiritual.psikologis_status}}</div>
+                        <div class="w-max">{{data_pasien?.psiko_sosial_spiritual?.psikologis_status}}</div>
                     </div>
-                    <div class="flex gap-2 ml-3" v-if="data_pasien?.psiko_sosial_spiritual.psikologis_status == 'kecendrungan bunuh diri'">
+                    <div class="flex gap-2 ml-3" v-if="data_pasien?.psiko_sosial_spiritual?.psikologis_status == 'kecendrungan bunuh diri'">
                         <div class="w-[180px] capitalize">Dilaporkan ke</div>
                         <div class="">:</div>
-                        <div class="w-max">{{data_pasien?.psiko_sosial_spiritual.psikologis_dilaporkan}}</div>
+                        <div class="w-max">{{data_pasien?.psiko_sosial_spiritual?.psikologis_dilaporkan}}</div>
                     </div>
-                    <div class="flex gap-2 ml-3" v-if="data_pasien?.psiko_sosial_spiritual.psikologis_status == 'lain-lain'">
+                    <div class="flex gap-2 ml-3" v-if="data_pasien?.psiko_sosial_spiritual?.psikologis_status == 'lain-lain'">
                         <div class="w-[180px] capitalize">sebutkan</div>
                         <div class="">:</div>
-                        <div class="w-max">{{data_pasien?.psiko_sosial_spiritual.psikologis_sebutkan}}</div>
+                        <div class="w-max">{{data_pasien?.psiko_sosial_spiritual?.psikologis_sebutkan}}</div>
                     </div>
 
                     <!--  -->
@@ -419,17 +419,17 @@ get_data()
                     <div class="flex gap-2 ml-3">
                         <div class="w-[180px] capitalize ">status perkawinan</div>
                         <div class="">:</div>
-                        <div class="w-max">{{data_pasien?.psiko_sosial_spiritual.sosial_status_perkawinan}}</div>
+                        <div class="w-max">{{data_pasien?.psiko_sosial_spiritual?.sosial_status_perkawinan}}</div>
                     </div>
                     <div class="flex gap-2 ml-3">
                         <div class="w-[180px] capitalize ">pola interaksi</div>
                         <div class="">:</div>
-                        <div class="w-max">{{data_pasien?.psiko_sosial_spiritual.sosial_pola_interaksi}}</div>
+                        <div class="w-max">{{data_pasien?.psiko_sosial_spiritual?.sosial_pola_interaksi}}</div>
                     </div>
                     <div class="flex gap-2 ml-3">
                         <div class="w-[180px] capitalize ">support system</div>
                         <div class="">:</div>
-                        <div class="w-max">{{data_pasien?.psiko_sosial_spiritual.sosial_support_system}}</div>
+                        <div class="w-max">{{data_pasien?.psiko_sosial_spiritual?.sosial_support_system}}</div>
                     </div>
 
                     <!--  -->
@@ -440,22 +440,22 @@ get_data()
                     <div class="flex gap-2 ml-3">
                         <div class="w-[180px] capitalize ">agama</div>
                         <div class="">:</div>
-                        <div class="w-max">{{data_pasien?.psiko_sosial_spiritual.spiritual_agama}}</div>
+                        <div class="w-max">{{data_pasien?.psiko_sosial_spiritual?.spiritual_agama}}</div>
                     </div>
                     <div class="flex gap-2 ml-3">
                         <div class="w-[180px] capitalize ">nilai / keyakinan yang dianut terhadap pelayanan kesehatan</div>
                         <div class="">:</div>
-                        <div class="w-max">{{data_pasien?.psiko_sosial_spiritual.spiritual_keyakinan_pelayanan_kesehatan}}</div>
+                        <div class="w-max">{{data_pasien?.psiko_sosial_spiritual?.spiritual_keyakinan_pelayanan_kesehatan}}</div>
                     </div>
                     <div class="flex gap-2 ml-3">
                         <div class="w-[180px] capitalize ">kebutuhan kerohanian</div>
                         <div class="">:</div>
-                        <div class="w-max">{{data_pasien?.psiko_sosial_spiritual.spiritual_kebutuhan_kerohanian}}</div>
+                        <div class="w-max">{{data_pasien?.psiko_sosial_spiritual?.spiritual_kebutuhan_kerohanian}}</div>
                     </div>
                     <div class="flex gap-2 ml-3">
                         <div class="w-[180px] capitalize ">kebutuhan privasi khusus</div>
                         <div class="">:</div>
-                        <div class="w-max">{{data_pasien?.psiko_sosial_spiritual.spiritual_kebutuhan_privasi_khusus}}</div>
+                        <div class="w-max">{{data_pasien?.psiko_sosial_spiritual?.spiritual_kebutuhan_privasi_khusus}}</div>
                     </div>
 
                 </div>
@@ -469,17 +469,17 @@ get_data()
                     <div class="flex gap-2">
                         <div class="w-[180px] capitalize font-semibold">status pekerjaan</div>
                         <div class="">:</div>
-                        <div class="w-max">{{data_pasien?.ekonomi.status_pekerjaaan}}</div>
+                        <div class="w-max">{{data_pasien?.ekonomi?.status_pekerjaaan}}</div>
                     </div>
                     <div class="flex gap-2">
                         <div class="w-[180px] capitalize font-semibold">pembiayaan / jaminan kesehatan</div>
                         <div class="">:</div>
-                        <div class="w-max">{{data_pasien?.ekonomi.pembiayaan_kesehatan}}</div>
+                        <div class="w-max">{{data_pasien?.ekonomi?.pembiayaan_kesehatan}}</div>
                     </div>
                     <div class="flex gap-2">
                         <div class="w-[180px] capitalize font-semibold">penanggung jawab pasien</div>
                         <div class="">:</div>
-                        <div class="w-max">{{data_pasien?.ekonomi.penanggung_jawab_pasien}}</div>
+                        <div class="w-max">{{data_pasien?.ekonomi?.penanggung_jawab_pasien}}</div>
                     </div>
                 </div>
             </div>
@@ -492,17 +492,17 @@ get_data()
                     <div class="flex gap-2">
                         <div class="w-[180px] capitalize font-semibold">Alergi</div>
                         <div class="">:</div>
-                        <div class="w-max">{{data_pasien?.alergi.status ? 'ya' : 'tidak'}}</div>
+                        <div class="w-max">{{data_pasien?.alergi?.status ? 'ya' : 'tidak'}}</div>
                     </div>
-                    <div class="flex gap-2 ml-3" v-if="data_pasien?.alergi.status">
+                    <div class="flex gap-2 ml-3" v-if="data_pasien?.alergi?.status">
                         <div class="w-[180px] capitalize">alergi</div>
                         <div class="">:</div>
-                        <div class="w-max">{{data_pasien?.alergi.alergi}}</div>
+                        <div class="w-max">{{data_pasien?.alergi?.alergi}}</div>
                     </div>
-                    <div class="flex gap-2 ml-3" v-if="data_pasien?.alergi.status">
+                    <div class="flex gap-2 ml-3" v-if="data_pasien?.alergi?.status">
                         <div class="w-[180px] capitalize">reaksi alergi</div>
                         <div class="">:</div>
-                        <div class="w-max">{{data_pasien?.alergi.reaksi_alergi}}</div>
+                        <div class="w-max">{{data_pasien?.alergi?.reaksi_alergi}}</div>
                     </div>
                 </div>
             </div>
@@ -515,37 +515,37 @@ get_data()
                     <div class="flex gap-2">
                         <div class="w-[180px] capitalize font-semibold">nyeri</div>
                         <div class="">:</div>
-                        <div class="w-max">{{data_pasien?.nyeri.status ? 'ya' : 'tidak'}}</div>
+                        <div class="w-max">{{data_pasien?.nyeri?.status ? 'ya' : 'tidak'}}</div>
                     </div>
-                    <div class="flex gap-2 ml-3" v-if="data_pasien?.nyeri.status">
+                    <div class="flex gap-2 ml-3" v-if="data_pasien?.nyeri?.status">
                         <div class="w-[180px] capitalize">sejak kapan</div>
                         <div class="">:</div>
-                        <div class="w-max">{{data_pasien?.nyeri.kapan}}</div>
+                        <div class="w-max">{{data_pasien?.nyeri?.kapan}}</div>
                     </div>
-                    <div class="flex gap-2 ml-3" v-if="data_pasien?.nyeri.status">
+                    <div class="flex gap-2 ml-3" v-if="data_pasien?.nyeri?.status">
                         <div class="w-[180px] capitalize">faktor pencetus nyeri</div>
                         <div class="">:</div>
-                        <div class="w-max">{{data_pasien?.nyeri.faktor}}</div>
+                        <div class="w-max">{{data_pasien?.nyeri?.faktor}}</div>
                     </div>
-                    <div class="flex gap-2 ml-3" v-if="data_pasien?.nyeri.status">
+                    <div class="flex gap-2 ml-3" v-if="data_pasien?.nyeri?.status">
                         <div class="w-[180px] capitalize">karakteristik nyeri</div>
                         <div class="">:</div>
-                        <div class="w-max">{{data_pasien?.nyeri.karakteristik}}</div>
+                        <div class="w-max">{{data_pasien?.nyeri?.karakteristik}}</div>
                     </div>
-                    <div class="flex gap-2 ml-3" v-if="data_pasien?.nyeri.status">
+                    <div class="flex gap-2 ml-3" v-if="data_pasien?.nyeri?.status">
                         <div class="w-[180px] capitalize">lokasi nyeri</div>
                         <div class="">:</div>
-                        <div class="w-max">{{data_pasien?.nyeri.lokasi}}</div>
+                        <div class="w-max">{{data_pasien?.nyeri?.lokasi}}</div>
                     </div>
-                    <div class="flex gap-2 ml-3" v-if="data_pasien?.nyeri.status">
+                    <div class="flex gap-2 ml-3" v-if="data_pasien?.nyeri?.status">
                         <div class="w-[180px] capitalize">skala nyeri</div>
                         <div class="">:</div>
-                        <div class="w-max">{{data_pasien?.nyeri.skala}}</div>
+                        <div class="w-max">{{data_pasien?.nyeri?.skala}}</div>
                     </div>
-                    <div class="flex gap-2 ml-3" v-if="data_pasien?.nyeri.status">
+                    <div class="flex gap-2 ml-3" v-if="data_pasien?.nyeri?.status">
                         <div class="w-[180px] capitalize">durasi / lama nyeri</div>
                         <div class="">:</div>
-                        <div class="w-max">{{data_pasien?.nyeri.durasi}}</div>
+                        <div class="w-max">{{data_pasien?.nyeri?.durasi}}</div>
                     </div>
                 </div>
             </div>
@@ -558,7 +558,7 @@ get_data()
                     <div class="flex gap-2">
                         <div class="w-[180px] capitalize font-semibold">kebutuhan edukasi</div>
                         <div class="">:</div>
-                        <div class="w-max">{{data_pasien?.kebutuhan_edukasi.pilihan}}</div>
+                        <div class="w-max">{{data_pasien?.kebutuhan_edukasi?.pilihan}}</div>
                     </div>
                 </div>
             </div>
@@ -572,7 +572,7 @@ get_data()
                         <div class="w-[180px] capitalize font-semibold">Kriteria Pemulangan Kritis</div>
                         <div class="">:</div>
                         <div class="w-max">
-                            <div class="" v-for="(item, index) in data_pasien?.perencanaan_pemulangan_pasien" :key="index">- {{item.opsi}}</div>
+                            <div class="" v-for="(item, index) in data_pasien?.perencanaan_pemulangan_pasien ? data_pasien?.perencanaan_pemulangan_pasien : 0" :key="index">- {{item.opsi}}</div>
                         </div>
                     </div>
                     <div class="flex gap-2">

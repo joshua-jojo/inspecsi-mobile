@@ -127,6 +127,7 @@ function nextPage() {
             <input v-model="riwayatKesehatan.auto_anamnesa.pemberi_informasi" type="text" class="input input-bordered">
         </div>
     </template>
-
+    
     <button class="btn btn-primary mt-5" @click="nextPage">Next</button>
+    <div class="btn btn-outline btn-primary" @click="router.back()"> back </div>
 </template>

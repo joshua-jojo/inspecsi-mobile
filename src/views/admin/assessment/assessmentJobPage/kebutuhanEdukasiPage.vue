@@ -50,4 +50,5 @@ watch(() => kebutuhan_edukasi.value.pilihan, () => {
     </div>
 
     <button class="btn btn-primary mt-5" @click="nextPage">Next</button>
+    <div class="btn btn-outline btn-primary" @click="router.back()"> back </div>
 </template>
