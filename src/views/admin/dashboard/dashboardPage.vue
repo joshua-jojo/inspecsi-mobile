@@ -1,7 +1,7 @@
 <template lang="">
     <div class="flex justify-between items-center h-[5rem] my-[1rem]">
         <div class="flex flex-col drop-shadow-sm">
-            <div class="font-poppins-bold capitalize text-4xl text-[#537FE7]">
+            <div class="font-poppins-bold capitalize text-3xl text-[#537FE7]">
                 welcome,
             </div>
             <div class="capitalize font-poppins-bold text-2xl">
@@ -12,7 +12,7 @@
             <img src="https://picsum.photos/200" class="h-[70%] rounded-full" alt="" srcset="">
         </div>
     </div>
-    <div class="grid place-items-center grid-cols-7 drop-shadow-sm mb-10">
+    <div class="grid place-items-center grid-cols-7 drop-shadow-sm mb-10 pb-2 border-b-2">
         <template v-for="(item,index) in rangeSeminggu" :key="index">
             <div @click="getByDay(item)" class="flex font-poppins flex-col justify-center p-4 items-center gap-1 w-full text-[#537FE7]" :class="{'bg-[#537FE7] card text-white' : item.active,'text-red-500' : item.hari == 'Ming','text-[#537FE7]' : item.hari != 'Ming'}">
                 <div class="text-lg">

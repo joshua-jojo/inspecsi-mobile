@@ -10,26 +10,26 @@
             </router-view>
         </div>
         <div class="bg-white h-[10%] grid place-items-center w-full">
-            <div class="h-[90%] w-[90%] px-[4%] bg-[#537FE7] rounded-full grid place-items-center" :class="gridCols">
+            <div class="h-[70%] w-[90%] px-[4%] bg-[#537FE7] rounded-full grid place-items-center" :class="gridCols">
                 <router-link v-if="KepalaRuangan || KetuaTim" :to="{name : 'admin.home'}" class="h-full grid place-items-center relative w-full">
                     <img src="../../assets/icons/home.svg" class="h-[36%] z-10" alt="" srcset="">
-                    <div class="z-0 bg-blue-400 absolute h-[70%] w-[80%] rounded-full" v-if="$route.name == 'admin.home'">
+                    <div class="z-0 bg-blue-400 absolute h-[80%] w-[80%] rounded-full" v-if="$route.name == 'admin.home'">
                     </div>
                 </router-link>
                 <router-link v-if="KepalaRuangan || KetuaTim" :to="{name : 'admin.archive'}" class="h-full grid place-items-center mr-3 w-full relative">
                     <img src="../../assets/icons/archives.svg" class="h-[36%] z-10" alt="" srcset="">
-                    <div class="z-0 bg-blue-400 absolute h-[70%] w-[80%] rounded-full" v-if="$route.name == 'admin.archive'"></div>
+                    <div class="z-0 bg-blue-400 absolute h-[80%] w-[80%] rounded-full" v-if="$route.name == 'admin.archive'"></div>
                 </router-link>
                 <router-link v-if="KepalaRuangan" :to="{name : 'assessment'}" class="h-full grid place-items-center">
                     <img src="../../assets/icons/assessment.svg" class="scale-90" alt="" srcset="">
                 </router-link>
                 <router-link v-if="Admin || SuperAdmin" :to="{name : 'admin.users'}" class="h-full grid place-items-center ml-3 w-full relative">
                     <img src="../../assets/icons/user.svg" alt="" class="h-[33%] z-10" srcset="" >
-                    <div class="z-0 bg-blue-400 absolute h-[70%] w-[80%] rounded-full" v-if="$route.name == 'admin.users'"></div>
+                    <div class="z-0 bg-blue-400 absolute h-[80%] w-[80%] rounded-full" v-if="$route.name == 'admin.users'"></div>
                 </router-link>
                 <router-link :to="{name : 'admin.profile'}" class="h-full grid place-items-center relative w-full">
-                    <img src="../../assets/icons/profile.svg" alt="" srcset="" class="h-[33%] z-10">
-                    <div class="z-0 bg-blue-400 absolute h-[70%] w-[80%] rounded-full" v-if="$route.name == 'admin.profile'"></div>
+                    <img src="../../assets/icons/profile.svg" alt="" srcset="" class="h-[40%] z-10">
+                    <div class="z-0 bg-blue-400 absolute h-[80%] w-[80%] rounded-full" v-if="$route.name == 'admin.profile'"></div>
                 </router-link>
             </div>
         </div>

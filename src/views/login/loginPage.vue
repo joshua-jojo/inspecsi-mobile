@@ -11,31 +11,31 @@
         <div class="h-[30%]">
             <img src="../../assets/login_img.svg" class="h-full" alt="" srcset="">
         </div>
-        <div class="card bg-white w-[80%] rounded-[2rem]">
+        <div class="card bg-white w-11/12 rounded-[2rem]">
             <div class="card-body">
                 <div class="alert alert-error shadow-lg text-left" v-if="formLogin.message">
                     <span>{{formLogin.message}}</span>
                 </div>
                 <div class="form-control">
-                    <label class="ml-4 capitalize font-black text-[20px] bg-white w-max px-1 translate-y-1">
+                    <label class="ml-4 capitalize font-bold text-md bg-white w-max px-1 translate-y-1">
                         <div class="translate-y-2 text-[#537FE7]">
                             Email
                         </div>
                     </label>
-                    <input type="email" placeholder="Masukkan Email" id="email" class="input bg-[#E9F8F9] input-bordered border-[#537FE7] border-4 rounded-2xl" v-model="formLogin.email">
+                    <input type="email" placeholder="Masukkan Email" id="email" class="input bg-[#E9F8F9] input-bordered border-[#537FE7] border-2 rounded-2xl" v-model="formLogin.email">
                     <label v-if="formLogin.errors.email" class="label"><span class="label-text-alt text-error">{{formLogin.errors.email}}</span></label>
                 </div>
                 <div class="form-control">
-                    <label class="ml-4 capitalize font-black text-[20px] bg-white w-max px-1 translate-y-1">
+                    <label class="ml-4 capitalize font-bold text-md bg-white w-max px-1 translate-y-1">
                         <div class="translate-y-2 text-[#537FE7]">
                             Password
                         </div>
                     </label>
-                    <input type="password" placeholder="Masukkan Password" class="input bg-[#E9F8F9] input-bordered border-[#537FE7] border-4 rounded-2xl" v-model="formLogin.password">
+                    <input type="password" placeholder="Masukkan Password" class="input bg-[#E9F8F9] input-bordered border-[#537FE7] border-2 rounded-2xl" v-model="formLogin.password">
                     <label v-if="formLogin.errors.password" class="label"><span class="label-text-alt text-error">{{formLogin.errors.password}}</span></label>
                 </div>
                 <div class="flex justify-center mt-[2rem]">
-                    <button class="btn btn-lg bg-[#537FE7] btn-ghost text-white w-[80%] rounded-[1.5rem]" @click="login()">login</button>
+                    <button class="btn bg-[#537FE7] btn-ghost text-white w-full rounded-[1.5rem]" @click="login()">login</button>
                 </div>
             </div>
         </div>
