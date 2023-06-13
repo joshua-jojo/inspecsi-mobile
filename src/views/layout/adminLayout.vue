@@ -21,7 +21,7 @@
                     <div class="z-0 bg-blue-400 absolute h-[80%] w-[80%] rounded-full" v-if="$route.name == 'admin.archive'"></div>
                 </router-link>
                 <router-link v-if="KepalaRuangan" :to="{name : 'assessment'}" class="h-full grid place-items-center">
-                    <img src="../../assets/icons/assessment.svg" class="scale-90" alt="" srcset="">
+                    <img src="../../assets/icons/assessment.svg" class="scale-75" alt="" srcset="">
                 </router-link>
                 <router-link v-if="Admin || SuperAdmin" :to="{name : 'admin.users'}" class="h-full grid place-items-center ml-3 w-full relative">
                     <img src="../../assets/icons/user.svg" alt="" class="h-[33%] z-10" srcset="" >

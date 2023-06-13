@@ -1,15 +1,15 @@
 <template lang="">
-     <div class="flex justify-between items-center h-[5rem] my-[1rem]">
+     <div class="flex justify-between items-center mt-[2rem] my-2">
         <div class="flex flex-col drop-shadow-sm">
-            <div class="font-poppins-bold capitalize text-4xl text-[#537FE7]">
+            <div class="font-poppins-bold capitalize text-2xl text-[#537FE7]">
                 archive
             </div>
         </div>
     </div>
 
-    <div class="flex justify-between gap-2 my-8">
-        <input type="text" placeholder="Search" class="input text-[21px] font-poppins bg-[#E9F8F9] input-lg input-bordered w-full border-[2.5px] border-[#537FE7] rounded-[1.2rem]">
-        <button class="btn btn-lg btn-ghost border-4 bg-[#537FE7] rounded-[1.2rem] text-white text-[30px]">
+    <div class="flex justify-between gap-2 my-4">
+        <input type="text" placeholder="Search" class="input text-[20px] font-poppins bg-[#E9F8F9] input-bordered w-full border-2 border-[#537FE7] rounded-xl">
+        <button class="btn btn-ghost border-4 bg-[#537FE7] rounded-xl text-white text-[30px]">
             <IonIcon :icon="search"></IonIcon>
         </button>
     </div>

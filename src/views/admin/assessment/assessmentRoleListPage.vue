@@ -80,7 +80,7 @@ getDataAssessmentJob()
 
 <template>
     <div class="w-full h-[100%] relative">
-        <div class="absolute text-[#537FE7] text-4xl ml-[6%] flex items-center h-[5rem] my-[1rem]" @click="goToBack">
+        <div class="absolute text-[#537FE7] text-3xl ml-[6%] flex items-center h-[5rem] my-[1rem]" @click="goToBack">
             <IonIcon :icon="arrowBack"></IonIcon>
         </div>
         <div class="grid place-items-center h-[10%]">

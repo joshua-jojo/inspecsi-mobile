@@ -1,7 +1,7 @@
 <template lang="">
-    <div class="flex justify-between items-center h-[5rem] my-[1rem]">
+    <div class="flex justify-between items-center mt-[2rem] my-[1rem]">
        <div class="flex flex-col drop-shadow-sm">
-           <div class="font-poppins-bold capitalize text-4xl text-[#537FE7]">
+           <div class="font-poppins-bold capitalize text-2xl text-[#537FE7]">
                Profile
            </div>
        </div>
