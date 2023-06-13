@@ -49,7 +49,7 @@ const showData = (data: any) => {
 }
 const go = async (data: any,data_assessment : any) => {
     if (kepalaRuangan) {
-        if (data) {
+        if (data == 1) {
             router.push({
                 name: 'admin.job.assessment_view_select',
                 params : {
