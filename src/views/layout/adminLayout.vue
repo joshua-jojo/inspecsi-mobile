@@ -10,7 +10,7 @@
             </router-view>
         </div>
         <div class="bg-white h-[10%] grid place-items-center w-full">
-            <div class="h-[70%] w-[90%] px-[4%] bg-[#537FE7] rounded-full grid place-items-center" :class="gridCols">
+            <div class="h-[70%] w-[90%] px-[4%] bg-primary rounded-full grid place-items-center" :class="gridCols">
                 <router-link v-if="KepalaRuangan || KetuaTim" :to="{name : 'admin.home'}" class="h-full grid place-items-center relative w-full">
                     <img src="../../assets/icons/home.svg" class="h-[36%] z-10" alt="" srcset="">
                     <div class="z-0 bg-blue-400 absolute h-[80%] w-[80%] rounded-full" v-if="$route.name == 'admin.home'">

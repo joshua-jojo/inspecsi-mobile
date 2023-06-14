@@ -81,13 +81,13 @@ getDataAssessmentJob()
 
 <template>
     <div class="w-full h-[100%] relative">
-        <div class="absolute text-[#537FE7] text-3xl ml-[6%] flex items-center h-[5rem] my-[1rem]" @click="goToBack">
+        <div class="absolute text-primary text-3xl ml-[6%] flex items-center h-[5rem] my-[1rem]" @click="goToBack">
             <IonIcon :icon="arrowBack"></IonIcon>
         </div>
         <div class="grid place-items-center h-[10%]">
             <div class="flex justify-between items-center h-[5rem] my-[1rem]">
                 <div class="flex flex-col drop-shadow-sm">
-                    <div class="font-poppins-bold capitalize text-2xl text-[#537FE7]">
+                    <div class="font-poppins-bold capitalize text-2xl text-primary">
                         List Assessment
                     </div>
                 </div>
@@ -97,7 +97,7 @@ getDataAssessmentJob()
             <transition-group name="row">
                 <template v-for="item in dataAssessmentJob" :key="item.id">
                     <div @click="go((item as any).complete,item)" v-if="showData(item)"
-                        class="card w-full text-[#537FE7] text-xl drop-shadow-md"
+                        class="card w-full text-primary text-xl drop-shadow-md"
                         :class="completeTask((item as any).complete)">
                         <div
                             class="px-6 py-4 flex flex-row capitalize font-poppins-semibold h-[5rem] gap-4 items-center justify-start w-full">

@@ -29,7 +29,7 @@ const go_data = () => {
 </script>
 <template lang="">
     <div class="flex flex-col gap-5">
-        <button @click="go_data" class="btn btn-success">Data Pasien</button>
-        <button @click="go_catatan" class="btn btn-success">catatan perkembangan Pasien</button>
+        <button @click="go_data" class="btn btn-primary">Data Pasien</button>
+        <button @click="go_catatan" class="btn btn-primary">catatan perkembangan Pasien</button>
     </div>
 </template>

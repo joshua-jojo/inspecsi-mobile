@@ -9,7 +9,7 @@
                     </div>
                 <div class="modal-action">
                     <slot name="action"></slot>
-                    <label :for="props.id" class="btn">Close</label>
+                    <label :for="props.id" class="btn btn-ghost">Close</label>
                 </div>
             </div>
         </div>

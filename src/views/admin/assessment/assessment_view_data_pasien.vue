@@ -1283,17 +1283,17 @@ get_data();
                     <div
                         class="uppercase font-bold my-4 text-center overflow-hidden"
                     >
-                        daignosa / Masalah keperawatan
+                        Diagnosa / Masalah keperawatan
                     </div>
-                    <div class="flex flex-col gap-2">
+                    <div class="flex flex-col gap-2 mx-auto">
                         <div
-                            class="flex gap-2"
+                            class="flex gap-2 items-center"
                             v-for="(
                                 item, index
                             ) in data_pasien?.masalah_keperawatan"
                             :key="index"
                         >
-                            <div class="badge">{{ item.kode }}</div>
+                            <div class="badge badge-primary">{{ item.kode }}</div>
                             <div class="">-</div>
                             <div class="w-max">{{ item.keterangan }}</div>
                         </div>

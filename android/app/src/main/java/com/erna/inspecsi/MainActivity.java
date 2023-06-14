@@ -1,4 +1,4 @@
-package io.ionic.starter;
+package com.erna.inspecsi;
 
 import com.getcapacitor.BridgeActivity;
 
