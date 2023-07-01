@@ -10,19 +10,18 @@
                         Archive
                     </div>
                 </div>
-            </div>
         </div>
     </div>
 
     <div class="flex justify-between gap-2 my-4">
-        <input type="text" placeholder="Search" class="input text-[20px] font-poppins bg-[#E9F8F9] input-bordered w-full border-2 border-[#537FE7] rounded-xl">
-        <button class="btn btn-ghost border-4 bg-[#537FE7] rounded-xl text-white text-[30px]">
+        <input type="text" placeholder="Search" class="input text-[20px] font-poppins bg-[#E9F8F9] input-bordered w-full border-2 border-primary rounded-xl">
+        <button class="btn btn-primary text-2xl">
             <IonIcon :icon="search"></IonIcon>
         </button>
     </div>
 
     <div class="grid place-items-center gap-4 mb-4">
-        <div v-show="false" class="card bg-[#537FE7] w-full drop-shadow-gray-700 drop-shadow-md font-poppins text-white">
+        <div v-show="false" class="card bg-primary w-full drop-shadow-gray-700 drop-shadow-md font-poppins text-white">
             <div class="card-body">
                 <div class="card-title">
                     Supervisi Dokumentasi Asuhan Keperawatan

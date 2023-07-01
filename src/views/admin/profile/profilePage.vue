@@ -14,10 +14,10 @@
         </div>
     </div>
 
-   <div class="card flex justify-between gap-2 my-8 bg-[#537FE7] rounded-[2rem] drop-shadow-md">
+   <div class="card flex justify-between gap-2 my-8 bg-primary rounded-[2rem] shadow">
        <div class="card-body flex flex-col gap-3 p-11">
             <div class="grid place-items-center gap-6">
-                <div class="flex justify-center items-center h-[8rem] drop-shadow-md">
+                <div class="flex justify-center items-center h-[8rem] ">
                     <img src="https://picsum.photos/200" class="h-full rounded-full" alt="" srcset="">
                 </div>
                 <div class="grid place-items-center capitalize font-poppins-bold text-white gap-1">
@@ -29,9 +29,9 @@
    </div>
 
    <div class="grid place-items-center gap-3 px-2 mb-5">
-        <div v-show="false" class="card bg-[#E9F8F9] w-full text-[#537FE7] text-xl drop-shadow-md">
+        <div v-show="false" class="card bg-[#E9F8F9] w-full text-primary text-xl shadow">
             <div class="px-6 py-4 flex capitalize font-poppins-semibold h-[5rem] gap-8 items-center">
-                <div class="flex justify-center items-center h-full drop-shadow-md w-[2rem]">
+                <div class="flex justify-center items-center h-full shadow w-[2rem]">
                     <img src="../../../assets/icons/icon_list_.svg" class="h-[40%]" alt="" srcset="">
                 </div>
                 <div class="">
@@ -39,9 +39,9 @@
                 </div>
             </div>
         </div>
-        <div class="card bg-[#E9F8F9] w-full text-[#537FE7] text-xl drop-shadow-md">
-            <label for="ubahPassword" class="px-6 py-4 flex capitalize font-poppins-semibold h-[5rem] gap-8 items-center">
-                <div class="flex justify-center items-center h-full drop-shadow-md w-[2rem]">
+        <div class="card bg-[#E9F8F9] w-full text-primary text-xl shadow">
+            <label for="ubahPassword" class="capitalize font-poppins-semibold btn btn-primary btn-outline">
+                <div class="flex justify-center items-center h-full shadow w-[2rem]">
                     <img src="../../../assets/icons/icon_lockclosed_.svg" class="h-[60%]" alt="" srcset="">
                 </div>
                 <div class="">
@@ -50,8 +50,8 @@
             </label>
         </div>
 
-    <div @click="logout()" class="card bg-[#537FE7] w-full text-white text-xl drop-shadow-lg mt-14">
-        <div class="p-6 grid place-items-center capitalize font-poppins-semibold">
+    <div @click="logout()" class="card w-full shadow mt-14">
+        <div class="btn btn-primary capitalize font-poppins-semibold">
             Log out
         </div>
     </div>
@@ -62,7 +62,7 @@
         <label class="label">
             Password Lama
         </label>
-        <input v-model="formPassword.old_password" type="text" class="input input-bordered" placeholder="Masukkan Password Lama">
+        <input v-model="formPassword.old_password" type="password" class="input input-bordered" placeholder="Masukkan Password Lama">
         <label class="label" v-if="formPassword.errors.old_password">
             <span class="label-text text-error">Password Lama</span>
         </label>
@@ -71,7 +71,7 @@
         <label class="label">
             Password baru
         </label>
-        <input type="text" v-model="formPassword.password" class="input input-bordered" placeholder="Masukkan password baru">
+        <input type="password" v-model="formPassword.password" class="input input-bordered" placeholder="Masukkan password baru">
         <label class="label" v-if="formPassword.errors.password">
             <span class="label-text text-error">Password baru</span>
         </label>
@@ -80,10 +80,10 @@
         <label class="label">
             Konfirmasi password baru
         </label>
-        <input type="text" v-model="formPassword.password_confirmation" class="input input-bordered" placeholder="Konfirmasi password baru">
+        <input type="password" v-model="formPassword.password_confirmation" class="input input-bordered" placeholder="Konfirmasi password baru">
     </div>
     <template v-slot:action>
-        <button class="btn btn-success" @click="submitChangePassword" :class="{'loading btn-disabled' : formPassword.processing}">Simpan</button>
+        <button class="btn btn-primary" @click="submitChangePassword" :class="{'loading btn-disabled' : formPassword.processing}">Simpan</button>
     </template>
 </modalComponent>
 </template>

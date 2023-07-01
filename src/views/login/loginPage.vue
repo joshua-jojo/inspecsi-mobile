@@ -1,5 +1,5 @@
 <template lang="">
-    <div class="h-screen bg-[#537FE7] flex flex-col justify-center items-center gap-7">
+    <div class="h-screen bg-primary flex flex-col justify-center items-center gap-7">
         <div class="font-fugazone text-white flex items-center flex-col drop-shadow-lg">
             <div class="text-6xl">
                 INSPECSI
@@ -18,7 +18,7 @@
                 </div>
                 <div class="form-control">
                     <label class="ml-4 capitalize font-bold text-md bg-white w-max px-1 translate-y-1">
-                        <div class="translate-y-2 text-[#537FE7]">
+                        <div class="translate-y-2 text-primary">
                             Email
                         </div>
                     </label>
@@ -27,7 +27,7 @@
                 </div>
                 <div class="form-control">
                     <label class="ml-4 capitalize font-bold text-md bg-white w-max px-1 translate-y-1">
-                        <div class="translate-y-2 text-[#537FE7]">
+                        <div class="translate-y-2 text-primary">
                             Password
                         </div>
                     </label>
@@ -35,7 +35,7 @@
                     <label v-if="formLogin.errors.password" class="label"><span class="label-text-alt text-error">{{formLogin.errors.password}}</span></label>
                 </div>
                 <div class="flex justify-center mt-[2rem]">
-                    <button class="btn bg-[#537FE7] btn-ghost text-white w-full rounded-[1.5rem]" @click="login()">login</button>
+                    <button class="btn bg-primary btn-ghost text-white w-full rounded-[1.5rem]" @click="login()">login</button>
                 </div>
             </div>
         </div>

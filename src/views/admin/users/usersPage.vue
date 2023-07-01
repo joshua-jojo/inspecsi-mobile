@@ -14,30 +14,30 @@
         </div>
     </div>
 
-   <div class="flex justify-between gap-2 my-8">
-       <input type="text" placeholder="Search" class="input text-[21px] font-poppins bg-[#E9F8F9] input-lg input-bordered w-full border-[2.5px] border-[#537FE7] rounded-[1.2rem]">
-       <button class="btn btn-lg btn-ghost border-4 bg-[#537FE7] rounded-[1.2rem] text-white text-[30px]">
+   <div class="flex justify-between gap-2 my-4">
+       <input type="text" placeholder="Search" class="input text-[20px] font-poppins bg-[#E9F8F9] input-bordered w-full border-[2.5px] border-primary rounded-xl">
+       <button class="btn btn-primary rounded-xl text-2xl">
            <IonIcon :icon="search"></IonIcon>
        </button>
    </div>
 
-   <div class="grid place-items-center gap-3 px-2 mb-5">
-    <div class="card bg-[#537FE7] w-full text-white text-xl drop-shadow-lg mb-7">
-        <label for="tambah" class="p-6 grid place-items-center capitalize font-poppins-semibold">
+   <div class="grid place-items-center gap-3 mb-5">
+    <div class="card w-full text-white text-xl shadow mb-7">
+        <label for="tambah" class="btn btn-primary capitalize font-poppins-semibold ">
             buat user baru 
         </label>
     </div>
     <template  v-for="(item) in dataAllUser" :key="item.id">
-        <div class="card bg-[#E9F8F9] w-full text-[#537FE7] text-xl drop-shadow-md">
+        <div class="card bg-[#E9F8F9] w-full text-primary shadow">
             <div class="px-6 py-4 flex flex-row capitalize font-poppins-semibold h-[5rem] gap-4 items-center justify-start w-full">
-                <div class="flex justify-center items-center h-full w-full max-w-[50px] drop-shadow-md overflow-hidden">
+                <div class="flex justify-center items-center h-full w-full max-w-[50px] shadow overflow-hidden">
                     <img src="https://picsum.photos/200" class="h-full rounded-full w-full" alt="" srcset="">
                 </div>
                 <div class="text-ellipsis overflow-hidden w-full">
                     {{item.name}}
                 </div>
-                <label for="hapus" class="w-[60px] h-full grid place-items-center text-red-500" @click="getHapus(item)" v-if="!isMe(item) && SuperAdmin">
-                    <ion-icon size="large" :icon="trash"></ion-icon>
+                <label for="hapus" class="btn btn-sm btn-square btn-error" @click="getHapus(item)" v-if="!isMe(item) && SuperAdmin">
+                    <ion-icon size="small" :icon="trash"></ion-icon>
                 </label>
             </div>
         </div>
