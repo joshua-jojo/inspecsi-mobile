@@ -1,6 +1,6 @@
 <template lang="">
     <div class="h-screen flex flex-col justify-center items-center w-full">
-        <div class="h-[90%] w-[90%] overflow-auto scrollbar-hide relative">
+        <div class="h-[100%] w-[90%] overflow-auto scrollbar-hide relative">
             <router-view v-slot="{ Component }">
                 <transition name="slidepage">
                     <div :key="$route.name" class="absolute w-full h-full bg-white">
@@ -9,7 +9,7 @@
                 </transition>
             </router-view>
         </div>
-        <div class="bg-white h-[10%] grid place-items-center w-full">
+        <div class="bg-white h-[10%] grid place-items-center w-full" v-if="false">
             <div class="h-[70%] w-[90%] px-[4%] bg-[#537FE7] rounded-full grid place-items-center" :class="gridCols">
                 <router-link v-if="KepalaRuangan || KetuaTim" :to="{name : 'admin.home'}" class="h-full grid place-items-center relative w-full">
                     <img src="../../assets/icons/home.svg" class="h-[36%] z-10" alt="" srcset="">
@@ -33,7 +33,6 @@
                 </router-link>
             </div>
         </div>
-        
     </div>
 </template>
 <script lang="ts" setup>

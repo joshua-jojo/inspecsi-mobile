@@ -1,8 +1,15 @@
 <template lang="">
-     <div class="flex justify-between items-center mt-[2rem] my-2">
-        <div class="flex flex-col drop-shadow-sm">
-            <div class="font-poppins-bold capitalize text-2xl text-[#537FE7]">
-                archive
+     <div class="relative justify-between items-center h-[5rem] my-[1rem]">
+        <div @click="router.push({name : 'admin.menu'})" class="absolute text-3xl ml-[6%] flex items-center h-[5rem] my-[1rem]">
+                <IonIcon :icon="arrowBack"></IonIcon>
+        </div>
+        <div class="grid place-items-center h-[10%]">
+            <div class="flex justify-between items-center h-[5rem] my-[1rem]">
+                <div class="flex flex-col drop-shadow-sm">
+                    <div class="font-poppins-bold capitalize text-2xl">
+                        Archive
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -55,7 +62,7 @@
 </template>
 <script lang="ts" setup>
 import moment from 'moment';
-import { search, calendarOutline } from 'ionicons/icons';
+import { search, calendarOutline,arrowBack } from 'ionicons/icons';
 import { IonIcon } from '@ionic/vue';
 import { ref } from 'vue';
 import axios from 'axios';

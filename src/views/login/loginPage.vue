@@ -63,11 +63,11 @@ function login() {
             store.state.token = response.token
             if (store.state.user.role.nama != "admin" && store.state.user.role.nama != "super admin") {
                 router.push({
-                    name: 'admin.home'
+                    name: 'admin.menu'
                 })
             }else {
                 router.push({
-                    name : 'admin.users'
+                    name : 'admin.menu'
                 })
             }
             axios.defaults.headers.common['Authorization'] = `Bearer ${response.token}`;

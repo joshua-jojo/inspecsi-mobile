@@ -1,11 +1,18 @@
 <template lang="">
-    <div class="flex justify-between items-center mt-[2rem] my-[1rem]">
-       <div class="flex flex-col drop-shadow-sm">
-           <div class="font-poppins-bold capitalize text-2xl text-[#537FE7]">
-               Profile
-           </div>
-       </div>
-   </div>
+     <div class="relative justify-between items-center h-[5rem] my-[1rem]">
+        <div @click="route.push({name : 'admin.menu'})" class="absolute text-3xl ml-[6%] flex items-center h-[5rem] my-[1rem]">
+                <IonIcon :icon="arrowBack"></IonIcon>
+        </div>
+        <div class="grid place-items-center h-[10%]">
+            <div class="flex justify-between items-center h-[5rem] my-[1rem]">
+                <div class="flex flex-col drop-shadow-sm">
+                    <div class="font-poppins-bold capitalize text-2xl">
+                        Profile
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
    <div class="card flex justify-between gap-2 my-8 bg-[#537FE7] rounded-[2rem] drop-shadow-md">
        <div class="card-body flex flex-col gap-3 p-11">
@@ -86,6 +93,8 @@ import { useRouter } from "vue-router"
 import modalComponent from "@/views/components/modal/modalComponent.vue"
 import useForm from "form-helper-axios"
 import axios from "axios"
+import { IonIcon } from "@ionic/vue"
+import { arrowBack } from "ionicons/icons"
 
 const store = useStore()
 const route = useRouter()

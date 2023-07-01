@@ -1,11 +1,18 @@
 <template lang="">
-    <div class="flex justify-between items-center h-[5rem] my-[1rem]">
-       <div class="flex flex-col drop-shadow-sm">
-           <div class="font-poppins-bold capitalize text-4xl text-[#537FE7]">
-               Users 
-           </div>
-       </div>
-   </div>
+     <div class="relative justify-between items-center h-[5rem] my-[1rem]">
+        <div @click="router.push({name : 'admin.menu'})" class="absolute text-3xl ml-[6%] flex items-center h-[5rem] my-[1rem]">
+                <IonIcon :icon="arrowBack"></IonIcon>
+        </div>
+        <div class="grid place-items-center h-[10%]">
+            <div class="flex justify-between items-center h-[5rem] my-[1rem]">
+                <div class="flex flex-col drop-shadow-sm">
+                    <div class="font-poppins-bold capitalize text-2xl">
+                        Users
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
    <div class="flex justify-between gap-2 my-8">
        <input type="text" placeholder="Search" class="input text-[21px] font-poppins bg-[#E9F8F9] input-lg input-bordered w-full border-[2.5px] border-[#537FE7] rounded-[1.2rem]">
@@ -80,7 +87,7 @@
    </modalComponent>
 </template>
 <script lang="ts" setup>
-import { search } from 'ionicons/icons';
+import { search,arrowBack } from 'ionicons/icons';
 import { IonIcon } from '@ionic/vue';
 import modalComponent from '@/views/components/modal/modalComponent.vue';
 import { trash } from 'ionicons/icons';
@@ -88,8 +95,10 @@ import useForm from 'form-helper-axios'
 import axios from 'axios';
 import { ref } from 'vue';
 import { useStore } from 'vuex';
+import { useRouter } from 'vue-router';
 
 const store = useStore()
+const router = useRouter()
 const SuperAdmin = store.state.user?.role?.nama == "super admin"
 const dataRole = ref();
 const dataAllUser = ref();

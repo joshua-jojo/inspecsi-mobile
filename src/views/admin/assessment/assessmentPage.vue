@@ -1,7 +1,7 @@
 <template lang="">
     <div class="bg-[#537FE7] h-screen absolute w-full min-h-[900px]">
         <div class="w-full h-[100%] relative">
-            <div @click="router.push({name : 'admin.home'})" class="absolute text-white text-3xl ml-[6%] flex items-center h-[5rem] my-[1rem]">
+            <div @click="router.push({name : 'admin.menu'})" class="absolute text-white text-3xl ml-[6%] flex items-center h-[5rem] my-[1rem]">
                 <IonIcon :icon="arrowBack"></IonIcon>
             </div>
             <div class="grid place-items-center h-[10%]">

@@ -1,15 +1,16 @@
 <template lang="">
-    <div class="flex justify-between items-center h-[5rem] my-[1rem]">
-        <div class="flex flex-col drop-shadow-sm">
-            <div class="font-poppins-bold capitalize text-2xl text-[#537FE7]">
-                welcome,
-            </div>
-            <div class="capitalize font-poppins-bold text-xl">
-                {{store.state.user?.role?.nama}}
-            </div>
+    <div class="relative justify-between items-center h-[5rem] my-[1rem]">
+        <div @click="router.push({name : 'admin.menu'})" class="absolute text-3xl ml-[6%] flex items-center h-[5rem] my-[1rem]">
+                <IonIcon :icon="arrowBack"></IonIcon>
         </div>
-        <div class="flex justify-center items-center h-full drop-shadow-md">
-            <img src="https://picsum.photos/200" class="h-[70%] rounded-full" alt="" srcset="">
+        <div class="grid place-items-center h-[10%]">
+            <div class="flex justify-between items-center h-[5rem] my-[1rem]">
+                <div class="flex flex-col drop-shadow-sm">
+                    <div class="font-poppins-bold capitalize text-2xl">
+                        Dashboard
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <div class="w-full h-[250px] overflow-hidden my-4 flex justify-center items-center card">
@@ -67,7 +68,7 @@
     </div>
 </template>
 <script lang="ts" setup>
-import { calendarOutline } from 'ionicons/icons';
+import { arrowBack } from 'ionicons/icons';
 import { IonIcon } from '@ionic/vue';
 import moment from 'moment';
 import { ref } from 'vue';

@@ -7,7 +7,7 @@ import axios from "axios";
 import store from './store';
 
 axios.defaults.baseURL = 'https://inspecsi.projekalpha.com/api'
-// axios.defaults.baseURL = 'http://10.10.20.55:8000/api'
+// axios.defaults.baseURL = 'http://127.0.0.1:8000/api'
 
 import './assets/tailwind.css';
 import './assets/transisi.css';
