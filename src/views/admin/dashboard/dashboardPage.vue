@@ -68,7 +68,7 @@
     </div>
 </template>
 <script lang="ts" setup>
-import { arrowBack } from 'ionicons/icons';
+import { arrowBack,calendarOutline } from 'ionicons/icons';
 import { IonIcon } from '@ionic/vue';
 import moment from 'moment';
 import { ref } from 'vue';

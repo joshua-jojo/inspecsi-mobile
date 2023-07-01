@@ -106,7 +106,7 @@ getDataAssessmentJob()
                                 <img src="https://picsum.photos/200" class="h-full rounded-full w-full" alt="" srcset="">
                             </div>
                             <div class="text-ellipsis overflow-hidden w-full">
-                                {{ (item as any).user.name }}
+                                {{ (item as any).user?.name }}
                             </div>
                         </div>
                     </div>
