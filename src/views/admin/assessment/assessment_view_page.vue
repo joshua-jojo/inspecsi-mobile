@@ -29,7 +29,8 @@ const go_data = () => {
 </script>
 <template lang="">
     <div class="flex flex-col gap-5">
-        <button @click="go_data" class="btn btn-primary">Data Pasien</button>
-        <button @click="go_catatan" class="btn btn-primary">catatan perkembangan Pasien</button>
+        <button @click="go_data" :class="{'btn-disabled' : props.id == 'null'}" class="btn btn-primary">{{props.id != 'null' ? "Data Pasien" : "Belum Ada Data"}}</button>
+        <button @click="go_catatan" :class="{'btn-disabled' : props.id == 'null'}" class="btn btn-primary">{{props.id != 'null' ? "Catatan perkembangan pasien" : "Belum Ada Catatan"}}</button>
+        <button class="btn" @click="router.back()">Back</button>
     </div>
 </template>
