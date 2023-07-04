@@ -725,6 +725,7 @@ const selesai = () => {
     const form = useForm(data)
     form.post("assessment-data/masalah-keperawatan",{
         onSuccess : () => {
+            store.getters.resetAssessment
             router.push(`/archive`)
         }
     })

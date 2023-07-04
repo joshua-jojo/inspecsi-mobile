@@ -1,7 +1,10 @@
 <template lang="">
-     <div class="relative justify-between items-center h-[5rem] my-[1rem]">
-        <div @click="router.push({name : 'admin.menu'})" class="absolute text-3xl ml-[6%] flex items-center h-[5rem] my-[1rem]">
-                <IonIcon :icon="arrowBack"></IonIcon>
+    <div class="relative justify-between items-center h-[5rem] my-[1rem]">
+        <div
+            @click="router.push({ name: 'admin.menu' })"
+            class="absolute text-3xl ml-[6%] flex items-center h-[5rem] my-[1rem]"
+        >
+            <IonIcon :icon="arrowBack"></IonIcon>
         </div>
         <div class="grid place-items-center h-[10%]">
             <div class="flex justify-between items-center h-[5rem] my-[1rem]">
@@ -15,61 +18,138 @@
     </div>
 
     <div class="flex justify-between gap-2 my-4">
-        <input type="text" placeholder="Search" class="input text-[20px] font-poppins bg-[#E9F8F9] input-bordered w-full border-2 border-primary rounded-xl">
+        <input
+            type="text"
+            placeholder="Search"
+            class="input text-[20px] font-poppins bg-[#E9F8F9] input-bordered w-full border-2 border-primary rounded-xl"
+        />
         <button class="btn btn-primary text-2xl">
             <IonIcon :icon="search"></IonIcon>
         </button>
     </div>
 
     <div class="grid place-items-center gap-4 mb-4">
-        <div v-show="false" class="card bg-primary w-full drop-shadow-gray-700 drop-shadow-md font-poppins text-white">
+        <div
+            v-show="false"
+            class="card bg-primary w-full drop-shadow-gray-700 drop-shadow-md font-poppins text-white"
+        >
             <div class="card-body">
                 <div class="card-title">
                     Supervisi Dokumentasi Asuhan Keperawatan
                 </div>
                 <div class="flex items-center gap-2">
                     <IonIcon :icon="calendarOutline"></IonIcon>
-                    {{moment().format('D MMM YYYY')}}
+                    {{ moment().format("D MMM YYYY") }}
                 </div>
                 <div class="flex justify-end items-center flex-row gap-2">
-                    <div class=" font-poppins-semibold capitalize grid place-items-center">ketua tim</div>
+                    <div
+                        class="font-poppins-semibold capitalize grid place-items-center"
+                    >
+                        ketua tim
+                    </div>
                     <div class="h-[2.4rem]">
-                        <img src="https://picsum.photos/200" class="h-full rounded-full" alt="" srcset="">
+                        <img
+                            src="https://picsum.photos/200"
+                            class="h-full rounded-full"
+                            alt=""
+                            srcset=""
+                        />
                     </div>
                 </div>
             </div>
         </div>
-        <transition-group name="row">
-            <div @click="toAssessmentRoleList(item.id)" class="card bg-[#E9F8F9] w-full drop-shadow-md font-poppins text-black" v-for="(item) in dataAssessment" :key="item.id">
-                <div class="card-body">
-                    <div class="card-title">
-                        {{item.judul}}
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <IonIcon :icon="calendarOutline"></IonIcon>
-                        {{moment(item.waktu_buat).format('D MMM YYYY')}}
-                    </div>
-                    <div class="flex justify-end items-center flex-row gap-2">
-                        <div class=" font-poppins font-semibold capitalize grid place-items-center">{{item?.user?.name}}</div>
-                        <div class="h-[2.4rem]">
-                            <img src="https://picsum.photos/200" class="h-full rounded-full" alt="" srcset="">
+        <transition-group name="row" v-if="isKepalaRuangan">
+            <template v-for="item in dataAssessment" :key="item.id">
+                <div
+                    @click="toAssessmentRoleList(job)"
+                    class="card bg-[#E9F8F9] w-full drop-shadow-md font-poppins text-black"
+                    v-for="(job, index) in item.assessment_job"
+                    :key="index"
+                >
+                    <div class="card-body">
+                        <div class="card-title">
+                            {{ item.judul }}
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <IonIcon :icon="calendarOutline"></IonIcon>
+                            {{ moment(item.waktu_buat).format("D MMM YYYY") }} -
+                            {{
+                                moment(item.waktu_berakhir).format("D MMM YYYY")
+                            }}
+                        </div>
+                        <div
+                            class="flex justify-between items-center flex-row gap-2"
+                        >
+                            <div class="" v-if="job.complete">complete</div>
+                            <div class="" v-else>uncomplete</div>
+                            <div
+                                class="font-poppins font-semibold capitalize grid place-items-center"
+                                v-if="isKepalaRuangan"
+                            >
+                                PIC : {{ job?.user?.name }}
+                            </div>
+                            <div
+                                class="font-poppins font-semibold capitalize grid place-items-center"
+                                v-else
+                            >
+                                from : {{ item?.user?.name }}
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </template>
+        </transition-group>
+        <transition-group name="row" v-else>
+            <template v-for="item in dataAssessment" :key="item.id">
+                <div
+                    @click="toAssessmentRoleList(item)"
+                    class="card bg-[#E9F8F9] w-full drop-shadow-md font-poppins text-black"
+                >
+                    <div class="card-body">
+                        <div class="card-title">
+                            {{ item.judul }}
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <IonIcon :icon="calendarOutline"></IonIcon>
+                            {{ moment(item.waktu_buat).format("D MMM YYYY") }} -
+                            {{
+                                moment(item.waktu_berakhir).format("D MMM YYYY")
+                            }}
+                        </div>
+                        <div
+                            class="flex justify-between items-center flex-row gap-2"
+                        >
+                            <div class="" v-if="item.complete">complete</div>
+                            <div class="" v-else>uncomplete</div>
+                            <div
+                                class="font-poppins font-semibold capitalize grid place-items-center"
+                                v-if="isKepalaRuangan"
+                            >
+                                PIC : {{ item?.user?.name }}
+                            </div>
+                            <div
+                                class="font-poppins font-semibold capitalize grid place-items-center"
+                                v-else
+                            >
+                                from : {{ item?.user?.name }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </template>
         </transition-group>
     </div>
 </template>
 <script lang="ts" setup>
-import moment from 'moment';
-import { search, calendarOutline,arrowBack } from 'ionicons/icons';
-import { IonIcon } from '@ionic/vue';
-import { ref } from 'vue';
-import axios from 'axios';
-import { useRouter } from 'vue-router';
-import { useStore } from 'vuex';
+import moment from "moment";
+import { search, calendarOutline, arrowBack } from "ionicons/icons";
+import { IonIcon } from "@ionic/vue";
+import { ref } from "vue";
+import axios from "axios";
+import { useRouter } from "vue-router";
+import { useStore } from "vuex";
 
-const router = useRouter()
+const router = useRouter();
 const store = useStore();
 const dataAssessment = ref([]);
 const getAssessment = async () => {
@@ -79,32 +159,42 @@ const getAssessment = async () => {
     });
 
     dataAssessment.value = data.data.data;
-}
+};
 
-const toAssessmentRoleList = (id: any) => {
-    router.push({
-        name: 'admin.archive.rolelist',
-        params: { id: `${id}` }
-    })
-}
+const toAssessmentRoleList = (job: any) => {
+    if (isKepalaRuangan) {
+        
+        router.push({ name: "admin.job.assessment_view_select",params : {
+                id : job?.identitas_pasien?.id ? job.identitas_pasien.id : 'null'
+        } });
+    } else {
+        if (!job.complete) {
+            store.state.assessment.id = job.id;
+            router.push({ name: "admin.job.identitaspasien" });
+        }
+        else {
+            router.push({ name: "admin.job.assessment_view_select",params : {
+                id : job.pasien?.id
+            } });
+        }
+    }
+};
 
-const getMeAssessment = async() => {
+const getMeAssessment = async () => {
     const data = await axios({
-        url  : 'assessment/me',
-        method : 'post',
-        data : {date : 'all'}
-    })
+        url: "assessment/me",
+        method: "post",
+        data: { date: "all" },
+    });
 
     dataAssessment.value = data.data.data;
-}
-const isKepalaRuangan = store.state.user?.role_id == 3
+};
+const isKepalaRuangan = store.state.user?.role_id == 3;
 
-if(isKepalaRuangan){
-    getAssessment()
-}else {
-    getMeAssessment()
+if (isKepalaRuangan) {
+    getAssessment();
+} else {
+    getMeAssessment();
 }
 </script>
-<style lang="">
-    
-</style>
+<style lang=""></style>

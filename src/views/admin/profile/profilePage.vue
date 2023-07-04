@@ -49,12 +49,6 @@
                 </div>
             </label>
         </div>
-
-    <div @click="logout()" class="card w-full shadow mt-14">
-        <div class="btn btn-primary capitalize font-poppins-semibold">
-            Log out
-        </div>
-    </div>
    </div>
 
 <modalComponent id="ubahPassword" title="Ubah Password">
@@ -99,13 +93,6 @@ import { arrowBack } from "ionicons/icons"
 const store = useStore()
 const route = useRouter()
 
-const logout = () => {
-    store.state.user = {}
-    store.state.token = null
-    route.push({
-        name: 'login'
-    })
-}
 const formPassword = useForm({
     old_password : null,
     password : null,
