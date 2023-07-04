@@ -21,6 +21,11 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('../views/layout/adminLayout.vue'),
     children: [
       {
+        path: '/materi',
+        name: 'admin.materi',
+        component: () => import('../views/admin/materi/materiPage.vue')
+      },
+      {
         path: '/menu',
         name: 'admin.menu',
         component: () => import('../views/admin/menu/menuPage.vue')

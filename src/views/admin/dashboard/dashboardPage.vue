@@ -1,20 +1,21 @@
 <template lang="">
-    <div class="relative justify-between items-center h-[5rem] my-[1rem]">
-        <div @click="router.push({name : 'admin.menu'})" class="absolute text-3xl ml-[6%] flex items-center h-[5rem] my-[1rem]">
-                <IonIcon :icon="arrowBack"></IonIcon>
+    <div class="relative justify-between items-center h-[5rem] my-[1rem] w-full">
+        <div class="absolute text-3xl ml-[6%] mr-[6%] flex items-center justify-between h-[5rem] my-[1rem] w-[88%]">
+                <IonIcon @click="router.push({name : 'admin.menu'})" :icon="arrowBack"></IonIcon>
+                <div class="flex justify-center items-center" v-if="isKepalaRuangan">
+                    <IonIcon @click="router.push({name : 'assessment'})" :icon="add"></IonIcon>
+                    <div class="text-sm">Create</div>
+                </div>
         </div>
         <div class="grid place-items-center h-[10%]">
             <div class="flex justify-between items-center h-[5rem] my-[1rem]">
                 <div class="flex flex-col drop-shadow-sm">
                     <div class="font-poppins-bold capitalize text-2xl">
-                        Materi
+                        Assessment
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="w-full h-[250px] overflow-hidden my-2 flex justify-center items-center px-5">
-        <video src="../../../assets/opening.mp4" class="w-full rounded-xl" controls></video>
     </div>
     <div class="grid place-items-center grid-cols-7 drop-shadow-sm mb-4 pb-2 border-b-2">
         <template v-for="(item,index) in rangeSeminggu" :key="index">
@@ -68,7 +69,7 @@
     </div>
 </template>
 <script lang="ts" setup>
-import { arrowBack,calendarOutline } from 'ionicons/icons';
+import { arrowBack,calendarOutline,add } from 'ionicons/icons';
 import { IonIcon } from '@ionic/vue';
 import moment from 'moment';
 import { ref } from 'vue';

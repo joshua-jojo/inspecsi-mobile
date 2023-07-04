@@ -1,14 +1,14 @@
 <template lang="">
     <div class="bg-primary h-screen absolute w-full min-h-[900px]">
         <div class="w-full h-[100%] relative">
-            <div @click="router.push({name : 'admin.menu'})" class="absolute text-white text-3xl ml-[6%] flex items-center h-[5rem] my-[1rem]">
+            <div @click="router.back()" class="absolute text-white text-3xl ml-[6%] flex items-center h-[5rem] my-[1rem]">
                 <IonIcon :icon="arrowBack"></IonIcon>
             </div>
             <div class="grid place-items-center h-[10%]">
                 <div class="flex justify-between items-center h-[5rem] my-[1rem]">
                     <div class="flex flex-col drop-shadow-sm">
                         <div class="font-poppins-bold capitalize text-2xl text-white">
-                            assessment
+                            new assessment
                         </div>
                     </div>
                 </div>
