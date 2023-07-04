@@ -7,13 +7,13 @@
             <div class="flex justify-between items-center h-[5rem] my-[1rem]">
                 <div class="flex flex-col drop-shadow-sm">
                     <div class="font-poppins-bold capitalize text-2xl">
-                        Dashboard
+                        Materi
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="w-full h-[250px] overflow-hidden my-2 flex justify-center items-center">
+    <div class="w-full h-[250px] overflow-hidden my-2 flex justify-center items-center px-5">
         <video src="../../../assets/opening.mp4" class="w-full rounded-xl" controls></video>
     </div>
     <div class="grid place-items-center grid-cols-7 drop-shadow-sm mb-4 pb-2 border-b-2">

@@ -1,6 +1,6 @@
 <template lang="">
     <div class="h-screen flex flex-col justify-center items-center w-full">
-        <div class="h-[100%] w-[90%] overflow-auto scrollbar-hide relative">
+        <div class="h-full w-full overflow-auto scrollbar-hide relative">
             <router-view v-slot="{ Component }">
                 <transition name="slidepage">
                     <div :key="$route.name" class="absolute w-full h-full bg-white">
