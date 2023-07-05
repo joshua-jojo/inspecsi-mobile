@@ -163,6 +163,26 @@ const routes: Array<RouteRecordRaw> = [
       }
     ]
   },
+  {
+    path: '/petunjuk',
+    children: [
+      {
+        path: '',
+        name: 'petunjuk',
+        component: () => import('../views/admin/petunjuk/petunjukPage.vue'),
+      }
+    ]
+  },
+  {
+    path: '/tentang',
+    children: [
+      {
+        path: '',
+        name: 'tentang',
+        component: () => import('../views/admin/tentang/tentangPage.vue'),
+      }
+    ]
+  },
 
 ]
 

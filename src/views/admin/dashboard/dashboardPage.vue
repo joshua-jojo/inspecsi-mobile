@@ -12,9 +12,9 @@
             <div
                 class="flex justify-center items-center"
                 v-if="isKepalaRuangan"
+                @click="router.push({ name: 'assessment' })"
             >
                 <IonIcon
-                    @click="router.push({ name: 'assessment' })"
                     :icon="add"
                 ></IonIcon>
                 <div class="text-sm">Create</div>

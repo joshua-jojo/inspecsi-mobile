@@ -47,13 +47,13 @@
                 <div class="text-center h-max">Ubah Password</div>
             </div>
         </div>
-        <div class="card shadow-md bg-base-100 p-4" @click="profile">
+        <div class="card shadow-md bg-base-100 p-4" @click="petunjuk">
             <div class="card-body h-[150px] p-4 flex flex-col">
                 <img src="../../../assets/icons/menu-profile.svg" class="h-[80%]">
                 <div class="text-center h-max">Petunjuk</div>
             </div>
         </div>
-        <div class="card shadow-md bg-base-100 p-4" @click="profile">
+        <div class="card shadow-md bg-base-100 p-4" @click="tentang">
             <div class="card-body h-[150px] p-4 flex flex-col">
                 <img src="../../../assets/icons/menu-profile.svg" class="h-[80%]">
                 <div class="text-center h-max">Tentang</div>
@@ -96,6 +96,16 @@ const profile = () => {
 const materi = () => {
     router.push({
         name : "admin.materi"
+    })
+}
+const petunjuk = () => {
+    router.push({
+        name : "petunjuk"
+    })
+}
+const tentang = () => {
+    router.push({
+        name : "tentang"
     })
 }
 const logout = () => {

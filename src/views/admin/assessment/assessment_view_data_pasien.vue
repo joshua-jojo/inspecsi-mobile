@@ -33,6 +33,8 @@ const get_data = () => {
             loading.value.show = false;
         },
         () => {
+            console.log('error');
+            
             loading.value.show = true;
             loading.value.status = false;
             loading.value.title = "Koneksi error. Segarkan halaman";
@@ -126,7 +128,7 @@ get_data();
                         </div>
                         <div class="">:</div>
                         <div class="w-max">
-                            {{ data_pasien?.riwayat_kesehatan.keluhan_utama }}
+                            {{ data_pasien?.riwayat_kesehatan?.keluhan_utama }}
                         </div>
                     </div>
                     <div class="flex gap-2">
@@ -137,7 +139,7 @@ get_data();
                         <div class="w-max">
                             {{
                                 data_pasien?.riwayat_kesehatan
-                                    .riwayat_kesehatan_sekarang
+                                    ?.riwayat_kesehatan_sekarang
                             }}
                         </div>
                     </div>
@@ -152,7 +154,7 @@ get_data();
                         <div class="w-max">
                             {{
                                 data_pasien?.riwayat_kesehatan
-                                    .penyakit_genetik > 1
+                                    ?.penyakit_genetik > 1
                                     ? "ya"
                                     : "tidak"
                             }}
@@ -160,7 +162,7 @@ get_data();
                     </div>
                     <div
                         class="flex gap-2 ml-3"
-                        v-if="data_pasien?.riwayat_kesehatan.penyakit_genetik"
+                        v-if="data_pasien?.riwayat_kesehatan?.penyakit_genetik"
                     >
                         <div class="w-[180px] capitalize">
                             Keterangan penyakit genetik
@@ -169,13 +171,13 @@ get_data();
                         <div class="w-full">
                             {{
                                 data_pasien?.riwayat_kesehatan
-                                    .penyakit_genetik_keterangan
+                                    ?.penyakit_genetik_keterangan
                             }}
                         </div>
                     </div>
                     <div
                         class="flex gap-2 ml-3"
-                        v-if="data_pasien?.riwayat_kesehatan.penyakit_genetik"
+                        v-if="data_pasien?.riwayat_kesehatan?.penyakit_genetik"
                     >
                         <div class="w-[180px] capitalize">
                             Sejak kapan penyakit genetik
@@ -184,7 +186,7 @@ get_data();
                         <div class="w-max">
                             {{
                                 data_pasien?.riwayat_kesehatan
-                                    .penyakit_genetik_sejak_kapan
+                                    ?.penyakit_genetik_sejak_kapan
                             }}
                         </div>
                     </div>
@@ -193,7 +195,7 @@ get_data();
                         <div class="">:</div>
                         <div class="w-max">
                             {{
-                                data_pasien?.riwayat_kesehatan.trauma > 0
+                                data_pasien?.riwayat_kesehatan?.trauma > 0
                                     ? "ya"
                                     : "tidak"
                             }}
@@ -204,7 +206,7 @@ get_data();
                         <div class="">:</div>
                         <div class="w-max">
                             {{
-                                data_pasien?.riwayat_kesehatan.operasi > 0
+                                data_pasien?.riwayat_kesehatan?.operasi > 0
                                     ? "ya"
                                     : "tidak"
                             }}
@@ -215,7 +217,7 @@ get_data();
                         <div class="">:</div>
                         <div class="w-max">
                             {{
-                                data_pasien?.riwayat_kesehatan.lainnya > 0
+                                data_pasien?.riwayat_kesehatan?.lainnya > 0
                                     ? "ya"
                                     : "tidak"
                             }}
@@ -223,24 +225,24 @@ get_data();
                     </div>
                     <div
                         class="flex gap-2 ml-3"
-                        v-if="data_pasien?.riwayat_kesehatan.lainnya"
+                        v-if="data_pasien?.riwayat_kesehatan?.lainnya"
                     >
                         <div class="w-[180px] capitalize">penyakit lainnya</div>
                         <div class="">:</div>
                         <div class="w-max">
                             {{
-                                data_pasien?.riwayat_kesehatan.lainnya_penyakit
+                                data_pasien?.riwayat_kesehatan?.lainnya_penyakit
                             }}
                         </div>
                     </div>
                     <div
                         class="flex gap-2 ml-3"
-                        v-if="data_pasien?.riwayat_kesehatan.lainnya"
+                        v-if="data_pasien?.riwayat_kesehatan?.lainnya"
                     >
                         <div class="w-[180px] capitalize">sejak kapan</div>
                         <div class="">:</div>
                         <div class="w-max">
-                            {{ data_pasien?.riwayat_kesehatan.lainnya_kapan }}
+                            {{ data_pasien?.riwayat_kesehatan?.lainnya_kapan }}
                         </div>
                     </div>
                     <div class="flex gap-2">
@@ -250,7 +252,7 @@ get_data();
                         <div class="">:</div>
                         <div class="w-max">
                             {{
-                                data_pasien?.riwayat_kesehatan.auto_anamnesa > 0
+                                data_pasien?.riwayat_kesehatan?.auto_anamnesa > 0
                                     ? "ya"
                                     : "tidak"
                             }}
@@ -263,7 +265,7 @@ get_data();
                         <div class="">:</div>
                         <div class="w-max">
                             {{
-                                data_pasien?.riwayat_kesehatan.auto_anamnesa > 0
+                                data_pasien?.riwayat_kesehatan?.auto_anamnesa > 0
                                     ? "tidak"
                                     : "ya"
                             }}
@@ -271,13 +273,13 @@ get_data();
                     </div>
                     <div
                         class="flex gap-2 ml-3"
-                        v-if="data_pasien?.riwayat_kesehatan.auto_anamnesa == 0"
+                        v-if="data_pasien?.riwayat_kesehatan?.auto_anamnesa == 0"
                     >
                         <div class="w-[180px] capitalize">sejak kapan</div>
                         <div class="">:</div>
                         <div class="w-max">
                             {{
-                                data_pasien?.riwayat_kesehatan.pemberi_informasi
+                                data_pasien?.riwayat_kesehatan?.pemberi_informasi
                             }}
                         </div>
                     </div>
