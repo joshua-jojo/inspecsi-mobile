@@ -1,11 +1,24 @@
 <template lang="">
-    <div class="relative justify-between items-center h-[5rem] my-[1rem] w-full">
-        <div class="absolute text-3xl ml-[6%] mr-[6%] flex items-center justify-between h-[5rem] my-[1rem] w-[88%]">
-                <IonIcon @click="router.push({name : 'admin.menu'})" :icon="arrowBack"></IonIcon>
-                <div class="flex justify-center items-center" v-if="isKepalaRuangan">
-                    <IonIcon @click="router.push({name : 'assessment'})" :icon="add"></IonIcon>
-                    <div class="text-sm">Create</div>
-                </div>
+    <div
+        class="relative justify-between items-center h-[5rem] my-[1rem] w-full"
+    >
+        <div
+            class="absolute text-3xl ml-[6%] mr-[6%] flex items-center justify-between h-[5rem] my-[1rem] w-[88%]"
+        >
+            <IonIcon
+                @click="router.push({ name: 'admin.menu' })"
+                :icon="arrowBack"
+            ></IonIcon>
+            <div
+                class="flex justify-center items-center"
+                v-if="isKepalaRuangan"
+            >
+                <IonIcon
+                    @click="router.push({ name: 'assessment' })"
+                    :icon="add"
+                ></IonIcon>
+                <div class="text-sm">Create</div>
+            </div>
         </div>
         <div class="grid place-items-center h-[10%]">
             <div class="flex justify-between items-center h-[5rem] my-[1rem]">
@@ -17,50 +30,127 @@
             </div>
         </div>
     </div>
-    <div class="grid place-items-center grid-cols-7 drop-shadow-sm mb-4 pb-2 border-b-2">
-        <template v-for="(item,index) in rangeSeminggu" :key="index">
-            <div @click="getByDay(item)" class="flex font-poppins flex-col justify-center p-4 items-center gap-1 w-full text-[#537FE7]" :class="{'bg-primary card text-white' : item.active,'text-red-500' : item.hari == 'Ming','text-[#537FE7]' : item.hari != 'Ming'}">
+    <div
+        class="grid place-items-center grid-cols-7 drop-shadow-sm mb-4 pb-2 border-b-2"
+    >
+        <template v-for="(item, index) in rangeSeminggu" :key="index">
+            <div
+                @click="getByDay(item)"
+                class="flex font-poppins flex-col justify-center p-4 items-center gap-1 w-full text-[#537FE7]"
+                :class="{
+                    'bg-primary card text-white': item.active,
+                    'text-red-500': item.hari == 'Ming',
+                    'text-[#537FE7]': item.hari != 'Ming',
+                }"
+            >
                 <div class="text-lg">
-                    {{item.hari}}
+                    {{ item.hari }}
                 </div>
                 <div class="text-lg">
-                    {{item.tanggal}}
+                    {{ item.tanggal }}
                 </div>
             </div>
         </template>
     </div>
     <div class="grid place-items-center gap-4 mb-4">
-        <div v-show="false" class="card bg-[#537FE7] w-full drop-shadow-gray-700 drop-shadow-md font-poppins text-white">
+        <div
+            v-show="false"
+            class="card bg-[#537FE7] w-full drop-shadow-gray-700 drop-shadow-md font-poppins text-white"
+        >
             <div class="card-body">
                 <div class="card-title">
                     Supervisi Dokumentasi Asuhan Keperawatan
                 </div>
                 <div class="flex items-center gap-2">
                     <IonIcon :icon="calendarOutline"></IonIcon>
-                    {{moment().format('D MMM YYYY')}}
+                    {{ moment().format("D MMM YYYY") }}
                 </div>
                 <div class="flex justify-end items-center flex-row gap-2">
-                    <div class=" font-poppins-semibold capitalize grid place-items-center">ketua tim</div>
+                    <div
+                        class="font-poppins-semibold capitalize grid place-items-center"
+                    >
+                        ketua tim
+                    </div>
                     <div class="h-[2.4rem]">
-                        <img src="https://picsum.photos/200" class="h-full rounded-full" alt="" srcset="">
+                        <img
+                            src="https://picsum.photos/200"
+                            class="h-full rounded-full"
+                            alt=""
+                            srcset=""
+                        />
                     </div>
                 </div>
             </div>
         </div>
-        <transition-group name="row">
-            <div @click="toAssessmentRoleList(item.id)" class="card bg-[#E9F8F9] w-full drop-shadow-md font-poppins text-black" v-for="(item) in dataAssessment" :key="item.id">
+        <transition-group name="row" v-if="isKepalaRuangan">
+            <template v-for="item in dataAssessment" :key="item.id">
+                <div
+                    @click="toAssessmentRoleList(job)"
+                    class="card bg-[#E9F8F9] w-full drop-shadow-md font-poppins text-black"
+                    v-for="(job, index) in item.assessment_job"
+                    :key="index"
+                >
+                    <div class="card-body">
+                        <div class="card-title">
+                            {{ item?.judul }}
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <IonIcon :icon="calendarOutline"></IonIcon>
+                            {{ moment(item?.waktu_buat).format("D MMM YYYY") }}
+                        </div>
+                        <div
+                            class="flex justify-between items-center flex-row gap-2"
+                        >
+                            <div class="" v-if="job.complete">complete</div>
+                            <div class="" v-else>uncomplete</div>
+                            <div
+                                class="font-poppins font-semibold capitalize grid place-items-center"
+                                v-if="isKepalaRuangan"
+                            >
+                                PIC : {{ job?.user?.name }}
+                            </div>
+                            <div
+                                class="font-poppins font-semibold capitalize grid place-items-center"
+                                v-else
+                            >
+                                from : {{ item?.user?.name }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </template>
+        </transition-group>
+        <transition-group name="row" v-else>
+            <div
+                @click="toAssessmentRoleList(item)"
+                class="card bg-[#E9F8F9] w-full drop-shadow-md font-poppins text-black"
+                v-for="item in dataAssessment"
+                :key="item.id"
+            >
                 <div class="card-body">
                     <div class="card-title">
-                        {{item?.judul}}
+                        {{ item?.judul }}
                     </div>
                     <div class="flex items-center gap-2">
                         <IonIcon :icon="calendarOutline"></IonIcon>
-                        {{moment(item?.waktu_buat).format('D MMM YYYY')}}
+                        {{ moment(item?.waktu_buat).format("D MMM YYYY") }}
                     </div>
-                    <div class="flex justify-end items-center flex-row gap-2">
-                        <div class=" font-poppins font-semibold capitalize grid place-items-center">{{item?.user?.name}}</div>
-                        <div class="h-[2.4rem]">
-                            <img src="https://picsum.photos/200" class="h-full rounded-full" alt="" srcset="">
+                    <div
+                        class="flex justify-between items-center flex-row gap-2"
+                    >
+                        <div class="" v-if="item.complete">complete</div>
+                        <div class="" v-else>uncomplete</div>
+                        <div
+                            class="font-poppins font-semibold capitalize grid place-items-center"
+                            v-if="isKepalaRuangan"
+                        >
+                            PIC : {{ item?.user?.name }}
+                        </div>
+                        <div
+                            class="font-poppins font-semibold capitalize grid place-items-center"
+                            v-else
+                        >
+                            from : {{ item?.user?.name }}
                         </div>
                     </div>
                 </div>
@@ -69,105 +159,131 @@
     </div>
 </template>
 <script lang="ts" setup>
-import { arrowBack,calendarOutline,add } from 'ionicons/icons';
-import { IonIcon } from '@ionic/vue';
-import moment from 'moment';
-import { ref } from 'vue';
-import { useStore } from 'vuex'
-import axios from 'axios';
-import { useRouter } from 'vue-router';
+import { arrowBack, calendarOutline, add } from "ionicons/icons";
+import { IonIcon } from "@ionic/vue";
+import moment from "moment";
+import { ref } from "vue";
+import { useStore } from "vuex";
+import axios from "axios";
+import { useRouter } from "vue-router";
 
-const store = useStore()
-const router = useRouter()
+const store = useStore();
+const router = useRouter();
 const rangeSeminggu: any = ref([]);
 
 const tanggal = () => {
     const days = ["Ming", "Sen", "Sel", "Rab", "Kam", "Jum", "Sab"];
-    const waktuSekarang = new Date()
-    const indexHari = waktuSekarang.getDay()
+    const waktuSekarang = new Date();
+    const indexHari = waktuSekarang.getDay();
 
     if (indexHari > 0) {
-        const hariSenin = new Date(waktuSekarang.setDate(waktuSekarang.getDate() - (indexHari)))
+        const hariSenin = new Date(
+            waktuSekarang.setDate(waktuSekarang.getDate() - indexHari)
+        );
         for (let index = 0; index < 7; index++) {
-            const dataLoop = new Date(hariSenin.setDate(hariSenin.getDate() + 1))
-            const month = (dataLoop.getMonth() + 1)
+            const dataLoop = new Date(
+                hariSenin.setDate(hariSenin.getDate() + 1)
+            );
+            const month = dataLoop.getMonth() + 1;
 
             const dataHari = {
                 fullDate: `${dataLoop.getFullYear()}-${month}-${dataLoop.getDate()}`,
                 hari: days[dataLoop.getDay()],
                 tanggal: dataLoop.getDate(),
-                active: (new Date()).getDate() == dataLoop.getDate()
-            }
-            rangeSeminggu.value.push(dataHari)
+                active: new Date().getDate() == dataLoop.getDate(),
+            };
+            rangeSeminggu.value.push(dataHari);
         }
     } else {
-        const hariSenin = new Date(waktuSekarang.setDate(waktuSekarang.getDate()+1))
+        const hariSenin = new Date(
+            waktuSekarang.setDate(waktuSekarang.getDate() + 1)
+        );
         for (let index = 0; index < 7; index++) {
-            const dataLoop = new Date(hariSenin.setDate(hariSenin.getDate() - 1))
-            const month = (dataLoop.getMonth() + 1)
+            const dataLoop = new Date(
+                hariSenin.setDate(hariSenin.getDate() - 1)
+            );
+            const month = dataLoop.getMonth() + 1;
 
             const dataHari = {
                 fullDate: `${dataLoop.getFullYear()}-${month}-${dataLoop.getDate()}`,
                 hari: days[dataLoop.getDay()],
                 tanggal: dataLoop.getDate(),
-                active: (new Date()).getDate() == dataLoop.getDate()
-            }
-            rangeSeminggu.value = [dataHari,...rangeSeminggu.value]
+                active: new Date().getDate() == dataLoop.getDate(),
+            };
+            rangeSeminggu.value = [dataHari, ...rangeSeminggu.value];
         }
     }
-}
+};
 function getByDay(date: any) {
-    date.active = true
+    date.active = true;
     rangeSeminggu.value.forEach((element: any) => {
         if (element.tanggal != date.tanggal) {
-            element.active = false
+            element.active = false;
         }
     });
-    if(isKepalaRuangan){
-        getAssessment(date.fullDate)
-    }
-    else {
-        getMeAssessment(date.fullDate)
+    if (isKepalaRuangan) {
+        getAssessment(date.fullDate);
+    } else {
+        getMeAssessment(date.fullDate);
     }
 }
 
 const dataAssessment = ref([]);
 const getAssessment = async (date: any) => {
     const data = await axios({
-        url: 'assessment/filter',
-        method: 'post',
+        url: "assessment/filter",
+        method: "post",
         data: { date: date },
-    })
+    });
 
     dataAssessment.value = data.data.data;
-}
-const dateNow = new Date()
-const toAssessmentRoleList = (id: any) => {
-    router.push({
-        name: 'admin.archive.rolelist',
-        params: { id: `${id}` }
-    })
-}
+};
+const dateNow = new Date();
+const toAssessmentRoleList = (job: any) => {
+    if (isKepalaRuangan) {
+        router.push({ name: "admin.job.assessment_view_select",params : {
+                id : job?.identitas_pasien?.id ? job.identitas_pasien.id : 'null'
+        } });
+    } else {
+        if (!job.complete) {
+            store.state.assessment.id = job.id;
+            router.push({ name: "admin.job.identitaspasien" });
+        } else {
+            router.push({
+                name: "admin.job.assessment_view_select",
+                params: {
+                    id: job.pasien?.id,
+                },
+            });
+        }
+    }
+};
 
-const getMeAssessment = async(date : any) => {
+const getMeAssessment = async (date: any) => {
     const data = await axios({
-        url  : 'assessment/me',
-        method : 'post',
+        url: "assessment/me",
+        method: "post",
         data: { date: date },
-    })
+    });
 
     dataAssessment.value = data.data.data;
-}
-const isKepalaRuangan = store.state.user?.role_id == 3
+};
+const isKepalaRuangan = store.state.user?.role_id == 3;
 
-if(isKepalaRuangan){
-    getAssessment(`${dateNow.getFullYear()}-${dateNow.getMonth() + 1}-${dateNow.getDate()}`)
-}else {
-    getMeAssessment(`${dateNow.getFullYear()}-${dateNow.getMonth() + 1}-${dateNow.getDate()}`)
+if (isKepalaRuangan) {
+    getAssessment(
+        `${dateNow.getFullYear()}-${
+            dateNow.getMonth() + 1
+        }-${dateNow.getDate()}`
+    );
+} else {
+    getMeAssessment(
+        `${dateNow.getFullYear()}-${
+            dateNow.getMonth() + 1
+        }-${dateNow.getDate()}`
+    );
 }
 
-tanggal()
+tanggal();
 </script>
-<style lang="">
-    
-</style>
+<style lang=""></style>
