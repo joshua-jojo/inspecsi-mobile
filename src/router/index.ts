@@ -183,6 +183,17 @@ const routes: Array<RouteRecordRaw> = [
       }
     ]
   },
+  {
+    path: '/penilaian',
+    children: [
+      {
+        path: '/:id',
+        name: 'penilaian',
+        component: () => import('../views/admin/penilaian/penilaianPage.vue'),
+        props: true
+      }
+    ]
+  },
 
 ]
 

@@ -183,7 +183,38 @@ const store = createStore({
                     }
                 }
             },
-            judul_job: null
+            judul_job: null,
+            penilaian : {
+                pertanyaan_1 : 0,
+                pertanyaan_2 : 0,
+                pertanyaan_3 : 0,
+                pertanyaan_4 : 0,
+                pertanyaan_5 : 0,
+                pertanyaan_6 : 0,
+                pertanyaan_7 : 0,
+                pertanyaan_8 : 0,
+                pertanyaan_9 : 0,
+                pertanyaan_10 : 0,
+                pertanyaan_11 : 0,
+                pertanyaan_12 : 0,
+                pertanyaan_13 : 0,
+                pertanyaan_14 : 0,
+                pertanyaan_15 : 0,
+                pertanyaan_16 : 0,
+                pertanyaan_17 : 0,
+                pertanyaan_18 : 0,
+                pertanyaan_19 : 0,
+                pertanyaan_20 : 0,
+                pertanyaan_21 : 0,
+                pertanyaan_22 : 0,
+                pertanyaan_23 : 0,
+                pertanyaan_24 : 0,
+                pertanyaan_25 : 0,
+                pertanyaan_26 : 0,
+                pertanyaan_27 : 0,
+                tanggapan : null,
+                saran : null,
+            }
         }
     },
     getters: {

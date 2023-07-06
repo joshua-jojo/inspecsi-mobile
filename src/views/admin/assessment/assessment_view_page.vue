@@ -26,11 +26,20 @@ const go_data = () => {
         }
     })
 }
+const penilaian = () => {
+    router.push({
+        name : 'penilaian',
+        params : {
+            id : props.id
+        }
+    })
+}
 </script>
 <template lang="">
     <div class="flex flex-col gap-5">
         <button @click="go_data" :class="{'btn-disabled' : props.id == 'null'}" class="btn btn-primary">{{props.id != 'null' ? "Data Pasien" : "Belum Ada Data"}}</button>
         <button @click="go_catatan" :class="{'btn-disabled' : props.id == 'null'}" class="btn btn-primary">{{props.id != 'null' ? "Catatan perkembangan pasien" : "Belum Ada Catatan"}}</button>
+        <button @click="penilaian" :class="{'btn-disabled' : props.id == 'null'}" class="btn btn-primary">{{props.id != 'null' ? "Penilaian" : "Belum Ada Penilaian"}}</button>
         <button class="btn" @click="router.back()">Back</button>
     </div>
 </template>
