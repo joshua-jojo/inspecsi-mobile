@@ -1,11 +1,11 @@
 <template lang="">
-    <div class="h-[240px] w-full bg-primary rounded-b-[80px]">
-        <div class="flex justify-between items-center h-[5rem] my-[1rem] px-5 pt-16">
+    <div class="h-[240px] w-full bg-primary rounded-b-[80px] text-primary-content">
+        <div class="flex justify-between items-center h-[5rem] px-5 pt-16">
             <div class="flex flex-col drop-shadow-sm">
-                <div class="font-poppins-bold capitalize text-2xl text-base-100">
+                <div class="font-poppins-bold capitalize text-2xl">
                     welcome,
                 </div>
-                <div class="capitalize font-poppins-bold text-xl text-base-100">
+                <div class="capitalize font-poppins-bold text-xl">
                     {{store.state.user?.name}}
                 </div>
             </div>
@@ -37,31 +37,31 @@
         </div>
         <div class="card shadow-md bg-base-100 p-4" @click="users" v-if="Admin || SuperAdmin">
             <div class="card-body h-[150px] p-4 flex flex-col">
-                <img src="../../../assets/icons/menu-users.svg" class="h-[80%]">
+                <img src="../../../assets/icons/menu-profile.svg" class="h-[80%]">
                 <div class="text-center h-max">Users</div>
             </div>
         </div>
         <div class="card shadow-md bg-base-100 p-4" @click="profile">
             <div class="card-body h-[150px] p-4 flex flex-col">
-                <img src="../../../assets/icons/menu-profile.svg" class="h-[80%]">
-                <div class="text-center h-max">Ubah Password</div>
+                <img src="../../../assets/icons/menu-password.svg" class="h-[80%]">
+                <div class="text-center h-max -mt-2">Ubah Password</div>
             </div>
         </div>
         <div class="card shadow-md bg-base-100 p-4" @click="petunjuk">
             <div class="card-body h-[150px] p-4 flex flex-col">
-                <img src="../../../assets/icons/menu-profile.svg" class="h-[80%]">
+                <img src="../../../assets/icons/menu-petunjuk.svg" class="h-[80%]">
                 <div class="text-center h-max">Petunjuk</div>
             </div>
         </div>
         <div class="card shadow-md bg-base-100 p-4" @click="tentang">
             <div class="card-body h-[150px] p-4 flex flex-col">
-                <img src="../../../assets/icons/menu-profile.svg" class="h-[80%]">
+                <img src="../../../assets/icons/menu-tentang.svg" class="h-[80%]">
                 <div class="text-center h-max">Tentang</div>
             </div>
         </div>
         <div class="card shadow-md bg-base-100 p-4" @click="logout">
             <div class="card-body h-[150px] p-4 flex flex-col">
-                <img src="../../../assets/icons/menu-profile.svg" class="h-[80%]">
+                <img src="../../../assets/icons/menu-logout.svg" class="h-[80%]">
                 <div class="text-center h-max">Logout</div>
             </div>
         </div>

@@ -52,7 +52,8 @@ const get_data = () => {
 get_data();
 </script>
 <template lang="">
-    <loading_component
+    <div class="px-4">
+        <loading_component
         @refresh="get_data"
         v-if="loading.show"
         :status="loading.status"
@@ -1305,5 +1306,6 @@ get_data();
                 <!--  -->
             </div>
         </div>
+    </div>
     </div>
 </template>

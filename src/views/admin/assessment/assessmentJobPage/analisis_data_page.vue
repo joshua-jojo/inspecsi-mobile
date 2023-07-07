@@ -1,5 +1,6 @@
 <template>
-    <div class="flex flex-col gap-5">
+    <div class="px-4">
+        <div class="flex flex-col gap-5">
         <div class="flex flex-col gap-2">
             <div class="form-control">
                 <label class="label">
@@ -30,7 +31,34 @@
         <div class="flex flex-col gap-2">
             <div class="flex flex-col w-full card shadow-md" v-for="(item, index) in data_analisis" :key="index">
                 <div class="card-body">
-                    <div class="flex overflow-hidden gap-2">
+                    <div class="card-title">Analisis {{ index+1 }}</div>
+                    <div class="overflow-auto">
+                        <table class="table table-compact table-zebra w-full">
+                        <tbody>
+                            <tr>
+                            <th>Subjektif</th>
+                            <th>:</th>
+                            <td>{{ item.subjektif }}</td>
+                        </tr>
+                        <tr>
+                            <th>Objektif</th>
+                            <th>:</th>
+                            <td>{{ item.objektif }}</td>
+                        </tr>
+                        <tr>
+                            <th>Penyebab</th>
+                            <th>:</th>
+                            <td>{{ item.penyebab }}</td>
+                        </tr>
+                        <tr>
+                            <th>Masalah</th>
+                            <th>:</th>
+                            <td>{{ item.masalah }}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    </div>
+                    <!-- <div class="flex overflow-hidden gap-2">
                         <div class="w-[90px] ">Subjektif</div>
                         <div class="w-[10px] ">:</div>
                         <div class="w-full">{{ item.subjektif }}</div>
@@ -49,12 +77,13 @@
                         <div class="w-[90px] ">Masalah</div>
                         <div class="w-[10px] ">:</div>
                         <div class="w-full">{{ item.subjektif }}</div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
-        <button :disabled="!data_analisis.length" @click="finish" class="btn btn-primary">Selesai</button>
-        <div class="btn btn-outline btn-primary" @click="router.back()"> back </div>
+        <button :disabled="!data_analisis.length" @click="finish" class="btn btn-block my-1 btn-primary">Selesai</button>
+        <div class="btn btn-block my-1 btn-outline btn-primary" @click="router.back()"> back </div>
+    </div>
     </div>
 </template>
 <script lang="ts" setup>

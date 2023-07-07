@@ -740,7 +740,8 @@ watch(() => select_diagnosa.value,
     })
 </script>
 <template lang="">
-    <div class="flex flex-col gap-8">
+    <div class="px-4">
+        <div class="flex flex-col gap-8">
         <div class="form-control">
             <label class="label">Pilih Diagnosa</label>
             <select v-model="select_diagnosa" class="select select-bordered">
@@ -759,10 +760,11 @@ watch(() => select_diagnosa.value,
                 </div>
                 <div class="w-full capitalize">{{item.keterangan}}</div>
                 <div class="w-max">
-                    <button class="btn btn-xs btn-error" @click="delete_diagnosa(index)">hapus</button>
+                    <button class="btn btn-block my-1 btn-xs btn-error" @click="delete_diagnosa(index)">hapus</button>
                 </div>
             </div>
         </div>
-        <button :disabled="!diagnosa.length" @click="selesai" class="btn btn-primary">simpan</button>
+        <button :disabled="!diagnosa.length" @click="selesai" class="btn btn-block my-1 btn-primary">simpan</button>
+    </div>
     </div>
 </template>

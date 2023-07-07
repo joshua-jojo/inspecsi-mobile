@@ -24,7 +24,8 @@ async function nextPage() {
 </script>
 
 <template>
-    <div class="form-control capitalize">
+    <div class="px-4">
+        <div class="form-control capitalize">
         <label class="label">Apakah ada keluhan nyeri</label>
         <label class="label w-max gap-2">
             <input type="radio" class="radio" name="alergi" v-model="asesmen_nyeri.status" :value="true">
@@ -66,6 +67,7 @@ async function nextPage() {
         <input type="text" class="input input-bordered" v-model="asesmen_nyeri.durasi">
     </div>
 
-    <button class="btn btn-primary mt-5" @click="nextPage">Next</button>
-    <div class="btn btn-outline btn-primary" @click="router.back()"> back </div>
+    <button class="btn btn-block my-1 btn-primary mt-5" @click="nextPage">Next</button>
+    <div class="btn btn-block my-1 btn-outline btn-primary" @click="router.back()"> back </div>
+    </div>
 </template>

@@ -34,12 +34,14 @@ async function nextPage() {
 </script>
 
 <template>
-    <div class="form-control">
+    <div class="px-4">
+        <div class="form-control">
         <label class="label"> Kriteria Pemulangan Kritis</label>
         <label class="label gap-2 w-max capitalize" v-for="(item, index) in listPerencanaan" :key="index">
             <input type="checkbox" class="checkbox" v-model="perencanaan_pemulangan_pasien" :value="item"> {{ item }}
         </label>
     </div>
-    <button class="btn btn-primary mt-5" @click="nextPage">Next</button>
-    <div class="btn btn-outline btn-primary" @click="router.back()"> back </div>
+    <button class="btn btn-block my-1 btn-primary mt-5" @click="nextPage">Next</button>
+    <div class="btn btn-block my-1 btn-outline btn-primary" @click="router.back()"> back </div>
+    </div>
 </template>

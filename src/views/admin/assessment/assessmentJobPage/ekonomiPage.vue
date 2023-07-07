@@ -28,7 +28,8 @@ async function nextPage() {
 </script>
 
 <template>
-    <div class="form-control">
+    <div class="px-4">
+        <div class="form-control">
         <label class="label">Status Pekerjaan</label>
         <input type="text" class="input input-bordered" v-model="ekonomi.status_pekerjaaan">
     </div>
@@ -41,6 +42,7 @@ async function nextPage() {
         <input type="text" class="input input-bordered" v-model="ekonomi.penanggung_jawab_pasien">
     </div>
 
-    <button class="btn btn-primary mt-5" @click="nextPage">Next</button>
-    <div class="btn btn-outline btn-primary" @click="router.back()"> back </div>
+    <button class="btn btn-block my-1 btn-primary mt-5" @click="nextPage">Next</button>
+    <div class="btn btn-block my-1 btn-outline btn-primary" @click="router.back()"> back </div>
+    </div>
 </template>

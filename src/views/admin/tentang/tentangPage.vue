@@ -7,7 +7,7 @@ const router = useRouter()
 </script>
 <template lang="">
     <div
-        class="relative justify-between items-center h-[5rem] my-[1rem] w-full"
+        class="relative justify-between items-center h-[6rem] bg-primary text-primary-content w-full"
     >
         <div
             class="absolute text-3xl ml-[6%] mr-[6%] flex items-center justify-between h-[5rem] my-[1rem] w-[88%]"
@@ -26,5 +26,10 @@ const router = useRouter()
                 </div>
             </div>
         </div>
+    </div>
+    <div>
+        <img src="../../../assets/logo.png" alt="" class="mt-20">
+        <p class="text-center font-bold text-md">Aplikasi Mobile Supervisi Keperawatan</p>
+        <p class="text-center my-4">v1.0.0</p>
     </div>
 </template>

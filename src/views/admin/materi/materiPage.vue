@@ -1,6 +1,6 @@
 <template lang="">
-     <div class="relative justify-between items-center h-[5rem] my-[1rem] w-full">
-        <div class="absolute text-3xl ml-[6%] mr-[6%] flex items-center justify-between h-[5rem] my-[1rem] w-[88%]">
+     <div class="relative justify-between items-center h-[6rem] w-full bg-primary text-primary-content">
+        <div class="absolute text-3xl ml-[6%] mr-[6%] flex items-center justify-between h-[5rem] my-[1rem] w-[88%] text-base-100">
                 <IonIcon @click="router.push({name : 'admin.menu'})" :icon="arrowBack"></IonIcon>
         </div>
         <div class="grid place-items-center h-[10%]">

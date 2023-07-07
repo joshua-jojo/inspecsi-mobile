@@ -43,7 +43,8 @@ async function nextPage() {
 </script>
 
 <template>
-    <div class="form-control mb-4">
+    <div class="px-4">
+        <div class="form-control mb-4">
         <label class="label capitalize">1. Psikologi</label>
         <label class="label capitalize w-max gap-2">
             <input v-model="psiko_sosial_spiritual.psikologis.status" type="radio" class="radio" name="psikologi"
@@ -142,6 +143,7 @@ async function nextPage() {
         </div>
     </div>
 
-    <button class="btn btn-primary mt-5" @click="nextPage">Next</button>
-    <div class="btn btn-outline btn-primary" @click="router.back()"> back </div>
+    <button class="btn btn-block my-1 btn-primary mt-5" @click="nextPage">Next</button>
+    <div class="btn btn-block my-1 btn-outline btn-primary" @click="router.back()"> back </div>
+    </div>
 </template>

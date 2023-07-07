@@ -39,7 +39,8 @@ function nextPage() {
 </script>
 
 <template>
-    <div class="form-control">
+    <div class="px-4">
+        <div class="form-control">
         <label class="label capitalize">keluhan utama</label>
         <input v-model="riwayatKesehatan.keluhan_utama" type="text" class="input input-bordered">
     </div>
@@ -128,6 +129,7 @@ function nextPage() {
         </div>
     </template>
     
-    <button class="btn btn-primary mt-5" @click="nextPage">Next</button>
-    <div class="btn btn-outline btn-primary" @click="router.back()"> back </div>
+    <button class="btn btn-block my-1 btn-primary mt-5" @click="nextPage">Next</button>
+    <div class="btn btn-block my-1 btn-outline btn-primary" @click="router.back()"> back </div>
+    </div>
 </template>

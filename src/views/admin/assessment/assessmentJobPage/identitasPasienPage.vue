@@ -47,7 +47,8 @@ watchEffect(() => {
 </script>
 
 <template>
-    <div class="form-control">
+    <div class="px-4">
+        <div class="form-control">
         <label class="label">
             Nama Pasien
         </label>
@@ -103,6 +104,7 @@ watchEffect(() => {
         <input type="date" v-model="dataPasien.tanggal_asesmen" class="input input-bordered w-full">
     </div>
 
-    <button :disabled="nextButton" class="btn btn-primary mt-5"
+    <button :disabled="nextButton" class="btn btn-block btn-primary mt-5"
         @click="nextPage">Next</button>
+    </div>
 </template>

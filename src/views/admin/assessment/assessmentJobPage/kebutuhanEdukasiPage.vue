@@ -38,7 +38,8 @@ watch(() => kebutuhan_edukasi.value.pilihan, () => {
 </script>
 
 <template>
-    <div class="form-control">
+    <div class="px-4">
+        <div class="form-control">
         <label class="label w-max gap-2 capitalize" v-for="(item) in dataEdukasi" :key="item">
             <input type="checkbox" class="checkbox" v-model="kebutuhan_edukasi.pilihan" :value="item">
             <span>{{ item }}</span>
@@ -49,6 +50,7 @@ watch(() => kebutuhan_edukasi.value.pilihan, () => {
         <input type="text" class="input input-bordered" v-model="kebutuhan_edukasi.tambahan">
     </div>
 
-    <button class="btn btn-primary mt-5" @click="nextPage">Next</button>
-    <div class="btn btn-outline btn-primary" @click="router.back()"> back </div>
+    <button class="btn btn-block my-1 btn-primary mt-5" @click="nextPage">Next</button>
+    <div class="btn btn-block my-1 btn-outline btn-primary" @click="router.back()"> back </div>
+    </div>
 </template>

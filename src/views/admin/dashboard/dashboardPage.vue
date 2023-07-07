@@ -1,6 +1,6 @@
 <template lang="">
     <div
-        class="relative justify-between items-center h-[5rem] my-[1rem] w-full"
+        class="bg-primary relative justify-between items-center h-[5rem] w-full text-primary-content"
     >
         <div
             class="absolute text-3xl ml-[6%] mr-[6%] flex items-center justify-between h-[5rem] my-[1rem] w-[88%]"
@@ -31,16 +31,16 @@
         </div>
     </div>
     <div
-        class="grid place-items-center grid-cols-7 drop-shadow-sm mb-4 pb-2 border-b-2"
+        class="grid place-items-center grid-cols-7 drop-shadow-sm mb-4 pb-2 border-b-2 bg-primary"
     >
         <template v-for="(item, index) in rangeSeminggu" :key="index">
             <div
                 @click="getByDay(item)"
                 class="flex font-poppins flex-col justify-center p-4 items-center gap-1 w-full text-[#537FE7]"
                 :class="{
-                    'bg-primary card text-white': item.active,
+                    'bg-base-100 card text-primary': item.active,
                     'text-red-500': item.hari == 'Ming',
-                    'text-[#537FE7]': item.hari != 'Ming',
+                    'text-base-100': item.hari != 'Ming',
                 }"
             >
                 <div class="text-lg">
@@ -52,7 +52,7 @@
             </div>
         </template>
     </div>
-    <div class="grid place-items-center gap-4 mb-4">
+    <div class="grid place-items-center gap-4 mb-4 mx-4">
         <div
             v-show="false"
             class="card bg-[#537FE7] w-full drop-shadow-gray-700 drop-shadow-md font-poppins text-white"
@@ -101,8 +101,8 @@
                         <div
                             class="flex justify-between items-center flex-row gap-2"
                         >
-                            <div class="" v-if="job.complete">complete</div>
-                            <div class="" v-else>uncomplete</div>
+                            <div class="badge badge-sm capitalize badge-success" v-if="job.complete">complete</div>
+                            <div class="badge badge-sm capitalize badge-error" v-else>uncomplete</div>
                             <div
                                 class="font-poppins font-semibold capitalize grid place-items-center"
                                 v-if="isKepalaRuangan"
@@ -138,8 +138,8 @@
                     <div
                         class="flex justify-between items-center flex-row gap-2"
                     >
-                        <div class="" v-if="item.complete == '1'">complete</div>
-                        <div class="" v-else>uncomplete</div>
+                        <div class="badge badge-sm badge-success capitalize" v-if="item.complete == '1'">complete</div>
+                        <div class="badge badge-sm badge-error capitalize" v-else>uncomplete</div>
                         <div
                             class="font-poppins font-semibold capitalize grid place-items-center"
                             v-if="isKepalaRuangan"

@@ -73,7 +73,8 @@ watch(() => riwayat_penggunaan_obat.value.asesmen_populasi_khusus.populasi, asyn
 </script>
 
 <template>
-    <div class="form-control">
+    <div class="px-4">
+        <div class="form-control">
         <label class="label text-lg font-semibold">Penggunaan Obat</label>
         <div class="card shadow-lg mt-2" v-for="(item, index) in riwayat_penggunaan_obat.obat" :key="index">
             <div class="card-body">
@@ -98,7 +99,7 @@ watch(() => riwayat_penggunaan_obat.value.asesmen_populasi_khusus.populasi, asyn
             <input type="text" class="input input-bordered" v-model="obat.asal">
         </div>
     </div>
-    <button class="btn btn-success" @click="tambahObat()">+ penggunaan obat</button>
+    <button class="btn btn-success mt-4" @click="tambahObat()">+ penggunaan obat</button>
 
     <div class="form-control mt-6">
         <label class="label">Asesmen Populasi Khusus</label>
@@ -113,6 +114,7 @@ watch(() => riwayat_penggunaan_obat.value.asesmen_populasi_khusus.populasi, asyn
         <label class="label">Sebutkan</label>
         <input type="text" class="input input-bordered" v-model="riwayat_penggunaan_obat.asesmen_populasi_khusus.tambahan">
     </div>
-    <button class="btn btn-primary mt-5" @click="nextPage">Next</button>
-    <div class="btn btn-outline btn-primary" @click="router.back()"> back </div>
+    <button class="btn btn-block my-1 btn-primary mt-5" @click="nextPage">Next</button>
+    <div class="btn btn-block my-1 btn-outline btn-primary" @click="router.back()"> back </div>
+    </div>
 </template>
