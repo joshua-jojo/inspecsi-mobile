@@ -27,4 +27,7 @@ const router = useRouter()
             </div>
         </div>
     </div>
+    <div class="min-h-screen bg-[#E3EBFE]">
+        <img src="../../../assets/petunjuk.png" alt="">
+    </div>
 </template>
