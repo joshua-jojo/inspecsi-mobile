@@ -81,7 +81,7 @@
                         <div
                             class="flex justify-between items-center flex-row gap-2"
                         >
-                            <div class="badge badge-sm capitalize badge-success" v-if="job.complete">complete</div>
+                            <div class="badge badge-sm capitalize badge-success" v-if="job.complete == '1'">complete</div>
                             <div class="badge badge-sm capitalize badge-error" v-else>uncomplete</div>
                             <div
                                 class="font-poppins font-semibold capitalize grid place-items-center"
