@@ -138,7 +138,7 @@
                     <div
                         class="flex justify-between items-center flex-row gap-2"
                     >
-                        <div class="" v-if="item.complete">complete</div>
+                        <div class="" v-if="item.complete == '1'">complete</div>
                         <div class="" v-else>uncomplete</div>
                         <div
                             class="font-poppins font-semibold capitalize grid place-items-center"
@@ -245,7 +245,7 @@ const toAssessmentRoleList = (job: any) => {
                 id : job?.identitas_pasien?.id ? job.identitas_pasien.id : 'null'
         } });
     } else {
-        if (!job.complete) {
+        if (job.complete == "0") {
             store.state.assessment.id = job.id;
             router.push({ name: "admin.job.identitaspasien" });
         } else {
