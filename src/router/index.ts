@@ -127,9 +127,10 @@ const routes: Array<RouteRecordRaw> = [
             component: () => import("../views/admin/assessment/assessmentJobPage/masalah_keperawatan_page.vue")
           },
           {
-            path: 'catatan_perkembangan_pasien',
+            path: 'catatan_perkembangan_pasien/:id',
             name: "admin.job.catatan_perkembangan_pasien",
-            component: () => import("../views/admin/assessment/assessmentJobPage/catatan_perkembangan_pasien_page.vue")
+            component: () => import("../views/admin/assessment/assessmentJobPage/catatan_perkembangan_pasien_page.vue"),
+            props : true
           },
           {
             path: 'assessment_view_select/:id',
