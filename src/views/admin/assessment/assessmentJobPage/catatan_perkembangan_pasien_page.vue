@@ -75,85 +75,53 @@ get_catatan()
         <div class="flex flex-col gap-2">
             <div class="card shadow-md" v-for="(item, index) in data_catatan" :key="index">
                 <div class="card-body">
-                    <div class="flex gap-2 w-full">
-                        <div class="w-[160px] capitalize">
-                            diagnosa
-                        </div>
-                        <div class="">
-                            :
-                        </div>
-                        <div class="w-full">
-                            {{index + 1}}
-                        </div>
-                    </div>
-                    <div class="flex gap-2 w-full">
-                        <div class="w-[160px] capitalize">
-                            tanggal
-                        </div>
-                        <div class="">
-                            :
-                        </div>
-                        <div class="w-full">
-                            {{item.tanggal}}
-                        </div>
-                    </div>
-                    <div class="flex gap-2 w-full">
-                        <div class="w-[160px] capitalize">
-                            implementasi
-                        </div>
-                        <div class="">
-                            :
-                        </div>
-                        <div class="w-full">
-                            {{item.implementasi}}
-                        </div>
-                    </div>
-                    <div class="flex flex-col gap-2 mt-4">
-                        <div class="font-semibold">SOAP</div>
-                        <div class="flex gap-2 w-full">
-                            <div class="w-[160px] capitalize">
-                                subjektif
-                            </div>
-                            <div class="">
-                                :
-                            </div>
-                            <div class="w-full">
-                                {{item.soap_subjektif}}
-                            </div>
-                        </div>
-                        <div class="flex gap-2 w-full">
-                            <div class="w-[160px] capitalize">
-                                objek
-                            </div>
-                            <div class="">
-                                :
-                            </div>
-                            <div class="w-full">
-                                {{item.soap_objek}}
-                            </div>
-                        </div>
-                        <div class="flex gap-2 w-full">
-                            <div class="w-[160px] capitalize">
-                                assessment
-                            </div>
-                            <div class="">
-                                :
-                            </div>
-                            <div class="w-full">
-                                {{item.soap_assessment}}
-                            </div>
-                        </div>
-                        <div class="flex gap-2 w-full">
-                            <div class="w-[160px] capitalize">
-                                plan
-                            </div>
-                            <div class="">
-                                :
-                            </div>
-                            <div class="w-full">
-                                {{item.soap_plan}}
-                            </div>
-                        </div>
+                    <div class="overflow-auto">
+                        <table class="table table-compact table-zebra w-full">
+                            <tbody>
+                                <tr>
+                                    <th>Diagnosa</th>
+                                    <td>:</td>
+                                    <td>{{index + 1}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Tanggal</th>
+                                    <td>:</td>
+                                    <td>{{item.tanggal}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Implementasi</th>
+                                    <td>:</td>
+                                    <td>{{item.implementasi}}</td>
+                                </tr>
+                                <tr>
+                                    <th class="font-bold">
+                                        SOAP
+                                    </th>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th>Subjektif</th>
+                                    <td>:</td>
+                                    <td>{{item.soap_subjektif}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Objek</th>
+                                    <td>:</td>
+                                    <td>{{item.soap_objek}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Assessment</th>
+                                    <td>:</td>
+                                    <td>{{item.soap_assessment}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Plan</th>
+                                    <td>:</td>
+                                    <td>{{item.soap_plan}}</td>
+                                </tr>
+                            </tbody>
+                    </table>
                     </div>
                 </div>
             </div>

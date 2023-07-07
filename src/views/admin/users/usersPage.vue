@@ -1,5 +1,5 @@
 <template lang="">
-     <div class="relative justify-between items-center h-[5rem] my-[1rem]">
+     <div class="relative justify-between items-center h-[6rem] bg-primary text-primary-content">
         <div @click="router.push({name : 'admin.menu'})" class="absolute text-3xl ml-[6%] flex items-center h-[5rem] my-[1rem]">
                 <IonIcon :icon="arrowBack"></IonIcon>
         </div>
@@ -14,7 +14,8 @@
         </div>
     </div>
 
-   <div class="flex justify-between gap-2 my-4">
+   <div class="px-4">
+    <div class="flex justify-between gap-2 my-4">
        <input type="text" placeholder="Search" class="input text-[20px] font-poppins bg-[#E9F8F9] input-bordered w-full border-[2.5px] border-primary rounded-xl">
        <button class="btn btn-primary rounded-xl text-2xl">
            <IonIcon :icon="search"></IonIcon>
@@ -75,7 +76,7 @@
         <input type="password" class="input input-bordered" placeholder="konfirmasi password" v-model="buatUser.password_confirmation">
     </div>
     <template v-slot:action>
-        <button class="btn btn-success" @click="sendNewUser()">simpan</button>
+        <button class="btn btn-primary" @click="sendNewUser()">simpan</button>
     </template>
    </modalComponent>
 
@@ -85,6 +86,7 @@
         <button @click="submitHapus" :class="{'loading btn-disabled' : hapusUser.processing}" class="btn btn-error">konfirmasi</button>
     </template>
    </modalComponent>
+   </div>
 </template>
 <script lang="ts" setup>
 import { search,arrowBack } from 'ionicons/icons';

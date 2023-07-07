@@ -81,13 +81,8 @@
                         <div
                             class="flex justify-between items-center flex-row gap-2"
                         >
-<<<<<<< HEAD
                             <div class="badge badge-sm capitalize badge-success" v-if="job.complete">complete</div>
                             <div class="badge badge-sm capitalize badge-error" v-else>uncomplete</div>
-=======
-                            <div class="" v-if="job.complete == '1'">complete</div>
-                            <div class="" v-else>uncomplete</div>
->>>>>>> 637348be6b0ce18388e03ac416f7e0dc150f41b9
                             <div
                                 class="font-poppins font-semibold capitalize grid place-items-center"
                                 v-if="isKepalaRuangan"
@@ -136,7 +131,7 @@
                             <div
                                 class="font-poppins font-semibold capitalize grid place-items-center"
                                 v-else
-                            >
+                        >
                                 from : {{ item?.user?.name }}
                             </div>
                         </div>

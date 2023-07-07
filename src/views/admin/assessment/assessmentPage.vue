@@ -34,7 +34,7 @@
                 </div>
 
                 <div class="flex justify-center h-full">
-                    <div class="mt-4 grid grid-cols-2 place-items-center gap-3 w-[90%]  max-h-[70%] overflow-auto">
+                    <div class="mt-4 grid grid-cols-2 place-items-start gap-3 w-[90%]  max-h-[70%] overflow-auto">
                         <div @click="isActive(item)" class="w-full text-center font-poppins-semibold capitalize p-1 rounded-full" v-for="(item, index) in dataKetuaTim" :key="index" :class="{'bg-primary text-white' : item.active,'bg-[#E9F8F9]' : !item.active}">{{item.name}}</div>
                     </div>
                 </div>
