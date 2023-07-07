@@ -101,7 +101,7 @@
                         <div
                             class="flex justify-between items-center flex-row gap-2"
                         >
-                            <div class="" v-if="job.complete">complete</div>
+                            <div class="" v-if="job.complete == '1'">complete</div>
                             <div class="" v-else>uncomplete</div>
                             <div
                                 class="font-poppins font-semibold capitalize grid place-items-center"
