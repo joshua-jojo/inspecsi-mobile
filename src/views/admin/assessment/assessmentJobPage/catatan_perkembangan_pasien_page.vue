@@ -6,6 +6,11 @@ import { useStore } from 'vuex';
 
 const store = useStore()
 store.state.judul_job = "Catatan Perkembangan Pasien"
+const KepalaRuangan = store.state.user?.role?.nama == "kepala ruangan"
+
+const props = defineProps({
+    id : String
+})
 
 const date_now = new Date()
 const tahun = date_now.getFullYear();
@@ -14,7 +19,7 @@ const tanggal = date_now.getDate();
 const date_set = `${tahun}-${bulan < 10 ? '0' + bulan : bulan}-${tanggal < 10 ? '0' + tanggal : tanggal}`
 
 const data_form: any = ref({
-    identitas_pasien_id: store.state.assessment.pasien_id,
+    identitas_pasien_id: props.id,
     tanggal: date_set,
     implementasi: '',
     soap_subjektif: '',
@@ -44,7 +49,7 @@ const get_catatan = () => {
         url: 'assessment-data/get-catatan-perkembangan-pasien',
         method: 'post',
         data: {
-            identitas_pasien_id: store.state.assessment.pasien_id
+            identitas_pasien_id: props.id
         }
     }).then((res) => {
         data_catatan.value = res.data.data
@@ -66,7 +71,7 @@ get_catatan()
 </script>
 <template lang="">
     <div class="flex flex-col gap-8">
-        <label for="modal" class="btn btn-success">tambah  Catatan</label>
+        <label for="modal" class="btn btn-success" v-if="!KepalaRuangan">tambah  Catatan</label>
         <div class="flex flex-col gap-2">
             <div class="card shadow-md" v-for="(item, index) in data_catatan" :key="index">
                 <div class="card-body">
