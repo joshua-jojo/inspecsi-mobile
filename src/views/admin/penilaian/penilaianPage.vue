@@ -19,7 +19,7 @@
     </div>
     <div class="mt-2 px-4 gap-8 flex flex-col">
         <div class="flex flex-col gap-2 capitalize">
-            <div class="">Identitas Pasien : {{!isKepalaRuangan ? penilaian.pertanyaan_1 ? "Lengkap" : "Tidak Lengkap" : ''}}</div>
+            <div class="">Identitas Pasien : {{!isKepalaRuangan ? penilaian.pertanyaan_1 == "1" ? "Lengkap" : "Tidak Lengkap" : ''}}</div>
             <div class="flex flex-row gap-9" v-if="isKepalaRuangan">
                 <div class="flex gap-2 justify-center items-center">
                     <input
@@ -44,7 +44,7 @@
             </div>
         </div>
         <div class="flex flex-col gap-2 capitalize">
-            <div class="">Alasan pasien masuk RS : {{!isKepalaRuangan ? penilaian.pertanyaan_2 ? "Lengkap" : "Tidak Lengkap" : ''}}</div>
+            <div class="">Alasan pasien masuk RS : {{!isKepalaRuangan ? penilaian.pertanyaan_2 == "1" ? "Lengkap" : "Tidak Lengkap" : ''}}</div>
             <div class="flex flex-row gap-9" v-if="isKepalaRuangan">
                 <div class="flex gap-2 justify-center items-center">
                     <input
@@ -69,7 +69,7 @@
             </div>
         </div>
         <div class="flex flex-col gap-2 capitalize">
-            <div class="">Riwayat Penyakit saat ini : {{!isKepalaRuangan ? penilaian.pertanyaan_3 ? "Lengkap" : "Tidak Lengkap" : ''}}</div>
+            <div class="">Riwayat Penyakit saat ini : {{!isKepalaRuangan ? penilaian.pertanyaan_3 == "1" ? "Lengkap" : "Tidak Lengkap" : ''}}</div>
             <div class="flex flex-row gap-9" v-if="isKepalaRuangan">
                 <div class="flex gap-2 justify-center items-center">
                     <input
@@ -94,7 +94,7 @@
             </div>
         </div>
         <div class="flex flex-col gap-2 capitalize">
-            <div class="">Riwayat Kesehatan Masa lalu : {{!isKepalaRuangan ? penilaian.pertanyaan_4 ? "Lengkap" : "Tidak Lengkap" : ''}}</div>
+            <div class="">Riwayat Kesehatan Masa lalu : {{!isKepalaRuangan ? penilaian.pertanyaan_4 == "1" ? "Lengkap" : "Tidak Lengkap" : ''}}</div>
             <div class="flex flex-row gap-9" v-if="isKepalaRuangan">
                 <div class="flex gap-2 justify-center items-center">
                     <input
@@ -119,7 +119,7 @@
             </div>
         </div>
         <div class="flex flex-col gap-2 capitalize">
-            <div class="">Pemeriksaan Fisik head to toe : {{!isKepalaRuangan ? penilaian.pertanyaan_5 ? "Lengkap" : "Tidak Lengkap" : ''}}</div>
+            <div class="">Pemeriksaan Fisik head to toe : {{!isKepalaRuangan ? penilaian.pertanyaan_5 == "1" ? "Lengkap" : "Tidak Lengkap" : ''}}</div>
             <div class="flex flex-row gap-9" v-if="isKepalaRuangan">
                 <div class="flex gap-2 justify-center items-center">
                     <input
@@ -144,7 +144,7 @@
             </div>
         </div>
         <div class="flex flex-col gap-2 capitalize">
-            <div class="">Data Psikologis : {{!isKepalaRuangan ? penilaian.pertanyaan_6 ? "Lengkap" : "Tidak Lengkap" : ''}}</div>
+            <div class="">Data Psikologis : {{!isKepalaRuangan ? penilaian.pertanyaan_6 == "1" ? "Lengkap" : "Tidak Lengkap" : ''}}</div>
             <div class="flex flex-row gap-9" v-if="isKepalaRuangan">
                 <div class="flex gap-2 justify-center items-center">
                     <input
@@ -169,7 +169,7 @@
             </div>
         </div>
         <div class="flex flex-col gap-2 capitalize">
-            <div class="">Hasil pemeriksaan Penunjang : {{!isKepalaRuangan ? penilaian.pertanyaan_7 ? "Lengkap" : "Tidak Lengkap" : ''}}</div>
+            <div class="">Hasil pemeriksaan Penunjang : {{!isKepalaRuangan ? penilaian.pertanyaan_7 == "1" ? "Lengkap" : "Tidak Lengkap" : ''}}</div>
             <div class="flex flex-row gap-9" v-if="isKepalaRuangan">
                 <div class="flex gap-2 justify-center items-center">
                     <input
@@ -194,7 +194,7 @@
             </div>
         </div>
         <div class="flex flex-col gap-2 capitalize">
-            <div class="">Terapi dan pengobatan : {{!isKepalaRuangan ? penilaian.pertanyaan_8 ? "Lengkap" : "Tidak Lengkap" : ''}}</div>
+            <div class="">Terapi dan pengobatan : {{!isKepalaRuangan ? penilaian.pertanyaan_8 == "1" ? "Lengkap" : "Tidak Lengkap" : ''}}</div>
             <div class="flex flex-row gap-9" v-if="isKepalaRuangan">
                 <div class="flex gap-2 justify-center items-center">
                     <input
@@ -220,7 +220,7 @@
         </div>
         <div class="flex flex-col gap-2 capitalize">
             <div class="">
-                Identifikasi data senjang (data subjektif & objektif) : {{!isKepalaRuangan ? penilaian.pertanyaan_9 ? "Lengkap" : "Tidak Lengkap" : ''}}
+                Identifikasi data senjang (data subjektif & objektif) : {{!isKepalaRuangan ? penilaian.pertanyaan_9 == "1" ? "Lengkap" : "Tidak Lengkap" : ''}}
             </div>
             <div class="flex flex-row gap-9" v-if="isKepalaRuangan">
                 <div class="flex gap-2 justify-center items-center">
@@ -246,7 +246,7 @@
             </div>
         </div>
         <div class="flex flex-col gap-2 capitalize">
-            <div class="">Ketepatan menuliskan penyebab/ Etiologi : {{!isKepalaRuangan ? penilaian.pertanyaan_10 ? "Lengkap" : "Tidak Lengkap" : ''}}</div>
+            <div class="">Ketepatan menuliskan penyebab/ Etiologi : {{!isKepalaRuangan ? penilaian.pertanyaan_10 == "1" ? "Lengkap" : "Tidak Lengkap" : ''}}</div>
             <div class="flex flex-row gap-9" v-if="isKepalaRuangan">
                 <div class="flex gap-2 justify-center items-center">
                     <input
@@ -271,7 +271,7 @@
             </div>
         </div>
         <div class="flex flex-col gap-2 capitalize">
-            <div class="">Ketepatan menuliskan masalah keperawatan : {{!isKepalaRuangan ? penilaian.pertanyaan_11 ? "Lengkap" : "Tidak Lengkap" : ''}}</div>
+            <div class="">Ketepatan menuliskan masalah keperawatan : {{!isKepalaRuangan ? penilaian.pertanyaan_11 == "1" ? "Lengkap" : "Tidak Lengkap" : ''}}</div>
             <div class="flex flex-row gap-9" v-if="isKepalaRuangan">
                 <div class="flex gap-2 justify-center items-center">
                     <input
@@ -296,7 +296,7 @@
             </div>
         </div>
         <div class="flex flex-col gap-2 capitalize">
-            <div class="">Mencerminkan rumusan PE/ PES beerdasarkan SDKI : {{!isKepalaRuangan ? penilaian.pertanyaan_12 ? "Lengkap" : "Tidak Lengkap" : ''}}</div>
+            <div class="">Mencerminkan rumusan PE/ PES beerdasarkan SDKI : {{!isKepalaRuangan ? penilaian.pertanyaan_12 == "1" ? "Lengkap" : "Tidak Lengkap" : ''}}</div>
             <div class="flex flex-row gap-9" v-if="isKepalaRuangan">
                 <div class="flex gap-2 justify-center items-center">
                     <input
@@ -321,7 +321,7 @@
             </div>
         </div>
         <div class="flex flex-col gap-2 capitalize">
-            <div class="">Ketepatan merumuskan prioritas masalah : {{!isKepalaRuangan ? penilaian.pertanyaan_3 ? "Lengkap" : "Tidak Lengkap" : ''}}</div>
+            <div class="">Ketepatan merumuskan prioritas masalah : {{!isKepalaRuangan ? penilaian.pertanyaan_3 == "1" ? "Lengkap" : "Tidak Lengkap" : ''}}</div>
             <div class="flex flex-row gap-9" v-if="isKepalaRuangan">
                 <div class="flex gap-2 justify-center items-center">
                     <input
@@ -346,7 +346,7 @@
             </div>
         </div>
         <div class="flex flex-col gap-2 capitalize">
-            <div class="">Menuliskan nama dan menandatangani dokumentasi : {{!isKepalaRuangan ? penilaian.pertanyaan_4 ? "Lengkap" : "Tidak Lengkap" : ''}}</div>
+            <div class="">Menuliskan nama dan menandatangani dokumentasi : {{!isKepalaRuangan ? penilaian.pertanyaan_4 == "1" ? "Lengkap" : "Tidak Lengkap" : ''}}</div>
             <div class="flex flex-row gap-9" v-if="isKepalaRuangan">
                 <div class="flex gap-2 justify-center items-center">
                     <input
@@ -371,7 +371,7 @@
             </div>
         </div>
         <div class="flex flex-col gap-2 capitalize">
-            <div class="">Membuat tujuan : {{!isKepalaRuangan ? penilaian.pertanyaan_15 ? "Lengkap" : "Tidak Lengkap" : ''}}</div>
+            <div class="">Membuat tujuan : {{!isKepalaRuangan ? penilaian.pertanyaan_15 == "1" ? "Lengkap" : "Tidak Lengkap" : ''}}</div>
             <div class="flex flex-row gap-9" v-if="isKepalaRuangan">
                 <div class="flex gap-2 justify-center items-center">
                     <input
@@ -396,7 +396,7 @@
             </div>
         </div>
         <div class="flex flex-col gap-2 capitalize">
-            <div class="">Membuat kriteria hasil berdasarka SLKI : {{!isKepalaRuangan ? penilaian.pertanyaan_16 ? "Lengkap" : "Tidak Lengkap" : ''}}</div>
+            <div class="">Membuat kriteria hasil berdasarka SLKI : {{!isKepalaRuangan ? penilaian.pertanyaan_16 == "1" ? "Lengkap" : "Tidak Lengkap" : ''}}</div>
             <div class="flex flex-row gap-9" v-if="isKepalaRuangan">
                 <div class="flex gap-2 justify-center items-center">
                     <input
@@ -422,7 +422,7 @@
         </div>
         <div class="flex flex-col gap-2 capitalize">
             <div class="">
-                Rencana keperawatan melibatkan pasien dan keluarga : {{!isKepalaRuangan ? penilaian.pertanyaan_17 ? "Lengkap" : "Tidak Lengkap" : ''}}
+                Rencana keperawatan melibatkan pasien dan keluarga : {{!isKepalaRuangan ? penilaian.pertanyaan_17 == "1" ? "Lengkap" : "Tidak Lengkap" : ''}}
             </div>
             <div class="flex flex-row gap-9" v-if="isKepalaRuangan">
                 <div class="flex gap-2 justify-center items-center">
@@ -449,7 +449,7 @@
         </div>
         <div class="flex flex-col gap-2 capitalize">
             <div class="">
-                Rencana tindakan mencerminkan tindakan mandiri dan kolaborasi : {{!isKepalaRuangan ? penilaian.pertanyaan_18 ? "Lengkap" : "Tidak Lengkap" : ''}}
+                Rencana tindakan mencerminkan tindakan mandiri dan kolaborasi : {{!isKepalaRuangan ? penilaian.pertanyaan_18 == "1" ? "Lengkap" : "Tidak Lengkap" : ''}}
             </div>
             <div class="flex flex-row gap-9" v-if="isKepalaRuangan">
                 <div class="flex gap-2 justify-center items-center">
@@ -475,7 +475,7 @@
             </div>
         </div>
         <div class="flex flex-col gap-2 capitalize">
-            <div class="">Menuliskan nama dan menandatangan dokumentasi : {{!isKepalaRuangan ? penilaian.pertanyaan_19 ? "Lengkap" : "Tidak Lengkap" : ''}}</div>
+            <div class="">Menuliskan nama dan menandatangan dokumentasi : {{!isKepalaRuangan ? penilaian.pertanyaan_19 == "1" ? "Lengkap" : "Tidak Lengkap" : ''}}</div>
             <div class="flex flex-row gap-9" v-if="isKepalaRuangan">
                 <div class="flex gap-2 justify-center items-center">
                     <input
@@ -500,7 +500,7 @@
             </div>
         </div>
         <div class="flex flex-col gap-2 capitalize">
-            <div class="">Kesesuaian tindakan dengan perencanaan : {{!isKepalaRuangan ? penilaian.pertanyaan_20 ? "Lengkap" : "Tidak Lengkap" : ''}}</div>
+            <div class="">Kesesuaian tindakan dengan perencanaan : {{!isKepalaRuangan ? penilaian.pertanyaan_20 == "1" ? "Lengkap" : "Tidak Lengkap" : ''}}</div>
             <div class="flex flex-row gap-9" v-if="isKepalaRuangan">
                 <div class="flex gap-2 justify-center items-center">
                     <input
@@ -527,7 +527,7 @@
         <div class="flex flex-col gap-2 capitalize">
             <div class="">
                 Mendokumentasikan tindakan secara terperinci (tanggal,jam,
-                uaraian tindakan / hasil) : {{!isKepalaRuangan ? penilaian.pertanyaan_21 ? "Lengkap" : "Tidak Lengkap" : ''}}
+                uaraian tindakan / hasil) : {{!isKepalaRuangan ? penilaian.pertanyaan_21 == "1" ? "Lengkap" : "Tidak Lengkap" : ''}}
             </div>
             <div class="flex flex-row gap-9" v-if="isKepalaRuangan">
                 <div class="flex gap-2 justify-center items-center">
@@ -554,7 +554,7 @@
         </div>
         <div class="flex flex-col gap-2 capitalize">
             <div class="">
-                Melaksanakan tindakan kolaboratif sesuai kebutuhan : {{!isKepalaRuangan ? penilaian.pertanyaan_22 ? "Lengkap" : "Tidak Lengkap" : ''}}
+                Melaksanakan tindakan kolaboratif sesuai kebutuhan : {{!isKepalaRuangan ? penilaian.pertanyaan_22 == "1" ? "Lengkap" : "Tidak Lengkap" : ''}}
             </div>
             <div class="flex flex-row gap-9" v-if="isKepalaRuangan">
                 <div class="flex gap-2 justify-center items-center">
@@ -580,7 +580,7 @@
             </div>
         </div>
         <div class="flex flex-col gap-2 capitalize">
-            <div class="">Memberikan Pendidikan Kesehatan sesuai rencana : {{!isKepalaRuangan ? penilaian.pertanyaan_23 ? "Lengkap" : "Tidak Lengkap" : ''}}</div>
+            <div class="">Memberikan Pendidikan Kesehatan sesuai rencana : {{!isKepalaRuangan ? penilaian.pertanyaan_23 == "1" ? "Lengkap" : "Tidak Lengkap" : ''}}</div>
             <div class="flex flex-row gap-9" v-if="isKepalaRuangan">
                 <div class="flex gap-2 justify-center items-center">
                     <input
@@ -605,7 +605,7 @@
             </div>
         </div>
         <div class="flex flex-col gap-2 capitalize">
-            <div class="">Menuliskan nama dan menandatangani dokumentasi : {{!isKepalaRuangan ? penilaian.pertanyaan_24 ? "Lengkap" : "Tidak Lengkap" : ''}}</div>
+            <div class="">Menuliskan nama dan menandatangani dokumentasi : {{!isKepalaRuangan ? penilaian.pertanyaan_24 == "1" ? "Lengkap" : "Tidak Lengkap" : ''}}</div>
             <div class="flex flex-row gap-9" v-if="isKepalaRuangan">
                 <div class="flex gap-2 justify-center items-center">
                     <input
@@ -631,7 +631,7 @@
         </div>
         <div class="flex flex-col gap-2 capitalize">
             <div class="">
-                Membuat catatan perkembangan SOAP mengacu pada kriteria hasil : {{!isKepalaRuangan ? penilaian.pertanyaan_25 ? "Lengkap" : "Tidak Lengkap" : ''}}
+                Membuat catatan perkembangan SOAP mengacu pada kriteria hasil : {{!isKepalaRuangan ? penilaian.pertanyaan_25 == "1" ? "Lengkap" : "Tidak Lengkap" : ''}}
             </div>
             <div class="flex flex-row gap-9" v-if="isKepalaRuangan">
                 <div class="flex gap-2 justify-center items-center">
@@ -657,7 +657,7 @@
             </div>
         </div>
         <div class="flex flex-col gap-2 capitalize">
-            <div class="">Memodifikasi rencana tindakan : {{!isKepalaRuangan ? penilaian.pertanyaan_26 ? "Lengkap" : "Tidak Lengkap" : ''}}</div>
+            <div class="">Memodifikasi rencana tindakan : {{!isKepalaRuangan ? penilaian.pertanyaan_26 == "1" ? "Lengkap" : "Tidak Lengkap" : ''}}</div>
             <div class="flex flex-row gap-9" v-if="isKepalaRuangan">
                 <div class="flex gap-2 justify-center items-center">
                     <input
@@ -682,7 +682,7 @@
             </div>
         </div>
         <div class="flex flex-col gap-2 capitalize">
-            <div class="">Menuliskan nama dan menandatangani dokumentasi : {{!isKepalaRuangan ? penilaian.pertanyaan_27 ? "Lengkap" : "Tidak Lengkap" : ''}}</div>
+            <div class="">Menuliskan nama dan menandatangani dokumentasi : {{!isKepalaRuangan ? penilaian.pertanyaan_27 == "1" ? "Lengkap" : "Tidak Lengkap" : ''}}</div>
             <div class="flex flex-row gap-9" v-if="isKepalaRuangan">
                 <div class="flex gap-2 justify-center items-center">
                     <input

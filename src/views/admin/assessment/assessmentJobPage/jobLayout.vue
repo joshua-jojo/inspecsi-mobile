@@ -20,7 +20,7 @@ const router = useRouter();
         <div class="grid place-items-center h-[10%]">
             <div class="flex justify-between items-center h-[5rem] my-[1rem]">
                 <div class="flex flex-col drop-shadow-sm">
-                    <div class="font-poppins-bold capitalize text-xl">
+                    <div class="font-poppins-bold capitalize text-lg">
                         {{ store.state.judul_job }}
                     </div>
                 </div>
