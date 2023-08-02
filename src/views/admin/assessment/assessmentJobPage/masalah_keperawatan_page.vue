@@ -709,6 +709,117 @@ const data_diagnosa = [
         kode: "0127",
         keterangan: "risiko proses pengasuhan tidak efektif"
     },
+    {
+        title: true,
+        kode: null,
+        keterangan: "Keamanan dan Proteksi"
+    },
+    {
+        title: false,
+        kode: "0128",
+        keterangan: "gangguan integritas kulit / jaringan"
+    },
+    {
+        title: false,
+        kode: "0129",
+        keterangan: "hipertermia"
+    },
+    {
+        title: false,
+        kode: "0130",
+        keterangan: "hipotermia"
+    },
+    {
+        title: false,
+        kode: "0131",
+        keterangan: "perilaku kekerasan"
+    },
+    {
+        title: false,
+        kode: "0132",
+        keterangan: "perlambatan pemulihan pascabedah"
+    },
+    {
+        title: false,
+        kode: "0133",
+        keterangan: "risiko alergi"
+    },
+    {
+        title: false,
+        kode: "0134",
+        keterangan: "risiko bunuh diri"
+    },
+    {
+        title: false,
+        kode: "0135",
+        keterangan: "risiko cedera"
+    },
+    {
+        title: false,
+        kode: "0136",
+        keterangan: "risiko cedera pada ibu"
+    },
+    {
+        title: false,
+        kode: "0137",
+        keterangan: "risiko cedera pada janin"
+    },
+    {
+        title: false,
+        kode: "0138",
+        keterangan: "risiko gangguan integritas kulit / jaringan"
+    },
+    {
+        title: false,
+        kode: "0139",
+        keterangan: "risiko hipotermia"
+    },
+    {
+        title: false,
+        kode: "0140",
+        keterangan: "risiko hipotermia perioperatif"
+    },
+    {
+        title: false,
+        kode: "0141",
+        keterangan: "risiko infeksi"
+    },
+    {
+        title: false,
+        kode: "0142",
+        keterangan: "risiko jatuh"
+    },
+    {
+        title: false,
+        kode: "0143",
+        keterangan: "risiko luka tekan"
+    },
+    {
+        title: false,
+        kode: "0144",
+        keterangan: "risiko mutilasi diri"
+    },
+    {
+        title: false,
+        kode: "0145",
+        keterangan: "risiko perilaku kekerasan"
+    },
+    {
+        title: false,
+        kode: "0146",
+        keterangan: "risiko perlambatan pemulihan pascabedah"
+    },
+    {
+        title: false,
+        kode: "0147",
+        keterangan: "risiko termoregulasi tidak efektif"
+    },
+    {
+        title: false,
+        kode: "0148",
+        keterangan: "termoregulasi tidak efektif"
+    },
+    
 ]
 const diagnosa: any = ref([])
 const select_diagnosa: any = ref(null);

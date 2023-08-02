@@ -65,7 +65,8 @@ get_data();
             <div class="uppercase font-bold my-4 text-center">
                 identitas pasien
             </div>
-            <table class="table table-compact table-zebra w-full">
+            <div class="overflow-x-auto">
+                <table class="table table-compact table-zebra w-full">
                 <tbody>
                     <tr>
                         <td class="capitalize font-semibold">nama pasien</td>
@@ -115,6 +116,7 @@ get_data();
                     </tr>
                 </tbody>
             </table>
+            </div>
 
             <div class="flex flex-col gap-2 max-w-full overflow-hidden">
                 <div
@@ -122,168 +124,152 @@ get_data();
                 >
                     Riwayat Kesehatan
                 </div>
-                <div class="flex flex-col gap-2">
-                    <div class="flex gap-2">
-                        <div class="w-[180px] capitalize font-semibold">
-                            keluhan utama
-                        </div>
-                        <div class="">:</div>
-                        <div class="w-max">
-                            {{ data_pasien?.riwayat_kesehatan?.keluhan_utama }}
-                        </div>
-                    </div>
-                    <div class="flex gap-2">
-                        <div class="w-[180px] capitalize font-semibold">
-                            riwayat kesehatan sekarang
-                        </div>
-                        <div class="">:</div>
-                        <div class="w-max">
-                            {{
+                <div class="overflow-x-auto">
+                    <table class="table table-compact w-full">
+                        <tbody>
+                            <tr>
+                                <td class="capitalize font-semibold">keluhan utama</td>
+                            </tr>
+                            <tr class="active capitalize">
+                                <td class="w-full">{{ data_pasien?.riwayat_kesehatan?.keluhan_utama }}</td>
+                            </tr>
+                            <tr>
+                                <td class="capitalize font-semibold">riwayat kesehatan sekarang</td>
+                            </tr>
+                                <tr class="active capitalize">
+                                    <td class="w-full">{{
+                                        data_pasien?.riwayat_kesehatan
+                                            ?.riwayat_kesehatan_sekarang
+                                    }}</td>
+                                </tr>
+                            <tr>
+                                <td class="capitalize font-semibold">riwayat kesehatan terdahulu</td>
+                            </tr>
+                            <tr>
+                                <td class="capitalize font-semibold">penyakit genetik</td>
+                            </tr>
+                            <tr class="active capitalize">
+                                <td class="w-full">{{
                                 data_pasien?.riwayat_kesehatan
-                                    ?.riwayat_kesehatan_sekarang
-                            }}
-                        </div>
-                    </div>
-                    <div class="flex gap-2">
-                        <div class="w-[180px] capitalize font-semibold">
-                            riwayat kesehatan dahulu
-                        </div>
-                    </div>
-                    <div class="flex gap-2 ml-3">
-                        <div class="w-[180px] capitalize">penyakit genetik</div>
-                        <div class="">:</div>
-                        <div class="w-max">
-                            {{
-                                data_pasien?.riwayat_kesehatan
-                                    ?.penyakit_genetik > 1
-                                    ? "ya"
-                                    : "tidak"
-                            }}
-                        </div>
-                    </div>
-                    <div
-                        class="flex gap-2 ml-3"
-                        v-if="data_pasien?.riwayat_kesehatan?.penyakit_genetik"
-                    >
-                        <div class="w-[180px] capitalize">
-                            Keterangan penyakit genetik
-                        </div>
-                        <div class="">:</div>
-                        <div class="w-full">
-                            {{
+                                    ?.penyakit_genetik >= 1
+                                    ? "Ada"
+                                    : "Tidak Ada"
+                            }}</td>
+                            </tr>
+                            <tr v-if="data_pasien?.riwayat_kesehatan?.penyakit_genetik > 0">
+                                <td class="capitalize font-semibold">keterangan penyakit genetik</td>
+                            </tr>
+                            <tr class="active capitalize" v-if="data_pasien?.riwayat_kesehatan?.penyakit_genetik > 0">
+                                <td class="w-full">
+                                    {{
                                 data_pasien?.riwayat_kesehatan
                                     ?.penyakit_genetik_keterangan
                             }}
-                        </div>
-                    </div>
-                    <div
-                        class="flex gap-2 ml-3"
-                        v-if="data_pasien?.riwayat_kesehatan?.penyakit_genetik"
-                    >
-                        <div class="w-[180px] capitalize">
-                            Sejak kapan penyakit genetik
-                        </div>
-                        <div class="">:</div>
-                        <div class="w-max">
-                            {{
+                                </td>
+                            </tr>
+                            <tr v-if="data_pasien?.riwayat_kesehatan?.penyakit_genetik > 0">
+                                <td class="capitalize font-semibold">sejak kapan penyakit genetik</td>
+                            </tr>
+                            <tr class="active capitalize" v-if="data_pasien?.riwayat_kesehatan?.penyakit_genetik > 0">
+                                <td class="w-full">
+                                    {{
                                 data_pasien?.riwayat_kesehatan
                                     ?.penyakit_genetik_sejak_kapan
                             }}
-                        </div>
-                    </div>
-                    <div class="flex gap-2 ml-3">
-                        <div class="w-[180px] capitalize">trauma</div>
-                        <div class="">:</div>
-                        <div class="w-max">
-                            {{
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="capitalize font-semibold">Trauma</td>
+                            </tr>
+                            <tr class="active capitalize">
+                                <td class="w-full">
+                                    {{
                                 data_pasien?.riwayat_kesehatan?.trauma > 0
-                                    ? "ya"
-                                    : "tidak"
+                                    ? "Ada"
+                                    : "Tidak Ada"
                             }}
-                        </div>
-                    </div>
-                    <div class="flex gap-2 ml-3">
-                        <div class="w-[180px] capitalize">operasi</div>
-                        <div class="">:</div>
-                        <div class="w-max">
-                            {{
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="capitalize font-semibold">Operasi</td>
+                            </tr>
+                            <tr class="active capitalize">
+                                <td class="w-full">
+                                    {{
                                 data_pasien?.riwayat_kesehatan?.operasi > 0
-                                    ? "ya"
-                                    : "tidak"
+                                    ? "Ada"
+                                    : "Tidak Ada"
                             }}
-                        </div>
-                    </div>
-                    <div class="flex gap-2 ml-3">
-                        <div class="w-[180px] capitalize">Lainnya</div>
-                        <div class="">:</div>
-                        <div class="w-max">
-                            {{
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="capitalize font-semibold">Lainnya</td>
+                            </tr>
+                            <tr class="active capitalize">
+                                <td class="w-full">
+                                    {{
                                 data_pasien?.riwayat_kesehatan?.lainnya > 0
-                                    ? "ya"
-                                    : "tidak"
+                                    ? "Ada"
+                                    : "Tidak Ada"
                             }}
-                        </div>
-                    </div>
-                    <div
-                        class="flex gap-2 ml-3"
-                        v-if="data_pasien?.riwayat_kesehatan?.lainnya"
-                    >
-                        <div class="w-[180px] capitalize">penyakit lainnya</div>
-                        <div class="">:</div>
-                        <div class="w-max">
-                            {{
+                                </td>
+                            </tr>
+                            <tr v-if="data_pasien?.riwayat_kesehatan?.lainnya > 0">
+                                <td class="capitalize font-semibold">Penyakit Lainnya</td>
+                            </tr>
+                            <tr class="active capitalize" v-if="data_pasien?.riwayat_kesehatan?.lainnya > 0">
+                                <td class="w-full">
+                                    {{
                                 data_pasien?.riwayat_kesehatan?.lainnya_penyakit
                             }}
-                        </div>
-                    </div>
-                    <div
-                        class="flex gap-2 ml-3"
-                        v-if="data_pasien?.riwayat_kesehatan?.lainnya"
-                    >
-                        <div class="w-[180px] capitalize">sejak kapan</div>
-                        <div class="">:</div>
-                        <div class="w-max">
-                            {{ data_pasien?.riwayat_kesehatan?.lainnya_kapan }}
-                        </div>
-                    </div>
-                    <div class="flex gap-2">
-                        <div class="w-[180px] capitalize font-semibold">
-                            auto anamnesa jika kompeten
-                        </div>
-                        <div class="">:</div>
-                        <div class="w-max">
-                            {{
-                                data_pasien?.riwayat_kesehatan?.auto_anamnesa > 0
-                                    ? "ya"
-                                    : "tidak"
+                                </td>
+                            </tr>
+                            <tr v-if="data_pasien?.riwayat_kesehatan?.lainnya > 0">
+                                <td class="capitalize font-semibold">Sejak Kapan</td>
+                            </tr>
+                            <tr class="active capitalize" v-if="data_pasien?.riwayat_kesehatan?.lainnya > 0">
+                                <td class="w-full">
+                                    {{
+                                data_pasien?.riwayat_kesehatan?.lainnya_kapan
                             }}
-                        </div>
-                    </div>
-                    <div class="flex gap-2">
-                        <div class="w-[180px] capitalize font-semibold">
-                            auto anamnesa jika tidak kompeten
-                        </div>
-                        <div class="">:</div>
-                        <div class="w-max">
-                            {{
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="capitalize font-semibold">Auto Anamnesa Jika Kompeten</td>
+                            </tr>
+                            <tr class="active capitalize">
+                                <td class="w-full">
+                                    {{
                                 data_pasien?.riwayat_kesehatan?.auto_anamnesa > 0
-                                    ? "tidak"
-                                    : "ya"
+                                    ? "Ada"
+                                    : "Tidak Ada"
                             }}
-                        </div>
-                    </div>
-                    <div
-                        class="flex gap-2 ml-3"
-                        v-if="data_pasien?.riwayat_kesehatan?.auto_anamnesa == 0"
-                    >
-                        <div class="w-[180px] capitalize">sejak kapan</div>
-                        <div class="">:</div>
-                        <div class="w-max">
-                            {{
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="capitalize font-semibold">Auto Anamnesa Jika Tidak Kompeten</td>
+                            </tr>
+                            <tr class="active capitalize">
+                                <td class="w-full">
+                                    {{
+                                data_pasien?.riwayat_kesehatan?.auto_anamnesa > 0
+                                    ? "Tidak Ada"
+                                    : "Ada"
+                            }}
+                                </td>
+                            </tr>
+                            <tr v-if="data_pasien?.riwayat_kesehatan?.auto_anamnesa == 0">
+                                <td class="capitalize font-semibold">Sejak Kapan</td>
+                            </tr>
+                            <tr class="active capitalize" v-if="data_pasien?.riwayat_kesehatan?.auto_anamnesa == 0">
+                                <td class="w-full">
+                                    {{
                                 data_pasien?.riwayat_kesehatan?.pemberi_informasi
                             }}
-                        </div>
-                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
 
@@ -293,453 +279,347 @@ get_data();
                 >
                     Status Fisik
                 </div>
-                <div class="flex flex-col gap-2">
-                    <div class="flex gap-2">
-                        <div class="w-[180px] capitalize font-semibold">
-                            Respirasi
-                        </div>
-                    </div>
-                    <div class="flex gap-2 ml-3">
-                        <div class="w-[180px] capitalize">Batuk</div>
-                        <div class="">:</div>
-                        <div class="w-max">
-                            {{ data_pasien?.status_fisik?.batuk }}
-                        </div>
-                    </div>
-                    <div
-                        class="flex gap-2 ml-3"
-                        v-if="data_pasien?.status_fisik?.batuk"
-                    >
-                        <div class="w-[180px] capitalize">Lama sakit</div>
-                        <div class="">:</div>
-                        <div class="w-max">
-                            {{ data_pasien?.status_fisik?.batuk_lama_sakit }}
-                        </div>
-                    </div>
-                    <div class="flex gap-2 ml-3">
-                        <div class="w-[180px] capitalize">sputum</div>
-                        <div class="">:</div>
-                        <div class="w-max">
-                            {{
-                                data_pasien?.status_fisik?.sputum > 0
-                                    ? "ya"
-                                    : "tidak"
-                            }}
-                        </div>
-                    </div>
-                    <div
-                        class="flex gap-2 ml-3"
-                        v-if="data_pasien?.status_fisik?.sputum"
-                    >
-                        <div class="w-[180px] capitalize">Jenis sputum</div>
-                        <div class="">:</div>
-                        <div class="w-max">
-                            {{ data_pasien?.status_fisik?.sputum_jenis_sputum }}
-                        </div>
-                    </div>
-                    <div class="flex gap-2 ml-3">
-                        <div class="w-[180px] capitalize">sesak nafas</div>
-                        <div class="">:</div>
-                        <div class="w-max">
-                            {{
-                                data_pasien?.status_fisik?.sesak_nafas > 0
-                                    ? "ya"
-                                    : "tidak"
-                            }}
-                        </div>
-                    </div>
-                    <div
-                        class="flex gap-2 ml-3"
-                        v-if="data_pasien?.status_fisik?.sesak_nafas"
-                    >
-                        <div class="w-[180px] capitalize">sejak kapan</div>
-                        <div class="">:</div>
-                        <div class="w-max">
-                            {{
-                                data_pasien?.status_fisik
-                                    ?.sesak_nafas_keterangan
-                            }}
-                        </div>
-                    </div>
-                    <div class="flex gap-2 ml-3">
-                        <div class="w-[180px] capitalize">
-                            penggunaan alat bantu nafas
-                        </div>
-                        <div class="">:</div>
-                        <div class="w-max">
-                            {{
+                <div class="overflow-x-auto">
+                    <table class="table table-compact w-full">
+                        <tbody>
+                            <tr>
+                                <td class="capitalize font-semibold" colspan="3">Respirasi</td>
+                            </tr>
+                            <tr class="active capitalize">
+                                <td class="capitalize">Batuk</td>
+                                <td>:</td>
+                                <td>
+                                    {{ data_pasien?.status_fisik?.batuk > 0
+                                    ? "Ya"
+                                    : "Tidak"
+                                    }}</td>
+                            </tr>
+                            <tr class="active capitalize" v-if="data_pasien?.status_fisik?.batuk > 0">
+                                <td class="capitalize">Lama Sakit</td>
+                                <td>:</td>
+                                <td>{{ data_pasien?.status_fisik?.batuk_lama_sakit }}</td>
+                            </tr>
+                            <tr class="active capitalize">
+                                <td class="capitalize">Sputum</td>
+                                <td>:</td>
+                                <td>
+                                    {{ data_pasien?.status_fisik?.sputum > 0
+                                    ? "Ya"
+                                    : "Tidak"
+                                    }}</td>
+                            </tr>
+                            <tr class="active capitalize" v-if="data_pasien?.status_fisik?.sputum > 0">
+                                <td class="capitalize">Jenis Sputum</td>
+                                <td>:</td>
+                                <td>{{ data_pasien?.status_fisik?.sputum_jenis_sputum }}</td>
+                            </tr>
+                            <tr class="active capitalize">
+                                <td class="capitalize">sesak nafas</td>
+                                <td>:</td>
+                                <td>
+                                    {{ data_pasien?.status_fisik?.sesak_nafas > 0
+                                    ? "Ya"
+                                    : "Tidak"
+                                    }}</td>
+                            </tr>
+                            <tr class="active capitalize" v-if="data_pasien?.status_fisik?.sesak_nafas > 0">
+                                <td class="capitalize">sejak kapan</td>
+                                <td>:</td>
+                                <td>{{ data_pasien?.status_fisik?.sesak_nafas_keterangan }}</td>
+                            </tr>
+                            <tr class="active capitalize" v-if="data_pasien?.status_fisik?.sesak_nafas > 0">
+                                <td class="capitalize">Penggunaan alat bantu nafas</td>
+                                <td>:</td>
+                                <td>{{
                                 data_pasien?.status_fisik
                                     ?.penggunaan_alat_bantu_nafas > 0
-                                    ? "ya"
-                                    : "tidak"
-                            }}
-                        </div>
-                    </div>
-
-                    <!--  -->
-
-                    <div class="flex gap-2">
-                        <div class="w-[180px] capitalize font-semibold">
-                            sirkulasi
-                        </div>
-                    </div>
-                    <div class="flex gap-2 ml-3">
-                        <div class="w-[180px] capitalize">tekanan darah</div>
-                        <div class="">:</div>
-                        <div class="w-max">
-                            {{ data_pasien?.status_fisik?.tekanan_darah }}
-                        </div>
-                    </div>
-                    <div class="flex gap-2 ml-3">
-                        <div class="w-[180px] capitalize">suhu</div>
-                        <div class="">:</div>
-                        <div class="w-max">
-                            {{ data_pasien?.status_fisik?.suhu }}
-                        </div>
-                    </div>
-                    <div class="flex gap-2 ml-3">
-                        <div class="w-[180px] capitalize">nadi</div>
-                        <div class="">:</div>
-                        <div class="w-max">
-                            {{ data_pasien?.status_fisik?.nadi }}
-                        </div>
-                    </div>
-                    <div class="flex gap-2 ml-3">
-                        <div class="w-[180px] capitalize">pernapasan</div>
-                        <div class="">:</div>
-                        <div class="w-max">
-                            {{ data_pasien?.status_fisik?.pernapasan }}
-                        </div>
-                    </div>
-                    <div class="flex gap-2 ml-3">
-                        <div class="w-[180px]">SpO2</div>
-                        <div class="">:</div>
-                        <div class="w-max">
-                            {{ data_pasien?.status_fisik?.spo2 }}
-                        </div>
-                    </div>
-                    <div class="flex gap-2 ml-3">
-                        <div class="w-[180px] capitalize">CRT</div>
-                        <div class="">:</div>
-                        <div class="w-max">
-                            {{ data_pasien?.status_fisik?.crt }}
-                        </div>
-                    </div>
-                    <div class="flex gap-2 ml-3">
-                        <div class="w-[180px] capitalize">Akral</div>
-                        <div class="">:</div>
-                        <div class="w-max">
-                            {{ data_pasien?.status_fisik?.akral }}
-                        </div>
-                    </div>
-
-                    <!--  -->
-
-                    <div class="flex gap-2">
-                        <div class="w-[180px] capitalize font-semibold">
-                            nutrisi & cairan
-                        </div>
-                    </div>
-                    <div class="flex gap-2 ml-3">
-                        <div class="w-[180px] capitalize">kesulitan minum</div>
-                        <div class="">:</div>
-                        <div class="w-max">
-                            {{
+                                    ? "Ya"
+                                    : "Tidak"
+                            }}</td>
+                            </tr>
+                            <tr>
+                                <td class="capitalize font-semibold" colspan="3">Sirkulasi</td>
+                            </tr>
+                            <tr class="active capitalize">
+                                <td class="capitalize">Tekanan Darah</td>
+                                <td>:</td>
+                                <td>
+                                    {{ data_pasien?.status_fisik?.tekanan_darah }}
+                                </td>
+                            </tr>
+                            <tr class="active capitalize">
+                                <td class="capitalize">Suhu</td>
+                                <td>:</td>
+                                <td>{{ data_pasien?.status_fisik?.suhu }}</td>
+                            </tr>
+                            <tr class="active capitalize">
+                                <td class="capitalize">Nadi</td>
+                                <td>:</td>
+                                <td>
+                                    {{ data_pasien?.status_fisik?.nadi
+                                    }}</td>
+                            </tr>
+                            <tr class="active capitalize">
+                                <td class="capitalize">Pernapasan</td>
+                                <td>:</td>
+                                <td>{{ data_pasien?.status_fisik?.pernapasan }}</td>
+                            </tr>
+                            <tr class="active capitalize">
+                                <td class="capitalize">SpO2</td>
+                                <td>:</td>
+                                <td>
+                                    {{ data_pasien?.status_fisik?.spo2
+                                    }}</td>
+                            </tr>
+                            <tr class="active capitalize">
+                                <td class="capitalize">CRT</td>
+                                <td>:</td>
+                                <td>{{ data_pasien?.status_fisik?.crt }}</td>
+                            </tr>
+                            <tr class="active capitalize">
+                                <td class="capitalize">Akral</td>
+                                <td>:</td>
+                                <td>{{
+                                data_pasien?.status_fisik
+                                    ?.akral
+                            }}</td>
+                            </tr>
+                            <tr>
+                                <td class="capitalize font-semibold" colspan="3">Nutrisi & Cairan</td>
+                            </tr>
+                            <tr class="active capitalize">
+                                <td class="capitalize">Kesulitan Minum</td>
+                                <td>:</td>
+                                <td>
+                                    {{
                                 data_pasien?.status_fisik?.kesulitan_minum ==
                                 "false"
                                     ? "tidak"
                                     : "ya"
                             }}
-                        </div>
-                    </div>
-                    <div class="flex gap-2 ml-3">
-                        <div class="w-[180px] capitalize">status puasa</div>
-                        <div class="">:</div>
-                        <div class="w-max">
-                            {{
+                                </td>
+                            </tr>
+                            <tr class="active capitalize">
+                                <td class="capitalize">Status Puasa</td>
+                                <td>:</td>
+                                <td>
+                                    {{
                                 data_pasien?.status_fisik?.status_puasa ==
                                 "false"
                                     ? "tidak"
                                     : "ya"
                             }}
-                        </div>
-                    </div>
-                    <div class="flex gap-2 ml-3">
-                        <div class="w-[180px] capitalize">turgor kulit</div>
-                        <div class="">:</div>
-                        <div class="w-max">
-                            {{ data_pasien?.status_fisik?.turgor_kulit }}
-                        </div>
-                    </div>
-                    <div class="flex gap-2 ml-3">
-                        <div class="w-[180px] capitalize">edema</div>
-                        <div class="">:</div>
-                        <div class="w-max">
-                            {{
+                                </td>
+                            </tr>
+                            <tr class="active capitalize">
+                                <td class="capitalize">Turgor Kulit</td>
+                                <td>:</td>
+                                <td>
+                                    {{
+                                data_pasien?.status_fisik?.turgor_kulit
+                            }}
+                                </td>
+                            </tr>
+                            <tr class="active capitalize">
+                                <td class="capitalize">Edema</td>
+                                <td>:</td>
+                                <td>
+                                    {{
                                 data_pasien?.status_fisik?.edema > 0
                                     ? "ya"
                                     : "tidak"
                             }}
-                        </div>
-                    </div>
-                    <div
-                        class="flex gap-2 ml-3"
-                        v-if="data_pasien?.status_fisik?.edema"
-                    >
-                        <div class="w-[180px] capitalize">
-                            derajat piting edema
-                        </div>
-                        <div class="">:</div>
-                        <div class="w-max">
-                            {{ data_pasien?.status_fisik?.edema_keterangan }}
-                        </div>
-                    </div>
-                    <div class="flex gap-2 ml-3">
-                        <div class="w-[180px] capitalize">muntah</div>
-                        <div class="">:</div>
-                        <div class="w-max">
-                            {{
+                                </td>
+                            </tr>
+                            <tr class="active capitalize">
+                                <td class="capitalize">Derajat Piting Edema</td>
+                                <td>:</td>
+                                <td>
+                                    {{
+                                data_pasien?.status_fisik?.edema_keterangan
+                            }}
+                                </td>
+                            </tr>
+                            <tr class="active capitalize">
+                                <td class="capitalize">Derajat Piting Edema</td>
+                                <td>:</td>
+                                <td>
+                                    {{
+                                data_pasien?.status_fisik?.edema_keterangan
+                            }}
+                                </td>
+                            </tr>
+                            <tr class="active capitalize">
+                                <td class="capitalize">Muntah</td>
+                                <td>:</td>
+                                <td>
+                                    {{
                                 data_pasien?.status_fisik?.muntah > 0
                                     ? "ya"
                                     : "tidak"
                             }}
-                        </div>
-                    </div>
-                    <div
-                        class="flex gap-2 ml-3"
-                        v-if="data_pasien?.status_fisik?.muntah"
-                    >
-                        <div class="w-[180px] capitalize">frekuensi muntah</div>
-                        <div class="">:</div>
-                        <div class="w-max">
-                            {{ data_pasien?.status_fisik?.muntah_keterangan }}
-                        </div>
-                    </div>
-                    <div class="flex gap-2 ml-3">
-                        <div class="w-[180px] capitalize">
-                            kebutuhan nutrisi
-                        </div>
-                        <div class="">:</div>
-                        <div class="w-max">
-                            {{ data_pasien?.status_fisik?.kebutuhan_nutrisi }}
-                        </div>
-                    </div>
-                    <div class="flex gap-2 ml-3">
-                        <div class="w-[180px] uppercase">tb</div>
-                        <div class="">:</div>
-                        <div class="w-max">
-                            {{ data_pasien?.status_fisik?.tb }}
-                        </div>
-                    </div>
-                    <div class="flex gap-2 ml-3">
-                        <div class="w-[180px] uppercase">bb</div>
-                        <div class="">:</div>
-                        <div class="w-max">
-                            {{ data_pasien?.status_fisik?.bb }}
-                        </div>
-                    </div>
-                    <div class="flex gap-2 ml-3">
-                        <div class="w-[180px] uppercase">imt</div>
-                        <div class="">:</div>
-                        <div class="w-max">
-                            <div
-                                class=""
-                                v-if="data_pasien?.status_fisik?.imt < 18"
-                            >
-                                underweight
-                            </div>
-                            <div
-                                class=""
-                                v-else-if="
-                                    data_pasien?.status_fisik?.imt >= 18 &&
-                                    data_pasien?.status_fisik?.imt <= 25
-                                "
-                            >
-                                normal
-                            </div>
-                            <div
-                                class=""
-                                v-else-if="
-                                    data_pasien?.status_fisik?.imt >= 26 &&
-                                    data_pasien?.status_fisik?.imt <= 27
-                                "
-                            >
-                                overweight
-                            </div>
-                            <div
-                                class=""
-                                v-else-if="data_pasien?.status_fisik?.imt > 27"
-                            >
-                                obesitas
-                            </div>
-                        </div>
-                    </div>
-
-                    <!--  -->
-
-                    <div class="flex gap-2">
-                        <div class="w-[180px] capitalize font-semibold">
-                            eliminasi
-                        </div>
-                    </div>
-                    <div class="flex gap-2 ml-3">
-                        <div class="w-[180px] uppercase">bab</div>
-                        <div class="">:</div>
-                        <div class="w-max">
-                            {{ data_pasien?.status_fisik?.bab_status }}
-                        </div>
-                    </div>
-                    <div
-                        class="flex gap-2 ml-6"
-                        v-if="
-                            data_pasien?.status_fisik?.bab_status ==
-                            'konsistensi dan warna'
-                        "
-                    >
-                        <div class="w-[180px] capitalize">konsistensi bab</div>
-                        <div class="">:</div>
-                        <div class="w-max">
-                            {{ data_pasien?.status_fisik?.bab_konsistensi }}
-                        </div>
-                    </div>
-                    <div
-                        class="flex gap-2 ml-6"
-                        v-if="
-                            data_pasien?.status_fisik?.bab_status ==
-                            'konsistensi dan warna'
-                        "
-                    >
-                        <div class="w-[180px] capitalize">warna bab</div>
-                        <div class="">:</div>
-                        <div class="w-max">
-                            {{ data_pasien?.status_fisik?.bab_warna }}
-                        </div>
-                    </div>
-                    <div
-                        class="flex gap-2 ml-6"
-                        v-if="
-                            data_pasien?.status_fisik?.bab_status == 'frekuensi'
-                        "
-                    >
-                        <div class="w-[180px] capitalize">frekuensi bab</div>
-                        <div class="">:</div>
-                        <div class="w-max">
-                            {{ data_pasien?.status_fisik?.bab_frekuensi }}
-                        </div>
-                    </div>
-                    <div
-                        class="flex gap-2 ml-6"
-                        v-if="data_pasien?.status_fisik?.bab_status == 'diare'"
-                    >
-                        <div class="w-[180px] capitalize">frekuensi diare</div>
-                        <div class="">:</div>
-                        <div class="w-max">
-                            {{ data_pasien?.status_fisik?.bab_frequensi_diare }}
-                        </div>
-                    </div>
-                    <div class="flex gap-2 ml-3">
-                        <div class="w-[180px] uppercase">bak</div>
-                        <div class="">:</div>
-                        <div class="w-max">
-                            {{ data_pasien?.status_fisik?.bak_status }}
-                        </div>
-                    </div>
-
-                    <!--  -->
-
-                    <div class="flex gap-2">
-                        <div class="w-[180px] capitalize font-semibold">
-                            aktifitas & istirahat
-                        </div>
-                    </div>
-                    <div class="flex gap-2 ml-3">
-                        <div class="w-[180px] capitalize">pola tidur</div>
-                        <div class="">:</div>
-                        <div class="w-max">
-                            {{
+                                </td>
+                            </tr>
+                            <tr class="active capitalize">
+                                <td class="capitalize">Frekuensi Muntah</td>
+                                <td>:</td>
+                                <td>
+                                    {{
+                                data_pasien?.status_fisik?.muntah_keterangan
+                            }}
+                                </td>
+                            </tr>
+                            <tr class="active capitalize">
+                                <td class="capitalize">Kebutuhan Nutrisi</td>
+                                <td>:</td>
+                                <td>
+                                    {{
+                                data_pasien?.status_fisik?.kebutuhan_nutrisi
+                            }}
+                                </td>
+                            </tr>
+                            <tr class="active capitalize">
+                                <td class="capitalize">Tinggi Badan</td>
+                                <td>:</td>
+                                <td>
+                                    {{
+                                data_pasien?.status_fisik?.tb
+                            }}
+                                </td>
+                            </tr>
+                            <tr class="active capitalize">
+                                <td class="capitalize">Berat Badan</td>
+                                <td>:</td>
+                                <td>
+                                    {{
+                                data_pasien?.status_fisik?.bb
+                            }}
+                                </td>
+                            </tr>
+                            <tr class="active capitalize">
+                                <td class="capitalize">IMT</td>
+                                <td>:</td>
+                                <td>
+                                    {{
+                                data_pasien?.status_fisik?.imt < 18 ? "Underweight" : data_pasien?.status_fisik?.imt >= 18 &&
+                                    data_pasien?.status_fisik?.imt <= 25 ? "Normal" : "Obesitas"
+                            }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="capitalize font-semibold" colspan="3">Eliminasi</td>
+                            </tr>
+                            <tr class="active capitalize">
+                                <td class="capitalize">BAB</td>
+                                <td>:</td>
+                                <td>
+                                    {{ data_pasien?.status_fisik?.bab_status }}
+                                </td>
+                            </tr>
+                            <tr class="active capitalize">
+                                <td class="capitalize">Konsistensi BAB</td>
+                                <td>:</td>
+                                <td>
+                                    {{ data_pasien?.status_fisik?.bab_konsistensi }}
+                                </td>
+                            </tr>
+                            <tr class="active capitalize">
+                                <td class="capitalize">Warna BAB</td>
+                                <td>:</td>
+                                <td>
+                                    {{ data_pasien?.status_fisik?.bab_warna }}
+                                </td>
+                            </tr>
+                            <tr class="active capitalize">
+                                <td class="capitalize">Frekuensi BAB</td>
+                                <td>:</td>
+                                <td>
+                                    {{ data_pasien?.status_fisik?.bab_frekuensi }}
+                                </td>
+                            </tr>
+                            <tr class="active capitalize">
+                                <td class="capitalize">Frekuensi Diare</td>
+                                <td>:</td>
+                                <td>
+                                    {{ data_pasien?.status_fisik?.bab_frekuensi_diare }}
+                                </td>
+                            </tr>
+                            <tr class="active capitalize">
+                                <td class="capitalize">BAK</td>
+                                <td>:</td>
+                                <td>
+                                    {{ data_pasien?.status_fisik?.bak_status }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="capitalize font-semibold" colspan="3">Aktifitas & Istirahat</td>
+                            </tr>
+                            <tr class="active capitalize">
+                                <td class="capitalize">Pola Tidur</td>
+                                <td>:</td>
+                                <td>
+                                    {{
                                 data_pasien?.status_fisik?.aktifitas_pola_tidur
                             }}
-                        </div>
-                    </div>
-                    <div class="flex gap-2 ml-3">
-                        <div class="w-[180px] capitalize">durasi</div>
-                        <div class="">:</div>
-                        <div class="w-max">
-                            {{ data_pasien?.status_fisik?.aktifitas_durasi }}
-                        </div>
-                    </div>
-                    <div class="flex gap-2 ml-3">
-                        <div class="w-[180px] capitalize">ganguan tidur</div>
-                        <div class="">:</div>
-                        <div class="w-max">
-                            {{
+                                </td>
+                            </tr>
+                            <tr class="active capitalize">
+                                <td class="capitalize">Durasi Tidur</td>
+                                <td>:</td>
+                                <td>
+                                    {{ data_pasien?.status_fisik?.aktifitas_durasi }}
+                                </td>
+                            </tr>
+                            <tr class="active capitalize">
+                                <td class="capitalize">Gangguan Tidur</td>
+                                <td>:</td>
+                                <td>
+                                    {{
                                 data_pasien?.status_fisik?.tidur_status
                                     ? "ya"
                                     : "tidak"
                             }}
-                        </div>
-                    </div>
-                    <div
-                        class="flex gap-2 ml-3"
-                        v-if="data_pasien?.status_fisik?.tidur_status"
-                    >
-                        <div class="w-[180px] capitalize">
-                            penyebab ganguan tidur
-                        </div>
-                        <div class="">:</div>
-                        <div class="w-max">
-                            {{ data_pasien?.status_fisik?.tidur_gangguan }}
-                        </div>
-                    </div>
-
-                    <!--  -->
-
-                    <div class="flex gap-2">
-                        <div class="w-[180px] capitalize font-semibold">
-                            neusensori
-                        </div>
-                    </div>
-                    <div class="flex gap-2 ml-3">
-                        <div class="w-[180px] capitalize">kesadaran</div>
-                        <div class="">:</div>
-                        <div class="w-max">
-                            {{ data_pasien?.status_fisik?.kesadaran }}
-                        </div>
-                    </div>
-
-                    <!--  -->
-
-                    <div class="flex gap-2">
-                        <div class="w-[180px] capitalize font-semibold">
-                            reproduksi & seksualitas
-                        </div>
-                        <div class="">:</div>
-                        <div class="w-max">
-                            {{
-                                data_pasien?.status_fisik
-                                    ?.reproduksi_dan_seksualitas
-                            }}
-                        </div>
-                    </div>
-                    <div
-                        class="flex gap-2 ml-3"
-                        v-if="
-                            data_pasien?.status_fisik
-                                ?.reproduksi_dan_seksualitas == 'ya'
-                        "
-                    >
-                        <div class="w-[180px] capitalize">gangguan</div>
-                        <div class="">:</div>
-                        <div class="w-max">
-                            {{
+                                </td>
+                            </tr>
+                            <tr class="active capitalize">
+                                <td class="capitalize">Penyebab Gangguan Tidur</td>
+                                <td>:</td>
+                                <td>
+                                    {{ data_pasien?.status_fisik?.tidur_gangguan }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="capitalize font-semibold" colspan="3">Neusensori</td>
+                            </tr>
+                            <tr class="active capitalize">
+                                <td class="capitalize">Kesadaran</td>
+                                <td>:</td>
+                                <td>
+                                    {{ data_pasien?.status_fisik?.kesadaran }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="capitalize font-semibold" colspan="3">Reproduksi & Seksualitas</td>
+                            </tr>
+                            <tr class="active capitalize">
+                                <td class="capitalize" colspan="3">{{
+                                data_pasien?.status_fisik?.reproduksi_dan_seksualitas
+                            }}</td>
+                            </tr>
+                            <tr v-if="data_pasien?.status_fisik?.reproduksi_dan_seksualitas == 'ya'">
+                                <td class="capitalize font-semibold" colspan="3">Gangguan Reproduksi & Seksualitas</td>
+                            </tr>
+                            <tr v-if="data_pasien?.status_fisik?.reproduksi_dan_seksualitas == 'ya'" class="active capitalize">
+                                <td class="capitalize" colspan="3">
+                                    {{
                                 data_pasien?.status_fisik
                                     ?.reproduksi_dan_seksualitas_gangguan
                             }}
-                        </div>
-                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
-
-                <!--  -->
 
                 <div class="flex flex-col gap-2 max-w-full overflow-hidden">
                     <div
@@ -747,153 +627,119 @@ get_data();
                     >
                         psiko - sosial - spiritual
                     </div>
-                    <div class="flex flex-col gap-2">
-                        <div class="flex gap-2">
-                            <div class="w-[180px] capitalize font-semibold">
-                                Psikologis
-                            </div>
-                            <div class="">:</div>
-                            <div class="w-max">
-                                {{
+                    <div class="overflow-x-auto">
+                        <table class="table table-compact w-full">
+                            <tbody>
+                                <tr>
+                                <td class="capitalize font-semibold" colspan="3">Psikologis</td>
+                            </tr>
+                            <tr class="active capitalize">
+                                <td class="capitalize">Status Psikologis</td>
+                                <td>:</td>
+                                <td>
+                                    {{
                                     data_pasien?.psiko_sosial_spiritual
                                         ?.psikologis_status
-                                }}
-                            </div>
-                        </div>
-                        <div
-                            class="flex gap-2 ml-3"
-                            v-if="
-                                data_pasien?.psiko_sosial_spiritual
-                                    ?.psikologis_status ==
-                                'kecendrungan bunuh diri'
-                            "
-                        >
-                            <div class="w-[180px] capitalize">
-                                Dilaporkan ke
-                            </div>
-                            <div class="">:</div>
-                            <div class="w-max">
-                                {{
+                                }}</td>
+                            </tr>
+                            <tr class="active capitalize">
+                                <td class="capitalize">Dilaporkan Ke</td>
+                                <td>:</td>
+                                <td>
+                                    {{
                                     data_pasien?.psiko_sosial_spiritual
                                         ?.psikologis_dilaporkan
-                                }}
-                            </div>
-                        </div>
-                        <div
-                            class="flex gap-2 ml-3"
-                            v-if="
-                                data_pasien?.psiko_sosial_spiritual
-                                    ?.psikologis_status == 'lain-lain'
-                            "
-                        >
-                            <div class="w-[180px] capitalize">sebutkan</div>
-                            <div class="">:</div>
-                            <div class="w-max">
-                                {{
+                                }}</td>
+                            </tr>
+                            <tr class="active capitalize">
+                                <td class="capitalize">Lain-lain</td>
+                                <td>:</td>
+                                <td>
+                                    {{
                                     data_pasien?.psiko_sosial_spiritual
                                         ?.psikologis_sebutkan
-                                }}
-                            </div>
-                        </div>
-
-                        <!--  -->
-
-                        <div class="flex gap-2">
-                            <div class="w-[180px] capitalize font-semibold">
-                                sosial
-                            </div>
-                        </div>
-                        <div class="flex gap-2 ml-3">
-                            <div class="w-[180px] capitalize">
-                                status perkawinan
-                            </div>
-                            <div class="">:</div>
-                            <div class="w-max">
-                                {{
+                                }}</td>
+                            </tr>
+                            <tr>
+                            <td class="capitalize font-semibold" colspan="3">Sosial</td>
+                        </tr>
+                            <tr class="active capitalize">
+                                <td class="capitalize">Status Perkawinan</td>
+                                <td>:</td>
+                                <td>
+                                    {{
                                     data_pasien?.psiko_sosial_spiritual
                                         ?.sosial_status_perkawinan
-                                }}
-                            </div>
-                        </div>
-                        <div class="flex gap-2 ml-3">
-                            <div class="w-[180px] capitalize">
-                                pola interaksi
-                            </div>
-                            <div class="">:</div>
-                            <div class="w-max">
-                                {{
+                                }}</td>
+                            </tr>
+                            <tr class="active capitalize">
+                                <td class="capitalize">Pola Interaksi</td>
+                                <td>:</td>
+                                <td>
+                                    {{
                                     data_pasien?.psiko_sosial_spiritual
                                         ?.sosial_pola_interaksi
-                                }}
-                            </div>
-                        </div>
-                        <div class="flex gap-2 ml-3">
-                            <div class="w-[180px] capitalize">
-                                support system
-                            </div>
-                            <div class="">:</div>
-                            <div class="w-max">
-                                {{
+                                }}</td>
+                            </tr>
+                            <tr class="active capitalize">
+                                <td class="capitalize">Support System</td>
+                                <td>:</td>
+                                <td>
+                                    {{
                                     data_pasien?.psiko_sosial_spiritual
                                         ?.sosial_support_system
-                                }}
-                            </div>
-                        </div>
-
-                        <!--  -->
-
-                        <div class="flex gap-2">
-                            <div class="w-[180px] capitalize font-semibold">
-                                spiritual
-                            </div>
-                        </div>
-                        <div class="flex gap-2 ml-3">
-                            <div class="w-[180px] capitalize">agama</div>
-                            <div class="">:</div>
-                            <div class="w-max">
-                                {{
+                                }}</td>
+                            </tr>
+                            <tr>
+                            <td class="capitalize font-semibold" colspan="3">Sosial</td>
+                        </tr>
+                            <tr class="active capitalize">
+                                <td class="capitalize">Agama</td>
+                                <td>:</td>
+                                <td>
+                                    {{
                                     data_pasien?.psiko_sosial_spiritual
                                         ?.spiritual_agama
-                                }}
-                            </div>
-                        </div>
-                        <div class="flex gap-2 ml-3">
-                            <div class="w-[180px] capitalize">
-                                nilai / keyakinan yang dianut terhadap pelayanan
-                                kesehatan
-                            </div>
-                            <div class="">:</div>
-                            <div class="w-max">
-                                {{
+                                }}</td>
+                            </tr>
+                            <tr class="active capitalize">
+                                <td class="capitalize">Agama</td>
+                                <td>:</td>
+                                <td>
+                                    {{
+                                    data_pasien?.psiko_sosial_spiritual
+                                        ?.spiritual_agama
+                                }}</td>
+                            </tr>
+                            <tr class="active capitalize">
+                                <td class="capitalize">Keyakinan Yg Dianut</td>
+                                <td>:</td>
+                                <td>
+                                    {{
                                     data_pasien?.psiko_sosial_spiritual
                                         ?.spiritual_keyakinan_pelayanan_kesehatan
-                                }}
-                            </div>
-                        </div>
-                        <div class="flex gap-2 ml-3">
-                            <div class="w-[180px] capitalize">
-                                kebutuhan kerohanian
-                            </div>
-                            <div class="">:</div>
-                            <div class="w-max">
-                                {{
+                                }}</td>
+                            </tr>
+                            <tr class="active capitalize">
+                                <td class="capitalize">Kebutuhan Kerohanian</td>
+                                <td>:</td>
+                                <td>
+                                    {{
                                     data_pasien?.psiko_sosial_spiritual
                                         ?.spiritual_kebutuhan_kerohanian
-                                }}
-                            </div>
-                        </div>
-                        <div class="flex gap-2 ml-3">
-                            <div class="w-[180px] capitalize">
-                                kebutuhan privasi khusus
-                            </div>
-                            <div class="">:</div>
-                            <div class="w-max">
-                                {{
+                                }}</td>
+                            </tr>
+                            <tr class="active capitalize">
+                                <td class="capitalize">Kebutuhan Privasi Khusus</td>
+                                <td>:</td>
+                                <td>
+                                    {{
                                     data_pasien?.psiko_sosial_spiritual
                                         ?.spiritual_kebutuhan_privasi_khusus
-                                }}
-                            </div>
-                        </div>
+                                }}</td>
+                            </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
 
@@ -905,37 +751,32 @@ get_data();
                     >
                         Ekonomi
                     </div>
-                    <div class="flex flex-col gap-2">
-                        <div class="flex gap-2">
-                            <div class="w-[180px] capitalize font-semibold">
-                                status pekerjaan
-                            </div>
-                            <div class="">:</div>
-                            <div class="w-max">
-                                {{ data_pasien?.ekonomi?.status_pekerjaaan }}
-                            </div>
-                        </div>
-                        <div class="flex gap-2">
-                            <div class="w-[180px] capitalize font-semibold">
-                                pembiayaan / jaminan kesehatan
-                            </div>
-                            <div class="">:</div>
-                            <div class="w-max">
-                                {{ data_pasien?.ekonomi?.pembiayaan_kesehatan }}
-                            </div>
-                        </div>
-                        <div class="flex gap-2">
-                            <div class="w-[180px] capitalize font-semibold">
-                                penanggung jawab pasien
-                            </div>
-                            <div class="">:</div>
-                            <div class="w-max">
-                                {{
+                    <div class="overflow-x-auto">
+                        <table class="table table-compact w-full">
+                            <tbody>
+                            <tr class="active capitalize">
+                                <td class="capitalize">Status Pekerjaan</td>
+                                <td>:</td>
+                                <td>
+                                    {{ data_pasien?.ekonomi?.status_pekerjaaan }}</td>
+                            </tr>
+                            <tr class="active capitalize">
+                                <td class="capitalize">Jaminan Kesehatan</td>
+                                <td>:</td>
+                                <td>
+                                    {{ data_pasien?.ekonomi?.pembiayaan_kesehatan }}</td>
+                            </tr>
+                            <tr class="active capitalize">
+                                <td class="capitalize">Penanggung Jawab</td>
+                                <td>:</td>
+                                <td>
+                                    {{
                                     data_pasien?.ekonomi
                                         ?.penanggung_jawab_pasien
-                                }}
-                            </div>
-                        </div>
+                                }}</td>
+                            </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
 
@@ -947,40 +788,31 @@ get_data();
                     >
                         Riwayat Alergi
                     </div>
-                    <div class="flex flex-col gap-2">
-                        <div class="flex gap-2">
-                            <div class="w-[180px] capitalize font-semibold">
-                                Alergi
-                            </div>
-                            <div class="">:</div>
-                            <div class="w-max">
-                                {{
-                                    data_pasien?.alergi?.status ? "ya" : "tidak"
-                                }}
-                            </div>
-                        </div>
-                        <div
-                            class="flex gap-2 ml-3"
-                            v-if="data_pasien?.alergi?.status"
-                        >
-                            <div class="w-[180px] capitalize">alergi</div>
-                            <div class="">:</div>
-                            <div class="w-max">
-                                {{ data_pasien?.alergi?.alergi }}
-                            </div>
-                        </div>
-                        <div
-                            class="flex gap-2 ml-3"
-                            v-if="data_pasien?.alergi?.status"
-                        >
-                            <div class="w-[180px] capitalize">
-                                reaksi alergi
-                            </div>
-                            <div class="">:</div>
-                            <div class="w-max">
-                                {{ data_pasien?.alergi?.reaksi_alergi }}
-                            </div>
-                        </div>
+                    <div class="overflow-x-auto">
+                        <table class="table table-compact w-full">
+                            <tbody>
+                            <tr class="active capitalize">
+                                <td class="capitalize">Mempunyai Alergi</td>
+                                <td>:</td>
+                                <td>
+                                    {{
+                                    data_pasien?.alergi?.status ? "Tidak" : "Ya"
+                                }}</td>
+                            </tr>
+                            <tr class="active capitalize">
+                                <td class="capitalize">Keterangan Alergi</td>
+                                <td>:</td>
+                                <td>
+                                    {{ data_pasien?.alergi?.alergi }}</td>
+                            </tr>
+                            <tr class="active capitalize">
+                                <td class="capitalize">Reaksi Alergi</td>
+                                <td>:</td>
+                                <td>
+                                    {{ data_pasien?.alergi?.reaksi_alergi }}</td>
+                            </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
 
@@ -992,84 +824,55 @@ get_data();
                     >
                         assessment nyeri
                     </div>
-                    <div class="flex flex-col gap-2">
-                        <div class="flex gap-2">
-                            <div class="w-[180px] capitalize font-semibold">
-                                nyeri
-                            </div>
-                            <div class="">:</div>
-                            <div class="w-max">
-                                {{
+                    <div class="overflow-x-auto">
+                        <table class="table table-compact w-full">
+                            <tbody>
+                            <tr class="active capitalize">
+                                <td class="capitalize">Mempunyai Nyeri</td>
+                                <td>:</td>
+                                <td>
+                                    {{
                                     data_pasien?.nyeri?.status ? "ya" : "tidak"
-                                }}
-                            </div>
-                        </div>
-                        <div
-                            class="flex gap-2 ml-3"
-                            v-if="data_pasien?.nyeri?.status"
-                        >
-                            <div class="w-[180px] capitalize">sejak kapan</div>
-                            <div class="">:</div>
-                            <div class="w-max">
-                                {{ data_pasien?.nyeri?.kapan }}
-                            </div>
-                        </div>
-                        <div
-                            class="flex gap-2 ml-3"
-                            v-if="data_pasien?.nyeri?.status"
-                        >
-                            <div class="w-[180px] capitalize">
-                                faktor pencetus nyeri
-                            </div>
-                            <div class="">:</div>
-                            <div class="w-max">
-                                {{ data_pasien?.nyeri?.faktor }}
-                            </div>
-                        </div>
-                        <div
-                            class="flex gap-2 ml-3"
-                            v-if="data_pasien?.nyeri?.status"
-                        >
-                            <div class="w-[180px] capitalize">
-                                karakteristik nyeri
-                            </div>
-                            <div class="">:</div>
-                            <div class="w-max">
-                                {{ data_pasien?.nyeri?.karakteristik }}
-                            </div>
-                        </div>
-                        <div
-                            class="flex gap-2 ml-3"
-                            v-if="data_pasien?.nyeri?.status"
-                        >
-                            <div class="w-[180px] capitalize">lokasi nyeri</div>
-                            <div class="">:</div>
-                            <div class="w-max">
-                                {{ data_pasien?.nyeri?.lokasi }}
-                            </div>
-                        </div>
-                        <div
-                            class="flex gap-2 ml-3"
-                            v-if="data_pasien?.nyeri?.status"
-                        >
-                            <div class="w-[180px] capitalize">skala nyeri</div>
-                            <div class="">:</div>
-                            <div class="w-max">
-                                {{ data_pasien?.nyeri?.skala }}
-                            </div>
-                        </div>
-                        <div
-                            class="flex gap-2 ml-3"
-                            v-if="data_pasien?.nyeri?.status"
-                        >
-                            <div class="w-[180px] capitalize">
-                                durasi / lama nyeri
-                            </div>
-                            <div class="">:</div>
-                            <div class="w-max">
-                                {{ data_pasien?.nyeri?.durasi }}
-                            </div>
-                        </div>
+                                }}</td>
+                            </tr>
+                            <tr class="active capitalize">
+                                <td class="capitalize">Sejak Kapan</td>
+                                <td>:</td>
+                                <td>
+                                    {{ data_pasien?.nyeri?.kapan }}</td>
+                            </tr>
+                            <tr class="active capitalize">
+                                <td class="capitalize">Faktor Pencetus Nyeri</td>
+                                <td>:</td>
+                                <td>
+                                    {{ data_pasien?.nyeri?.faktor }}</td>
+                            </tr>
+                            <tr class="active capitalize">
+                                <td class="capitalize">Karakteristik Nyeri</td>
+                                <td>:</td>
+                                <td>
+                                    {{ data_pasien?.nyeri?.karakteristik }}</td>
+                            </tr>
+                            <tr class="active capitalize">
+                                <td class="capitalize">Lokasi Nyeri</td>
+                                <td>:</td>
+                                <td>
+                                    {{ data_pasien?.nyeri?.lokasi }}</td>
+                            </tr>
+                            <tr class="active capitalize">
+                                <td class="capitalize">Skala Nyeri</td>
+                                <td>:</td>
+                                <td>
+                                    {{ data_pasien?.nyeri?.skala }}</td>
+                            </tr>
+                            <tr class="active capitalize">
+                                <td class="capitalize">Durasi Nyeri</td>
+                                <td>:</td>
+                                <td>
+                                    {{ data_pasien?.nyeri?.durasi }}</td>
+                            </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
 
@@ -1081,16 +884,17 @@ get_data();
                     >
                         kebutuhan edukasi
                     </div>
-                    <div class="flex flex-col gap-2">
-                        <div class="flex gap-2">
-                            <div class="w-[180px] capitalize font-semibold">
-                                kebutuhan edukasi
-                            </div>
-                            <div class="">:</div>
-                            <div class="w-max">
-                                {{ data_pasien?.kebutuhan_edukasi?.pilihan }}
-                            </div>
-                        </div>
+                    <div class="overflow-x-auto">
+                        <table class="table table-compact w-full">
+                            <tbody>
+                            <tr class="active capitalize">
+                                <td class="capitalize">Kebutuhan Edukasi</td>
+                                <td>:</td>
+                                <td>
+                                    {{ data_pasien?.kebutuhan_edukasi?.pilihan }}</td>
+                            </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
 
@@ -1100,43 +904,38 @@ get_data();
                     <div
                         class="uppercase font-bold my-4 text-center overflow-hidden"
                     >
-                        Perencanaan Pemulangan Pasien (P3) / (Discharge
+                        Perencanaan Pemulangan Pasien (P3)<br/>(Discharge
                         Planning)
                     </div>
-                    <div class="flex flex-col gap-2">
-                        <div class="flex gap-2">
-                            <div class="w-[180px] capitalize font-semibold">
-                                Kriteria Pemulangan Kritis
-                            </div>
-                            <div class="">:</div>
-                            <div class="w-max">
-                                <div
-                                    class=""
-                                    v-for="(
+                    <div class="overflow-x-auto">
+                        <table class="table table-compact w-full">
+                            <tbody>
+                                <tr>
+                                <td class="capitalize font-semibold" colspan="3">Kriteria Pemulangan Kritis</td>
+                            </tr>
+                                <tr class="active" v-for="(
                                         item, index
                                     ) in data_pasien?.perencanaan_pemulangan_pasien
                                         ? data_pasien?.perencanaan_pemulangan_pasien
                                         : 0"
-                                    :key="index"
-                                >
-                                    - {{ item.opsi }}
-                                </div>
-                            </div>
-                        </div>
-                        <div class="flex gap-2">
-                            <div class="w-[180px] capitalize font-semibold">
-                                discard plainning
-                            </div>
-                            <div class="">:</div>
-                            <div class="w-max">
-                                {{
+                                    :key="index">
+                                <td class="capitalize" colspan="3">- {{ item.opsi }}</td>
+                            </tr>
+                            <tr>
+                                <td class="capitalize font-semibold" colspan="3">Discard Planning</td>
+                            </tr>
+                            <tr class="active">
+                                <td class="capitalize" colspan="3">
+                                    {{
                                     data_pasien?.perencanaan_pemulangan_pasien
                                         .length
                                         ? "tidak"
                                         : "ya"
                                 }}
-                            </div>
-                        </div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
 
@@ -1148,77 +947,47 @@ get_data();
                     >
                         Riwayat Penggunaan obat
                     </div>
-                    <div class="flex flex-col gap-2">
-                        <div class="flex gap-2">
-                            <div class="w-[180px] capitalize font-semibold">
-                                penggunaan obat
-                            </div>
-                            <div class="">:</div>
-                            <div class="w-max">
-                                {{ data_pasien?.penggunaan_obat.length }}
-                            </div>
-                        </div>
-                        <div class="flex flex-col gap-2">
-                            <div class="font-semibold capitalize">
-                                obat yang digunakan
-                            </div>
-                            <div
-                                class="card shadow-md m-2"
-                                v-for="(
+                    <div class="overflow-x-auto">
+                        <table class="table table-compact w-full">
+                            <tbody>
+                                <tr class="active">
+                                <td class="capitalize font-semibold" >Penggunaan Obat</td>
+                                <td>:</td>
+                                <td>{{ data_pasien?.penggunaan_obat.length }}</td>
+                            </tr>
+                                <tr v-if="data_pasien?.penggunaan_obat.length > 0">
+                                <td class="capitalize font-semibold" colspan="3">Obat Yang Digunakan</td>
+                            </tr>
+                            <tr class="active" v-if="data_pasien?.penggunaan_obat.length > 0">
+                                <td class="capitalize">Nama Obat</td>
+                                <td class="capitalize">Dosis Obat</td>
+                                <td class="capitalize">Asal Obat</td>
+                            </tr>
+                                <template v-if="data_pasien?.penggunaan_obat.length > 0">
+                                    <tr class="active" v-for="(
                                     item, index
                                 ) in data_pasien?.penggunaan_obat"
-                                :key="index"
-                            >
-                                <div class="card-body">
-                                    <div class="flex gap-2">
-                                        <div
-                                            class="w-[60px] capitalize font-semibold"
-                                        >
-                                            nama
-                                        </div>
-                                        <div class="">:</div>
-                                        <div class="w-max">{{ item.nama }}</div>
-                                    </div>
-                                    <div class="flex gap-2">
-                                        <div
-                                            class="w-[60px] capitalize font-semibold"
-                                        >
-                                            dosis
-                                        </div>
-                                        <div class="">:</div>
-                                        <div class="w-max">
-                                            {{ item.dosis }}
-                                        </div>
-                                    </div>
-                                    <div class="flex gap-2">
-                                        <div
-                                            class="w-[60px] capitalize font-semibold"
-                                        >
-                                            sumber
-                                        </div>
-                                        <div class="">:</div>
-                                        <div class="w-max">{{ item.asal }}</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="flex gap-2">
-                            <div class="w-[180px] capitalize font-semibold">
-                                assessment populasi khusus
-                            </div>
-                            <div class="">:</div>
-                            <div class="w-max">
-                                <div
-                                    class=""
-                                    v-for="(
+                                :key="index">
+                                <td class="capitalize">{{ item.nama }}</td>
+                                <td class="capitalize">{{ item.dosis }}</td>
+                                <td class="capitalize">{{ item.asal }}</td>
+                            </tr>
+                                </template>
+                            <tr v-if="data_pasien?.penggunaan_obat.length > 0">
+                                <td class="capitalize font-semibold" colspan="3">assessment populasi khusus</td>
+                            </tr>
+                            <template v-if="data_pasien?.penggunaan_obat.length > 0">
+                                <tr class="active" v-for="(
                                         item, index
                                     ) in data_pasien?.populasi_khusus"
-                                    :key="index"
-                                >
+                                    :key="index">
+                                <td class="capitalize" colspan="3">
                                     - {{ item.populasi }}
-                                </div>
-                            </div>
-                        </div>
+                                </td>
+                            </tr>
+                            </template>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
 
@@ -1230,53 +999,37 @@ get_data();
                     >
                         Analisis Data
                     </div>
-                    <div class="flex flex-col gap-2">
-                        <div
-                            class="card shadow-md m-2"
-                            v-for="(item, index) in data_pasien?.analisis_data"
-                            :key="index"
-                        >
-                            <div class="card-body">
-                                <div class="flex gap-2">
-                                    <div
-                                        class="w-[60px] capitalize font-semibold"
-                                    >
-                                        subjektif
-                                    </div>
-                                    <div class="">:</div>
-                                    <div class="w-max">
-                                        {{ item.subjektif }}
-                                    </div>
-                                </div>
-                                <div class="flex gap-2">
-                                    <div
-                                        class="w-[60px] capitalize font-semibold"
-                                    >
-                                        objektif
-                                    </div>
-                                    <div class="">:</div>
-                                    <div class="w-max">{{ item.objektif }}</div>
-                                </div>
-                                <div class="flex gap-2">
-                                    <div
-                                        class="w-[60px] capitalize font-semibold"
-                                    >
-                                        penyebab
-                                    </div>
-                                    <div class="">:</div>
-                                    <div class="w-max">{{ item.penyebab }}</div>
-                                </div>
-                                <div class="flex gap-2">
-                                    <div
-                                        class="w-[60px] capitalize font-semibold"
-                                    >
-                                        masalah
-                                    </div>
-                                    <div class="">:</div>
-                                    <div class="w-max">{{ item.masalah }}</div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="overflow-x-auto">
+                        <table class="table table-compact w-full">
+                            <tbody>
+                                <template v-for="(item, index) in data_pasien?.analisis_data"
+                            :key="index">
+                                        <tr>
+                                            <th colspan="3" >Analisis {{index+1}}</th>
+                                        </tr>
+                                        <tr class="active">
+                                            <td>Subjektif</td>
+                                            <td>:</td>
+                                            <td>{{item.subjektif}}</td>
+                                        </tr>
+                                        <tr class="active">
+                                            <td>Objektif</td>
+                                            <td>:</td>
+                                            <td>{{item.objektif}}</td>
+                                        </tr>
+                                        <tr class="active">
+                                            <td>Penyebab</td>
+                                            <td>:</td>
+                                            <td>{{item.penyebab}}</td>
+                                        </tr>
+                                        <tr class="active">
+                                            <td>Masalah</td>
+                                            <td>:</td>
+                                            <td>{{item.masalah}}</td>
+                                        </tr>
+                                </template>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
 
@@ -1288,22 +1041,26 @@ get_data();
                     >
                         Diagnosa / Masalah keperawatan
                     </div>
-                    <div class="flex flex-col gap-2 mx-auto">
-                        <div
-                            class="flex gap-2 items-center"
-                            v-for="(
+                    <div class="overflow-x-auto">
+                        <table class="table table-compact w-full">
+                            <tbody>
+                                <tr>
+                                <th>Kode</th>
+                                <th colspan="2">Keterangan</th>
+                            </tr>
+                                <template v-for="(
                                 item, index
                             ) in data_pasien?.masalah_keperawatan"
-                            :key="index"
-                        >
-                            <div class="badge badge-primary">{{ item.kode }}</div>
-                            <div class="">-</div>
-                            <div class="w-max">{{ item.keterangan }}</div>
-                        </div>
+                            :key="index">
+                                    <tr class="active capitalize">
+                                        <td>{{ item.kode }}</td>
+                                        <td colspan="2">{{ item.keterangan }}</td>
+                                    </tr>
+                                </template>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
-
-                <!--  -->
             </div>
         </div>
     </div>

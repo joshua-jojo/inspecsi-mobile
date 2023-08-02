@@ -19,20 +19,20 @@
     <div class="w-full h-max grid grid-cols-2 gap-4 -mt-20 px-5">
         <div class="card shadow-md bg-base-100 p-4" @click="materi" v-if="KepalaRuangan || KetuaTim">
             <div class="card-body h-[150px] p-4 flex flex-col">
-                <img src="../../../assets/icons/menu-dashboard.svg" class="h-[80%]">
+                <img src="../../../assets/icons/menu-materi.png" class="h-[80%]">
                 <div class="text-center h-max">Materi</div>
             </div>
         </div>
         <div class="card shadow-md bg-base-100 p-4" @click="assessment"  v-if="KepalaRuangan || KetuaTim">
             <div class="card-body h-[150px] p-4 flex flex-col">
-                <img src="../../../assets/icons/menu-assessment.svg" class="h-[80%]">
+                <img src="../../../assets/icons/menu-assessment.png" class="h-[80%]">
                 <div class="text-center h-max">Assessment</div>
             </div>
         </div>
         <div class="card shadow-md bg-base-100 p-4" @click="archive" v-if="KepalaRuangan || KetuaTim">
             <div class="card-body h-[150px] p-4 flex flex-col">
-                <img src="../../../assets/icons/menu-archive.svg" class="h-[80%]">
-                <div class="text-center h-max">Archive</div>
+                <img src="../../../assets/icons/menu-archive.png" class="h-[80%]">
+                <div class="text-center h-max">Archive </div>
             </div>
         </div>
         <div class="card shadow-md bg-base-100 p-4" @click="users" v-if="Admin || SuperAdmin">
@@ -55,7 +55,7 @@
         </div>
         <div class="card shadow-md bg-base-100 p-4" @click="tentang">
             <div class="card-body h-[150px] p-4 flex flex-col">
-                <img src="../../../assets/icons/menu-tentang.svg" class="h-[80%]">
+                <img src="../../../assets/icons/menu-tentang.png" class="h-[80%]">
                 <div class="text-center h-max">Tentang</div>
             </div>
         </div>

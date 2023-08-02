@@ -5,7 +5,7 @@ import { ref, watchEffect } from 'vue';
 import { useStore } from 'vuex';
 
 const store = useStore()
-store.state.judul_job = "Catatan Perkembangan Pasien"
+store.state.judul_job = "Perkembangan Pasien"
 const KepalaRuangan = store.state.user?.role?.nama == "kepala ruangan"
 
 const props = defineProps({
