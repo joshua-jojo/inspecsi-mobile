@@ -80,13 +80,22 @@ import router from "@/router";
 import axios from "axios";
 import useForm from "form-helper-axios";
 import { useStore } from "vuex";
+import { Preferences } from '@capacitor/preferences';
+
+const saveLogin = async (data : any) => {
+  await Preferences.set({
+    key: 'login',
+    value: JSON.stringify(data),
+  });
+
+};
 
 const store = useStore();
 const formLogin = useForm({
-  // email: "kepala@kepala.com",
-  // password: 123123123,
-  email: null,
-  password: null,
+  email: "superadmin@gmail.com",
+  password: "superadmin",
+  // email: null,
+  // password: null,
 });
 
 function login() {
@@ -94,6 +103,11 @@ function login() {
     onSuccess: (response: any) => {
       store.state.user = response.user;
       store.state.token = response.token;
+
+      saveLogin({
+        user : response.user,
+        token : response.token,
+      })
       if (
         store.state.user.role.nama != "admin" &&
         store.state.user.role.nama != "super admin"

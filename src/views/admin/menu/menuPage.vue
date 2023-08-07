@@ -70,6 +70,11 @@
 <script lang="ts" setup>
 import { useStore } from 'vuex'
 import { useRouter } from 'vue-router';
+import { Preferences } from "@capacitor/preferences";
+
+const deleteLogin = async () => {
+  await Preferences.remove({ key: 'login' });
+};
 
 const store = useStore()
 const router = useRouter()
@@ -108,12 +113,13 @@ const tentang = () => {
         name : "tentang"
     })
 }
-const logout = () => {
-    store.state.user = {}
-    store.state.token = null
-    router.push({
+const logout = async() => {
+    await router.push({
         name: 'login'
     })
+    store.state.user =  {}
+    store.state.token = null
+    await deleteLogin()
 }
 
 const KepalaRuangan = store.state.user?.role?.nama == "kepala ruangan"

@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { defineProps, ref } from 'vue';
+import { ref } from 'vue';
 import { arrowBack } from 'ionicons/icons';
 import { IonIcon } from '@ionic/vue';
 import axios from 'axios';

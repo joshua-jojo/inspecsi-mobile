@@ -1,7 +1,9 @@
 {
   "name": "project juna",
   "integrations": {
-    "capacitor": {}
+    "capacitor": {
+      "webDir" : "dist"
+    }
   },
   "type": "vue"
 }
