@@ -281,7 +281,7 @@ const first_install = async () => {
 
 
 
-router.beforeEach(async (to, from) => {
+router.beforeEach(async (to) => {
     document
         .getElementById("screenLayout")
         ?.scrollIntoView({ behavior: "smooth" });
