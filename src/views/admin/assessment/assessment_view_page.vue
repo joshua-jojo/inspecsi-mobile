@@ -9,6 +9,8 @@ const props = defineProps({
 const store = useStore();
 store.state.judul_job = "Menu";
 
+const isSuperAdmin = store.state.user?.role_id == 1
+
 const go_catatan = () => {
     router.push({
         name: "admin.job.catatan_perkembangan_pasien",
@@ -55,6 +57,7 @@ const penilaian = () => {
             @click="go_catatan"
             :class="{ 'btn-disabled': props.id == 'null' }"
             class="btn btn-primary"
+            v-if="!isSuperAdmin"
         >
             {{
                 props.id != "null"
@@ -66,6 +69,7 @@ const penilaian = () => {
             @click="penilaian"
             :class="{ 'btn-disabled': props.id == 'null' }"
             class="btn btn-block my-1 btn-primary"
+            v-if="!isSuperAdmin"
         >
             {{ props.id != "null" ? "Penilaian" : "Belum Ada Penilaian" }}
         </button>

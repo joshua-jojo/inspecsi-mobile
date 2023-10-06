@@ -118,6 +118,62 @@
                     </div>
                 </template>
             </transition-group>
+            <transition-group name="row" v-else-if="isSuperAdmin">
+                <template v-for="item in dataAssessment" :key="item.id">
+                    <div
+                        @click="toAssessmentRoleList(job)"
+                        class="card bg-[#E9F8F9] w-full drop-shadow-md font-poppins text-black"
+                        v-for="(job, index) in item.assessment_job"
+                        :key="index"
+                    >
+                        <div class="card-body">
+                            <div class="card-title">
+                                {{ item.judul }}
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <IonIcon :icon="calendarOutline"></IonIcon>
+                                {{
+                                    moment(item.waktu_buat).format("D MMM YYYY")
+                                }}
+                                -
+                                {{
+                                    moment(item.waktu_berakhir).format(
+                                        "D MMM YYYY"
+                                    )
+                                }}
+                            </div>
+                            <div
+                                class="flex justify-between items-center flex-row gap-2"
+                            >
+                                <div
+                                    class="badge badge-sm capitalize badge-success"
+                                    v-if="job.complete == '1'"
+                                >
+                                    complete
+                                </div>
+                                <div
+                                    class="badge badge-sm capitalize badge-error"
+                                    v-else
+                                >
+                                    uncomplete
+                                </div>
+                                <div
+                                    class="font-poppins font-semibold capitalize grid place-items-center"
+                                    v-if="isKepalaRuangan"
+                                >
+                                    PIC : {{ job?.user?.name }}
+                                </div>
+                                <div
+                                    class="font-poppins font-semibold capitalize grid place-items-center"
+                                    v-else
+                                >
+                                    from : {{ item?.user?.name }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </transition-group>
             <transition-group name="row" v-else>
                 <template v-for="item in dataAssessment" :key="item.id">
                     <div
@@ -202,7 +258,7 @@ const getAssessment = async () => {
 const cari = ref("");
 
 const toAssessmentRoleList = (job: any) => {
-    if (isKepalaRuangan) {
+    if (isKepalaRuangan || isSuperAdmin) {
         router.push({
             name: "admin.job.assessment_view_select",
             params: {
@@ -236,8 +292,9 @@ const getMeAssessment = async () => {
     dataAssessment.value = data.data.data;
 };
 const isKepalaRuangan = store.state.user?.role_id == 3;
+const isSuperAdmin = store.state.user?.role_id == 1;
 
-if (isKepalaRuangan) {
+if (isKepalaRuangan || isSuperAdmin) {
     getAssessment();
 } else {
     getMeAssessment();

@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import axios from "axios";
-import { ref } from "vue";
+import { ref,defineProps } from "vue";
 import { useStore } from "vuex";
 import loading_component from "@/component/loading_component.vue";
 

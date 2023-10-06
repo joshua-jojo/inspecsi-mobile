@@ -1,5 +1,6 @@
 import store from "@/store";
 import { Preferences } from "@capacitor/preferences";
+import axios from "axios";
 import { createRouter, RouteRecordRaw, createWebHashHistory } from "vue-router";
 
 const routes: Array<RouteRecordRaw> = [
@@ -279,24 +280,26 @@ const first_install = async () => {
     return data;
 };
 
-
-
 router.beforeEach(async (to) => {
     document
         .getElementById("screenLayout")
         ?.scrollIntoView({ behavior: "smooth" });
     if (to.name == "firsttime") {
         const data_login: any = await getLogin();
+
         if (data_login) {
             store.state.user = await data_login.user;
             store.state.token = await data_login.token;
+            axios.defaults.headers.common[
+                "Authorization"
+            ] = `Bearer ${data_login.token}`;
             return { name: "admin.menu" };
         }
 
-        if(await first_install()){
-          return {
-            name : "login"
-          }
+        if (await first_install()) {
+            return {
+                name: "login",
+            };
         }
     }
 });
