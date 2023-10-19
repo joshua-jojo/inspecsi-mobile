@@ -93,7 +93,7 @@
                                     class="badge badge-sm capitalize badge-success"
                                     v-if="job.complete == '1'"
                                 >
-                                    complete
+                                    complete 
                                 </div>
                                 <div
                                     class="badge badge-sm capitalize badge-error"
@@ -262,7 +262,7 @@ const toAssessmentRoleList = (job: any) => {
         router.push({
             name: "admin.job.assessment_view_select",
             params: {
-                id: job?.identitas_pasien?.id
+                id: job?.complete == '1'
                     ? job.identitas_pasien.id
                     : "null",
             },
@@ -304,5 +304,8 @@ watch(
     () => cari.value,
     () => getAssessment()
 );
+
+console.log(123);
+
 </script>
 <style lang=""></style>

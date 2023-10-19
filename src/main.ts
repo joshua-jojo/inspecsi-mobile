@@ -1,22 +1,22 @@
-import { createApp } from 'vue'
-import App from './App.vue'
-import router from './router';
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+import { createApp } from "vue";
+import App from "./App.vue";
+import router from "./router";
 
-import { IonicVue } from '@ionic/vue';
+import { IonicVue } from "@ionic/vue";
 import axios from "axios";
-import store from './store';
+import store from "./store";
 
-axios.defaults.baseURL = 'https://inspecsi.projekalpha.com/api'
-// axios.defaults.baseURL = 'http://10.102.7.100:8000/api'
+import "./assets/tailwind.css";
+import "./assets/transisi.css";
 
-import './assets/tailwind.css';
-import './assets/transisi.css';
+// eslint-disable-next-line no-constant-condition
+axios.defaults.baseURL = false
+    ? "http://10.102.6.20:8000/api"
+    : "https://inspecsi.projekalpha.com/api";
 
-const app = createApp(App)
-  .use(IonicVue)
-  .use(store)
-  .use(router);
-  
+const app = createApp(App).use(IonicVue).use(store).use(router);
+
 router.isReady().then(() => {
-  app.mount('#app');
+    app.mount("#app");
 });

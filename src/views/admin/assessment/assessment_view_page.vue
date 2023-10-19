@@ -5,6 +5,7 @@ import { useStore } from "vuex";
 const router = useRouter();
 const props = defineProps({
     id: String,
+    complete: String,
 });
 const store = useStore();
 store.state.judul_job = "Menu";
